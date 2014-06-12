@@ -1,5 +1,5 @@
 //
-//  HubDomain.h
+//  HubDateUtils.h
 //  hub
 //
 //  Created by Naoyuki Kataoka on 2014/06/13.
@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HubDomain : NSObject
+@interface HubDateUtils : NSObject
 
-+ (id)domainWithDictionary:(NSDictionary *)dictionary;
++ (NSDate *)dateWithDateTimeString:(NSString *)dateTimeString;
 
 @end

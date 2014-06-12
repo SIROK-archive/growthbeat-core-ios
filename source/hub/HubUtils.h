@@ -9,6 +9,7 @@
 #ifndef hub_HubUtils_h
 #define hub_HubUtils_h
 
+#import "HubDateUtils.h"
 #import "HubHttpUtils.h"
 
 #endif
