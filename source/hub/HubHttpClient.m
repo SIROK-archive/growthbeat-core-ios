@@ -7,23 +7,25 @@
 //
 
 #import "HubHttpClient.h"
-#import "HubHTTPOperation.h"
 
 static HubHttpClient *sharedInstance = nil;
 
 @interface HubHttpClient () {
 
     NSURL *baseUrl;
-
+    NSOperationQueue *operationQueue;
+    
 }
 
 @property (nonatomic, strong) NSURL *baseUrl;
+@property (nonatomic, strong) NSOperationQueue *operationQueue;
 
 @end
 
 @implementation HubHttpClient
 
 @synthesize baseUrl;
+@synthesize operationQueue;
 
 + (HubHttpClient *) sharedInstance {
 
@@ -36,11 +38,38 @@ static HubHttpClient *sharedInstance = nil;
 
 }
 
+- (instancetype)init {
+    
+    self = [super init];
+    if (self) {
+        self.operationQueue = [[NSOperationQueue alloc] init];
+    }
+    return self;
+    
+}
 
 - (void) httpRequest:(HubHttpRequest *)httpRequest success:(void (^)(HubHttpResponse *httpResponse))success fail:(void (^)(HubHttpResponse *httpResponse))fail {
 
-    [[NSOperationQueue mainQueue] addOperation:[HubHTTPOperation instanceWithRequest:[httpRequest urlRequestWithBaseUrl:baseUrl] success:success fail:fail]];
-
+    NSURLRequest *urlRequest = [httpRequest urlRequestWithBaseUrl:baseUrl];
+    [NSURLConnection sendAsynchronousRequest:urlRequest queue:operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        
+        id body = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+        
+        // TODO Check type of response instance.
+        NSHTTPURLResponse *httpUrlResponse = (NSHTTPURLResponse*) response;
+        
+        if (httpUrlResponse.statusCode >= 200 && httpUrlResponse.statusCode < 300) {
+            if (success) {
+                success([HubHttpResponse instanceWithUrlRequest:urlRequest httpUrlResponse:httpUrlResponse error:error body:body]);
+            }
+        } else {
+            if (fail) {
+                fail([HubHttpResponse instanceWithUrlRequest:urlRequest httpUrlResponse:httpUrlResponse error:error body:body]);
+            }
+        }
+        
+    }];
+    
 }
 
 @end

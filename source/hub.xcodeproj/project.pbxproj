@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B2D76A9D1949759D00B92B9F /* HubHttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D76A941949759D00B92B9F /* HubHttpClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2D76A9E1949759D00B92B9F /* HubHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D76A951949759D00B92B9F /* HubHttpClient.m */; };
-		B2D76A9F1949759D00B92B9F /* HubHTTPOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D76A961949759D00B92B9F /* HubHTTPOperation.m */; };
 		B2D76AA01949759D00B92B9F /* HubHttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D76A971949759D00B92B9F /* HubHttpRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2D76AA11949759D00B92B9F /* HubHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D76A981949759D00B92B9F /* HubHttpRequest.m */; };
 		B2D76AA21949759D00B92B9F /* HubHttpResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D76A991949759D00B92B9F /* HubHttpResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -18,7 +17,6 @@
 		B2D76AA51949759D00B92B9F /* HubHttpUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D76A9C1949759D00B92B9F /* HubHttpUtils.m */; };
 		B2D76AA819497B4F00B92B9F /* HubRequestMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D76AA619497B4F00B92B9F /* HubRequestMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2D76AA919497B4F00B92B9F /* HubRequestMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = B2D76AA719497B4F00B92B9F /* HubRequestMethod.m */; };
-		B2D76AAB19497CBE00B92B9F /* HubHTTPOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D76AAA19497CBE00B92B9F /* HubHTTPOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2D76AAD19497D1800B92B9F /* HubUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D76AAC19497D1800B92B9F /* HubUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2D76AAF19497DAD00B92B9F /* Hub.h in Headers */ = {isa = PBXBuildFile; fileRef = B2D76AAE19497D9F00B92B9F /* Hub.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2DC97EB194971580075990A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2DC97EA194971580075990A /* Foundation.framework */; };
@@ -28,7 +26,6 @@
 /* Begin PBXFileReference section */
 		B2D76A941949759D00B92B9F /* HubHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubHttpClient.h; sourceTree = "<group>"; };
 		B2D76A951949759D00B92B9F /* HubHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubHttpClient.m; sourceTree = "<group>"; };
-		B2D76A961949759D00B92B9F /* HubHTTPOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubHTTPOperation.m; sourceTree = "<group>"; };
 		B2D76A971949759D00B92B9F /* HubHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubHttpRequest.h; sourceTree = "<group>"; };
 		B2D76A981949759D00B92B9F /* HubHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubHttpRequest.m; sourceTree = "<group>"; };
 		B2D76A991949759D00B92B9F /* HubHttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubHttpResponse.h; sourceTree = "<group>"; };
@@ -37,7 +34,6 @@
 		B2D76A9C1949759D00B92B9F /* HubHttpUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubHttpUtils.m; sourceTree = "<group>"; };
 		B2D76AA619497B4F00B92B9F /* HubRequestMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubRequestMethod.h; sourceTree = "<group>"; };
 		B2D76AA719497B4F00B92B9F /* HubRequestMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HubRequestMethod.m; sourceTree = "<group>"; };
-		B2D76AAA19497CBE00B92B9F /* HubHTTPOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubHTTPOperation.h; sourceTree = "<group>"; };
 		B2D76AAC19497D1800B92B9F /* HubUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HubUtils.h; sourceTree = "<group>"; };
 		B2D76AAE19497D9F00B92B9F /* Hub.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hub.h; sourceTree = "<group>"; };
 		B2DC97E7194971580075990A /* hub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = hub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,8 +86,6 @@
 				B2D76AAE19497D9F00B92B9F /* Hub.h */,
 				B2D76A941949759D00B92B9F /* HubHttpClient.h */,
 				B2D76A951949759D00B92B9F /* HubHttpClient.m */,
-				B2D76AAA19497CBE00B92B9F /* HubHTTPOperation.h */,
-				B2D76A961949759D00B92B9F /* HubHTTPOperation.m */,
 				B2D76A971949759D00B92B9F /* HubHttpRequest.h */,
 				B2D76A981949759D00B92B9F /* HubHttpRequest.m */,
 				B2D76A991949759D00B92B9F /* HubHttpResponse.h */,
@@ -129,7 +123,6 @@
 				B2D76AA21949759D00B92B9F /* HubHttpResponse.h in Headers */,
 				B2D76AA819497B4F00B92B9F /* HubRequestMethod.h in Headers */,
 				B2D76AA01949759D00B92B9F /* HubHttpRequest.h in Headers */,
-				B2D76AAB19497CBE00B92B9F /* HubHTTPOperation.h in Headers */,
 				B2D76AA41949759D00B92B9F /* HubHttpUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +213,6 @@
 				B2D76AA31949759D00B92B9F /* HubHttpResponse.m in Sources */,
 				B2D76A9E1949759D00B92B9F /* HubHttpClient.m in Sources */,
 				B2D76AA11949759D00B92B9F /* HubHttpRequest.m in Sources */,
-				B2D76A9F1949759D00B92B9F /* HubHTTPOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
