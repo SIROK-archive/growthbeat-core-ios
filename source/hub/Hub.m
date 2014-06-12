@@ -9,11 +9,24 @@
 #import <UIKit/UIKit.h>
 #import "Hub.h"
 #import "HubHttpClient.h"
+#import "HubClient.h"
 
 static Hub *sharedInstance = nil;
 static NSString *const kGPBaseUrl = @"https://api.localhost:8085/";
 
+@interface Hub () {
+    
+    HubClient *client;
+    
+}
+
+@property (nonatomic, strong) HubClient *client;
+
+@end
+
 @implementation Hub
+
+@synthesize client;
 
 + (Hub *) sharedInstance {
     @synchronized(self) {
@@ -28,7 +41,7 @@ static NSString *const kGPBaseUrl = @"https://api.localhost:8085/";
 }
 
 + (void)initializeWithApplicationId:(NSString *)applicationId secret:(NSString *)secret {
-    
+    [[self sharedInstance] initializeWithApplicationId:applicationId secret:secret];
 }
 
 - (id) init {
@@ -37,6 +50,14 @@ static NSString *const kGPBaseUrl = @"https://api.localhost:8085/";
         [[HubHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGPBaseUrl]];
     }
     return self;
+}
+
+- (void)initializeWithApplicationId:(NSString *)applicationId secret:(NSString *)secret {
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        self.client = [HubClient createWithApplicationId:applicationId secret:secret];
+    });
+    
 }
 
 @end
