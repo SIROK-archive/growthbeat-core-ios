@@ -17,13 +17,13 @@
 @synthesize modified;
 @synthesize created;
 
-+ (HubClient *)createWithApplicationId:(NSInteger)applicationId secret:(NSString *)secret {
++ (HubClient *)createWithApplicationId:(NSString *)applicationId secret:(NSString *)secret {
     
     NSString *path = @"/1/clients";
     NSMutableDictionary *body = [NSMutableDictionary dictionary];
     
     if (applicationId) {
-        [body setObject:@(applicationId) forKey:@"applicationId"];
+        [body setObject:applicationId forKey:@"applicationId"];
     }
     if (secret) {
         [body setObject:secret forKey:@"secret"];
@@ -50,7 +50,7 @@
             self.id = [dictionary objectForKey:@"id"];
         }
         if ([dictionary objectForKey:@"applicationId"] && [dictionary objectForKey:@"applicationId"] != [NSNull null]) {
-            self.applicationId = [[dictionary objectForKey:@"applicationId"] integerValue];
+            self.applicationId = [dictionary objectForKey:@"applicationId"];
         }
         if ([dictionary objectForKey:@"modified"] && [dictionary objectForKey:@"modified"] != [NSNull null]) {
             self.modified = [HubDateUtils dateWithDateTimeString:[dictionary objectForKey:@"modified"]];
@@ -74,7 +74,7 @@
             self.id = [aDecoder decodeObjectForKey:@"id"];
         }
         if ([aDecoder containsValueForKey:@"applicationId"]) {
-            self.applicationId = [aDecoder decodeIntegerForKey:@"applicationId"];
+            self.applicationId = [aDecoder decodeObjectForKey:@"applicationId"];
         }
         if ([aDecoder containsValueForKey:@"modified"]) {
             self.modified = [aDecoder decodeObjectForKey:@"modified"];
@@ -90,7 +90,7 @@
 - (void) encodeWithCoder:(NSCoder *)aCoder {
 
     [aCoder encodeObject:id forKey:@"id"];
-    [aCoder encodeInteger:applicationId forKey:@"applicationId"];
+    [aCoder encodeObject:applicationId forKey:@"applicationId"];
     [aCoder encodeObject:modified forKey:@"modified"];
     [aCoder encodeObject:created forKey:@"created"];
 

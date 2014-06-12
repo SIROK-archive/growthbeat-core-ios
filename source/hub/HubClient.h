@@ -11,17 +11,17 @@
 @interface HubClient : HubDomain <NSCoding> {
 
     NSString *id;
-    NSInteger applicationId;
+    NSString *applicationId;
     NSDate *modified;
     NSDate *created;
 
 }
 
 @property (nonatomic, strong) NSString *id;
-@property (nonatomic, assign) NSInteger applicationId;
+@property (nonatomic, strong) NSString *applicationId;
 @property (nonatomic, strong) NSDate *modified;
 @property (nonatomic, strong) NSDate *created;
 
-+ (HubClient *)createWithApplicationId:(NSInteger)applicationId secret:(NSString *)secret;
++ (HubClient *)createWithApplicationId:(NSString *)applicationId secret:(NSString *)secret;
 
 @end
