@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSHTTPURLResponse *httpUrlResponse;
 @property (nonatomic, strong) NSError *error;
 @property (nonatomic, strong) id body;
+@property (nonatomic, readonly, assign) BOOL success;
 
 + (id)instanceWithUrlRequest:(NSURLRequest *)urlRequest httpUrlResponse:(NSHTTPURLResponse *)httpUrlResponse error:(NSError *)error body:(id)body;
 

@@ -8,6 +8,7 @@
 
 #import "HubClient.h"
 #import "HubUtils.h"
+#import "HubHttpClient.h"
 
 @implementation HubClient
 
@@ -15,6 +16,31 @@
 @synthesize applicationId;
 @synthesize modified;
 @synthesize created;
+
++ (HubClient *)createWithApplicationId:(NSInteger)applicationId secret:(NSString *)secret {
+    
+    NSString *path = @"/1/clients";
+    NSMutableDictionary *body = [NSMutableDictionary dictionary];
+    
+    if (applicationId) {
+        [body setObject:@(applicationId) forKey:@"applicationId"];
+    }
+    if (secret) {
+        [body setObject:secret forKey:@"secret"];
+    }
+    
+    HubHttpRequest *httpRequest = [HubHttpRequest instanceWithRequestMethod:HubRequestMethodPost path:path query:nil body:body];
+    
+    HubHttpResponse *httpResponse = [[HubHttpClient sharedInstance] httpRequest:httpRequest];
+    if(!httpResponse.success){
+        // TODO hanlde errors
+        return nil;
+    }
+    
+    HubClient *client = [HubClient domainWithDictionary:httpResponse.body];
+    return client;
+    
+}
 
 - (id) initWithDictionary:(NSDictionary *)dictionary {
 
@@ -36,6 +62,9 @@
     return self;
 
 }
+
+#pragma mark --
+#pragma mark NSCoding
 
 - (id) initWithCoder:(NSCoder *)aDecoder {
 
@@ -66,6 +95,5 @@
     [aCoder encodeObject:created forKey:@"created"];
 
 }
-
 
 @end

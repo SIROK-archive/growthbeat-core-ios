@@ -22,4 +22,6 @@
 @property (nonatomic, strong) NSDate *modified;
 @property (nonatomic, strong) NSDate *created;
 
++ (HubClient *)createWithApplicationId:(NSInteger)applicationId secret:(NSString *)secret;
+
 @end

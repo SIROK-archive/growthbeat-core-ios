@@ -15,5 +15,6 @@
 + (HubHttpClient *)sharedInstance;
 - (void)setBaseUrl:(NSURL *)baseUrl;
 - (void)httpRequest:(HubHttpRequest *)httpRequest success:(void(^) (HubHttpResponse * httpResponse)) success fail:(void(^) (HubHttpResponse * httpResponse))fail;
+- (HubHttpResponse *) httpRequest:(HubHttpRequest *)httpRequest;
 
 @end

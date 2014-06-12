@@ -7,6 +7,7 @@
 //
 
 #import "HubDomain.h"
+#import "HubHttpClient.h"
 
 @implementation HubDomain
 

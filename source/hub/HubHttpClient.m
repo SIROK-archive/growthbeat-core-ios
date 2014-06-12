@@ -49,7 +49,7 @@ static HubHttpClient *sharedInstance = nil;
 }
 
 - (void) httpRequest:(HubHttpRequest *)httpRequest success:(void (^)(HubHttpResponse *httpResponse))success fail:(void (^)(HubHttpResponse *httpResponse))fail {
-
+    
     NSURLRequest *urlRequest = [httpRequest urlRequestWithBaseUrl:baseUrl];
     [NSURLConnection sendAsynchronousRequest:urlRequest queue:operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         
@@ -70,6 +70,22 @@ static HubHttpClient *sharedInstance = nil;
         
     }];
     
+}
+
+- (HubHttpResponse *) httpRequest:(HubHttpRequest *)httpRequest {
+    
+    NSURLRequest *urlRequest = [httpRequest urlRequestWithBaseUrl:baseUrl];
+    NSURLResponse *urlResponse = nil;
+    NSError *error = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:&error];
+    
+    id body = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    
+    // TODO Check type of response instance.
+    NSHTTPURLResponse *httpUrlResponse = (NSHTTPURLResponse*) urlResponse;
+    
+    return [HubHttpResponse instanceWithUrlRequest:urlRequest httpUrlResponse:httpUrlResponse error:error body:body];
+            
 }
 
 @end

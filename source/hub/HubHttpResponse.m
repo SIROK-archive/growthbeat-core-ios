@@ -28,5 +28,10 @@
 
 }
 
+- (BOOL)success {
+    
+    return (httpUrlResponse.statusCode >= 200 && httpUrlResponse.statusCode < 300);
+    
+}
 
 @end
