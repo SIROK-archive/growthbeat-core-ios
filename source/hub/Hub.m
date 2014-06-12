@@ -13,7 +13,7 @@
 #import "HubClient.h"
 
 static Hub *sharedInstance = nil;
-static NSString *const kGPBaseUrl = @"https://api.localhost:8085/";
+static NSString *const kGPBaseUrl = @"httpg://api.localhost:8085/";
 
 @interface Hub () {
     
@@ -48,6 +48,14 @@ static NSString *const kGPBaseUrl = @"https://api.localhost:8085/";
     [[self sharedInstance] initializeWithApplicationId:applicationId secret:secret];
 }
 
++ (void)setHttpBaseUrl:(NSURL *)url {
+    [[self sharedInstance] setHttpBaseUrl:url];
+}
+
++ (void)setLoggerSilent:(BOOL)silent {
+    [[self sharedInstance] setLoggerSilent:silent];
+}
+
 - (id) init {
     self = [super init];
     if (self) {
@@ -66,6 +74,14 @@ static NSString *const kGPBaseUrl = @"https://api.localhost:8085/";
         [self.logger log:@"client created (id:%@)", self.client.id];
     });
     
+}
+
+- (void)setHttpBaseUrl:(NSURL *)url {
+    [[HubHttpClient sharedInstance] setBaseUrl:url];
+}
+
+- (void)setLoggerSilent:(BOOL)silent {
+    self.logger.silent = silent;
 }
 
 @end

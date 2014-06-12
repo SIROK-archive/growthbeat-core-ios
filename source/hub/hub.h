@@ -11,5 +11,7 @@
 @interface Hub : NSObject
 
 + (void)initializeWithApplicationId:(NSString *)applicationId secret:(NSString *)secret;
++ (void)setHttpBaseUrl:(NSURL *)url;
++ (void)setLoggerSilent:(BOOL)silent;
 
 @end
