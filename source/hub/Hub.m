@@ -13,7 +13,7 @@
 #import "HubClient.h"
 
 static Hub *sharedInstance = nil;
-static NSString *const kGPBaseUrl = @"httpg://api.localhost:8085/";
+static NSString *const kGPBaseUrl = @"http://api.localhost:8085/";
 
 @interface Hub () {
     

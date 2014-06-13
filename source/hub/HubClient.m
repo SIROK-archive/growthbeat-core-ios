@@ -34,6 +34,7 @@
     HubHttpResponse *httpResponse = [[HubHttpClient sharedInstance] httpRequest:httpRequest];
     if(!httpResponse.success){
         // TODO hanlde errors
+        NSLog(@"%@", httpResponse.error);
         return nil;
     }
     

@@ -22,7 +22,7 @@
 
 - (void) log:(NSString *)format, ... {
     
-    if (!silent) {
+    if (silent) {
         return;
     }
     

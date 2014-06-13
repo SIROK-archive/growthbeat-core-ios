@@ -79,7 +79,10 @@ static HubHttpClient *sharedInstance = nil;
     NSError *error = nil;
     NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:&error];
     
-    id body = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    id body = nil;
+    if(data) {
+        body = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+    }
     
     // TODO Check type of response instance.
     NSHTTPURLResponse *httpUrlResponse = (NSHTTPURLResponse*) urlResponse;
