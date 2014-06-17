@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B2278A761950E72A00DD7DC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2278A751950E72A00DD7DC8 /* Foundation.framework */; };
 		B2278A7C1950E72A00DD7DC8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2278A7A1950E72A00DD7DC8 /* InfoPlist.strings */; };
-		B2278A9B1950E7A900DD7DC8 /* GBbClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B2278A861950E7A900DD7DC8 /* GBbClient.m */; };
+		B2278A9B1950E7A900DD7DC8 /* GBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B2278A861950E7A900DD7DC8 /* GBClient.m */; };
 		B2278A9C1950E7A900DD7DC8 /* GBClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B2278A871950E7A900DD7DC8 /* GBClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2278A9D1950E7A900DD7DC8 /* GBDateUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2278A881950E7A900DD7DC8 /* GBDateUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2278A9E1950E7A900DD7DC8 /* GBDateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B2278A891950E7A900DD7DC8 /* GBDateUtils.m */; };
@@ -30,6 +30,8 @@
 		B2278AAD1950E7A900DD7DC8 /* GBUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2278A981950E7A900DD7DC8 /* GBUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2278AAE1950E7A900DD7DC8 /* Growthbeat.h in Headers */ = {isa = PBXBuildFile; fileRef = B2278A991950E7A900DD7DC8 /* Growthbeat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2278AAF1950E7A900DD7DC8 /* Growthbeat.m in Sources */ = {isa = PBXBuildFile; fileRef = B2278A9A1950E7A900DD7DC8 /* Growthbeat.m */; };
+		B2278AB21950E85C00DD7DC8 /* GBApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = B2278AB01950E85C00DD7DC8 /* GBApplication.h */; };
+		B2278AB31950E85C00DD7DC8 /* GBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B2278AB11950E85C00DD7DC8 /* GBApplication.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +40,7 @@
 		B2278A791950E72A00DD7DC8 /* Growthbeat-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Growthbeat-Info.plist"; sourceTree = "<group>"; };
 		B2278A7B1950E72A00DD7DC8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B2278A7D1950E72A00DD7DC8 /* Growthbeat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Growthbeat-Prefix.pch"; sourceTree = "<group>"; };
-		B2278A861950E7A900DD7DC8 /* GBbClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBbClient.m; sourceTree = "<group>"; };
+		B2278A861950E7A900DD7DC8 /* GBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBClient.m; sourceTree = "<group>"; };
 		B2278A871950E7A900DD7DC8 /* GBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBClient.h; sourceTree = "<group>"; };
 		B2278A881950E7A900DD7DC8 /* GBDateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDateUtils.h; sourceTree = "<group>"; };
 		B2278A891950E7A900DD7DC8 /* GBDateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBDateUtils.m; sourceTree = "<group>"; };
@@ -59,6 +61,8 @@
 		B2278A981950E7A900DD7DC8 /* GBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBUtils.h; sourceTree = "<group>"; };
 		B2278A991950E7A900DD7DC8 /* Growthbeat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Growthbeat.h; sourceTree = "<group>"; };
 		B2278A9A1950E7A900DD7DC8 /* Growthbeat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Growthbeat.m; sourceTree = "<group>"; };
+		B2278AB01950E85C00DD7DC8 /* GBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBApplication.h; sourceTree = "<group>"; };
+		B2278AB11950E85C00DD7DC8 /* GBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBApplication.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +105,10 @@
 		B2278A771950E72A00DD7DC8 /* Growthbeat */ = {
 			isa = PBXGroup;
 			children = (
-				B2278A861950E7A900DD7DC8 /* GBbClient.m */,
+				B2278AB01950E85C00DD7DC8 /* GBApplication.h */,
+				B2278AB11950E85C00DD7DC8 /* GBApplication.m */,
 				B2278A871950E7A900DD7DC8 /* GBClient.h */,
+				B2278A861950E7A900DD7DC8 /* GBClient.m */,
 				B2278A881950E7A900DD7DC8 /* GBDateUtils.h */,
 				B2278A891950E7A900DD7DC8 /* GBDateUtils.m */,
 				B2278A8A1950E7A900DD7DC8 /* GBDomain.h */,
@@ -146,6 +152,7 @@
 			files = (
 				B2278AAB1950E7A900DD7DC8 /* GBRequestMethod.h in Headers */,
 				B2278AA51950E7A900DD7DC8 /* GBHttpResponse.h in Headers */,
+				B2278AB21950E85C00DD7DC8 /* GBApplication.h in Headers */,
 				B2278AA91950E7A900DD7DC8 /* GBLogger.h in Headers */,
 				B2278AA71950E7A900DD7DC8 /* GBHttpUtils.h in Headers */,
 				B2278AA31950E7A900DD7DC8 /* GBHttpRequest.h in Headers */,
@@ -240,7 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2278AA21950E7A900DD7DC8 /* GBHttpClient.m in Sources */,
-				B2278A9B1950E7A900DD7DC8 /* GBbClient.m in Sources */,
+				B2278A9B1950E7A900DD7DC8 /* GBClient.m in Sources */,
 				B2278AAF1950E7A900DD7DC8 /* Growthbeat.m in Sources */,
 				B2278AA81950E7A900DD7DC8 /* GBHttpUtils.m in Sources */,
 				B2278A9E1950E7A900DD7DC8 /* GBDateUtils.m in Sources */,
@@ -249,6 +256,7 @@
 				B2278AA01950E7A900DD7DC8 /* GBDomain.m in Sources */,
 				B2278AAC1950E7A900DD7DC8 /* GBRequestMethod.m in Sources */,
 				B2278AA41950E7A900DD7DC8 /* GBHttpRequest.m in Sources */,
+				B2278AB31950E85C00DD7DC8 /* GBApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

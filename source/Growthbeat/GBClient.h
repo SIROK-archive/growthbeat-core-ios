@@ -7,20 +7,19 @@
 //
 
 #import "GBDomain.h"
+#import "GBApplication.h"
 
 @interface GBClient : GBDomain <NSCoding> {
 
     NSString *id;
-    NSString *applicationId;
-    NSDate *modified;
     NSDate *created;
+    GBApplication *application;
 
 }
 
 @property (nonatomic, strong) NSString *id;
-@property (nonatomic, strong) NSString *applicationId;
-@property (nonatomic, strong) NSDate *modified;
 @property (nonatomic, strong) NSDate *created;
+@property (nonatomic, strong) GBApplication *application;
 
 + (GBClient *)createWithApplicationId:(NSString *)applicationId secret:(NSString *)secret;
 

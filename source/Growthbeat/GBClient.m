@@ -13,9 +13,8 @@
 @implementation GBClient
 
 @synthesize id;
-@synthesize applicationId;
-@synthesize modified;
 @synthesize created;
+@synthesize application;
 
 + (GBClient *)createWithApplicationId:(NSString *)applicationId secret:(NSString *)secret {
     
@@ -50,14 +49,11 @@
         if ([dictionary objectForKey:@"id"] && [dictionary objectForKey:@"id"] != [NSNull null]) {
             self.id = [dictionary objectForKey:@"id"];
         }
-        if ([dictionary objectForKey:@"applicationId"] && [dictionary objectForKey:@"applicationId"] != [NSNull null]) {
-            self.applicationId = [dictionary objectForKey:@"applicationId"];
-        }
-        if ([dictionary objectForKey:@"modified"] && [dictionary objectForKey:@"modified"] != [NSNull null]) {
-            self.modified = [GBDateUtils dateWithDateTimeString:[dictionary objectForKey:@"modified"]];
-        }
         if ([dictionary objectForKey:@"created"] && [dictionary objectForKey:@"created"] != [NSNull null]) {
             self.created = [GBDateUtils dateWithDateTimeString:[dictionary objectForKey:@"created"]];
+        }
+        if ([dictionary objectForKey:@"application"] && [dictionary objectForKey:@"application"] != [NSNull null]) {
+            self.application = [GBApplication domainWithDictionary:[dictionary objectForKey:@"application"]];
         }
     }
     return self;
@@ -74,14 +70,11 @@
         if ([aDecoder containsValueForKey:@"id"]) {
             self.id = [aDecoder decodeObjectForKey:@"id"];
         }
-        if ([aDecoder containsValueForKey:@"applicationId"]) {
-            self.applicationId = [aDecoder decodeObjectForKey:@"applicationId"];
-        }
-        if ([aDecoder containsValueForKey:@"modified"]) {
-            self.modified = [aDecoder decodeObjectForKey:@"modified"];
-        }
         if ([aDecoder containsValueForKey:@"created"]) {
             self.created = [aDecoder decodeObjectForKey:@"created"];
+        }
+        if ([aDecoder containsValueForKey:@"application"]) {
+            self.application = [aDecoder decodeObjectForKey:@"application"];
         }
     }
     return self;
@@ -91,9 +84,8 @@
 - (void) encodeWithCoder:(NSCoder *)aCoder {
 
     [aCoder encodeObject:id forKey:@"id"];
-    [aCoder encodeObject:applicationId forKey:@"applicationId"];
-    [aCoder encodeObject:modified forKey:@"modified"];
     [aCoder encodeObject:created forKey:@"created"];
+    [aCoder encodeObject:application forKey:@"application"];
 
 }
 
