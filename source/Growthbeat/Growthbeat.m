@@ -11,9 +11,11 @@
 #import "GBLogger.h"
 #import "GBHttpClient.h"
 #import "GBClient.h"
+#import "GBPreference.h"
 
 static Growthbeat *sharedInstance = nil;
 static NSString *const kGPBaseUrl = @"http://api.localhost:8085/";
+static NSString *const kGBPreferenceClientKey = @"client";
 
 @interface Growthbeat () {
     
@@ -61,17 +63,25 @@ static NSString *const kGPBaseUrl = @"http://api.localhost:8085/";
     if (self) {
         self.logger = [[GBLogger alloc] init];
         [[GBHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGPBaseUrl]];
+        self.client = [self loadClient];
     }
     return self;
 }
 
 - (void)initializeWithApplicationId:(NSString *)applicationId secret:(NSString *)secret {
+
     
     [self.logger log:@"initialize (applicationId:%@)", applicationId];
+    
+    if (self.client)
+        return ;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         self.client = [GBClient createWithApplicationId:applicationId secret:secret];
         [self.logger log:@"client created (id:%@)", self.client.id];
+        
+        [self saveClient:self.client];
+        
     });
     
 }
@@ -82,6 +92,36 @@ static NSString *const kGPBaseUrl = @"http://api.localhost:8085/";
 
 - (void)setLoggerSilent:(BOOL)silent {
     self.logger.silent = silent;
+}
+                       
+- (GBClient *)loadClient {
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:client];
+    [[GBPreference sharedInstance] setObject:data forKey:kGBPreferenceClientKey];
+    
+    if (!data) {
+        return nil;
+    }
+
+    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+}
+
+- (void) saveClient:(GBClient *)newClient {
+    
+    if (!newClient) {
+        return;
+    }
+    
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:client];
+    [[GBPreference sharedInstance] setObject:data forKey:kGBPreferenceClientKey];
+    
+}
+
+- (void) clearClient {
+    
+    self.client = nil;
+    [[GBPreference sharedInstance] removeAll];
+    
 }
 
 @end

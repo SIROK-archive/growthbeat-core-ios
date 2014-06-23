@@ -32,6 +32,8 @@
 		B2278AAF1950E7A900DD7DC8 /* Growthbeat.m in Sources */ = {isa = PBXBuildFile; fileRef = B2278A9A1950E7A900DD7DC8 /* Growthbeat.m */; };
 		B2278AB21950E85C00DD7DC8 /* GBApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = B2278AB01950E85C00DD7DC8 /* GBApplication.h */; };
 		B2278AB31950E85C00DD7DC8 /* GBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B2278AB11950E85C00DD7DC8 /* GBApplication.m */; };
+		C1247EC11958460E00A50BF4 /* GBPreference.h in Headers */ = {isa = PBXBuildFile; fileRef = C1247EBF1958460E00A50BF4 /* GBPreference.h */; };
+		C1247EC21958460E00A50BF4 /* GBPreference.m in Sources */ = {isa = PBXBuildFile; fileRef = C1247EC01958460E00A50BF4 /* GBPreference.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,8 @@
 		B2278A9A1950E7A900DD7DC8 /* Growthbeat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Growthbeat.m; sourceTree = "<group>"; };
 		B2278AB01950E85C00DD7DC8 /* GBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBApplication.h; sourceTree = "<group>"; };
 		B2278AB11950E85C00DD7DC8 /* GBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBApplication.m; sourceTree = "<group>"; };
+		C1247EBF1958460E00A50BF4 /* GBPreference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBPreference.h; sourceTree = "<group>"; };
+		C1247EC01958460E00A50BF4 /* GBPreference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBPreference.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 				B2278A891950E7A900DD7DC8 /* GBDateUtils.m */,
 				B2278A8A1950E7A900DD7DC8 /* GBDomain.h */,
 				B2278A8B1950E7A900DD7DC8 /* GBDomain.m */,
+				C1247EBF1958460E00A50BF4 /* GBPreference.h */,
+				C1247EC01958460E00A50BF4 /* GBPreference.m */,
 				B2278A8C1950E7A900DD7DC8 /* GBHttpClient.h */,
 				B2278A8D1950E7A900DD7DC8 /* GBHttpClient.m */,
 				B2278A8E1950E7A900DD7DC8 /* GBHttpRequest.h */,
@@ -162,6 +168,7 @@
 				B2278A9D1950E7A900DD7DC8 /* GBDateUtils.h in Headers */,
 				B2278AAD1950E7A900DD7DC8 /* GBUtils.h in Headers */,
 				B2278AAE1950E7A900DD7DC8 /* Growthbeat.h in Headers */,
+				C1247EC11958460E00A50BF4 /* GBPreference.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +264,7 @@
 				B2278AAC1950E7A900DD7DC8 /* GBRequestMethod.m in Sources */,
 				B2278AA41950E7A900DD7DC8 /* GBHttpRequest.m in Sources */,
 				B2278AB31950E85C00DD7DC8 /* GBApplication.m in Sources */,
+				C1247EC21958460E00A50BF4 /* GBPreference.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
