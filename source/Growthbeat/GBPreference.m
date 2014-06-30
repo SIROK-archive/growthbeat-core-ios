@@ -7,9 +7,9 @@
 //
 
 #import "GBPreference.h"
+#import "GBLogger.h"
 
 static GBPreference *sharedInstance = nil;
-static NSString *const kGBDefaultPreferenceFileName = @"growthbeat-preferences";
 
 @implementation GBPreference
 
@@ -27,7 +27,7 @@ static NSString *const kGBDefaultPreferenceFileName = @"growthbeat-preferences";
 - (instancetype) init {
     self = [super init];
     if (self) {
-        self.fileName = kGBDefaultPreferenceFileName;
+        self.fileName = nil;
     }
     return self;
 }
@@ -71,7 +71,12 @@ static NSString *const kGBDefaultPreferenceFileName = @"growthbeat-preferences";
 }
 
 - (NSURL *) preferenceFileUrl {
-
+    
+    if (!fileName) {
+        [[GBLogger sharedInstance] log:@"GBPreference's fileName is not set."];
+        return nil;
+    }
+    
     NSArray *urls = [[NSFileManager defaultManager] URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask];
 
     if ([urls count] == 0) {

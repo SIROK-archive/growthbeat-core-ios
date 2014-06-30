@@ -15,7 +15,7 @@
 + (void)addClientObserver:(id <GBClientObserver>)clientObserver;
 + (void)removeClientObserver:(id <GBClientObserver>)clientObserver;
 + (void)setPreferenceFileName:(NSString *)fileName;
-+ (void)setHttpBaseUrl:(NSURL *)url;
++ (void)setHttpClientBaseUrl:(NSURL *)url;
 + (void)setLoggerSilent:(BOOL)silent;
 
 @end

@@ -15,7 +15,8 @@
 #import "GBBlocksClientObserver.h"
 
 static Growthbeat *sharedInstance = nil;
-static NSString *const kGPDefaultBaseUrl = @"https://api.growthbeat.com/";
+static NSString *const kGBDefaultHttpClientBaseUrl = @"https://api.growthbeat.com/";
+static NSString *const kGBDefaultPreferenceFileName = @"growthbeat-preferences";
 static NSString *const kGBPreferenceClientKey = @"client";
 
 @interface Growthbeat () {
@@ -64,8 +65,8 @@ static NSString *const kGBPreferenceClientKey = @"client";
     [[self sharedInstance] setPreferenceFileName:fileName];
 }
 
-+ (void)setHttpBaseUrl:(NSURL *)url {
-    [[self sharedInstance] setHttpBaseUrl:url];
++ (void)setHttpClientBaseUrl:(NSURL *)url {
+    [[self sharedInstance] setHttpClientBaseUrl:url];
 }
 
 + (void)setLoggerSilent:(BOOL)silent {
@@ -75,8 +76,9 @@ static NSString *const kGBPreferenceClientKey = @"client";
 - (instancetype) init {
     self = [super init];
     if (self) {
-        [[GBHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGPDefaultBaseUrl]];
-        self.client = [self loadClient];
+        [[GBHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGBDefaultHttpClientBaseUrl]];
+        [[GBPreference sharedInstance] setFileName:kGBDefaultPreferenceFileName];
+        self.client = nil;
         self.clientObservers = [NSMutableArray array];
     }
     return self;
@@ -85,6 +87,8 @@ static NSString *const kGBPreferenceClientKey = @"client";
 - (void)initializeWithApplicationId:(NSString *)applicationId secret:(NSString *)secret {
     
     [[GBLogger sharedInstance] log:@"initialize (applicationId:%@)", applicationId];
+    
+    self.client = [self loadClient];
     
     if (self.client && [self.client.application.id isEqualToString:applicationId]) {
         [self updateClient:self.client];
@@ -108,7 +112,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
     [self.clientObservers removeObject:clientObserver];
 }
 
-- (void)setHttpBaseUrl:(NSURL *)url {
+- (void)setHttpClientBaseUrl:(NSURL *)url {
     [[GBHttpClient sharedInstance] setBaseUrl:url];
 }
 

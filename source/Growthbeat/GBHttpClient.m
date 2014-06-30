@@ -7,45 +7,37 @@
 //
 
 #import "GBHttpClient.h"
+#import "GBLogger.h"
 
 static GBHttpClient *sharedInstance = nil;
-
-@interface GBHttpClient () {
-
-    NSURL *baseUrl;
-    
-}
-
-@property (nonatomic, strong) NSURL *baseUrl;
-
-@end
 
 @implementation GBHttpClient
 
 @synthesize baseUrl;
 
 + (GBHttpClient *) sharedInstance {
-
     @synchronized(self) {
         if (!sharedInstance) {
             sharedInstance = [[self alloc] init];
         }
         return sharedInstance;
     }
-
 }
 
 - (instancetype)init {
-    
     self = [super init];
     if (self) {
         self.baseUrl = nil;
     }
     return self;
-    
 }
 
 - (GBHttpResponse *) httpRequest:(GBHttpRequest *)httpRequest {
+    
+    if (!baseUrl) {
+        [[GBLogger sharedInstance] log:@"GBHttpClient's baseUrl is not set."];
+        return nil;
+    }
     
     NSURLRequest *urlRequest = [httpRequest urlRequestWithBaseUrl:baseUrl];
     NSURLResponse *urlResponse = nil;
