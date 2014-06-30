@@ -12,6 +12,7 @@
 #import "GBHttpClient.h"
 #import "GBClient.h"
 #import "GBPreference.h"
+#import "GBBlocksClientObserver.h"
 
 static Growthbeat *sharedInstance = nil;
 static NSString *const kGPBaseUrl = @"http://api.localhost:8085/";
@@ -57,6 +58,10 @@ static NSString *const kGBPreferenceClientKey = @"client";
     [[self sharedInstance] addClientObserver:clientObserver];
 }
 
++ (void)removeClientObserver:(id <GBClientObserver>)clientObserver {
+    [[self sharedInstance] removeClientObserver:clientObserver];
+}
+
 + (void)setHttpBaseUrl:(NSURL *)url {
     [[self sharedInstance] setHttpBaseUrl:url];
 }
@@ -82,20 +87,22 @@ static NSString *const kGBPreferenceClientKey = @"client";
     [self.logger log:@"initialize (applicationId:%@)", applicationId];
     
     if (self.client)
-        return ;
+        return;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         self.client = [GBClient createWithApplicationId:applicationId secret:secret];
         [self.logger log:@"client created (id:%@)", self.client.id];
-        
         [self saveClient:self.client];
-        
     });
     
 }
 
 - (void)addClientObserver:(id <GBClientObserver>)clientObserver {
     [self.clientObservers addObject:clientObserver];
+}
+
+- (void)removeClientObserver:(id <GBClientObserver>)clientObserver {
+    [self.clientObservers removeObject:clientObserver];
 }
 
 - (void)setHttpBaseUrl:(NSURL *)url {

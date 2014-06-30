@@ -13,6 +13,7 @@
 
 + (void)initializeWithApplicationId:(NSString *)applicationId secret:(NSString *)secret;
 + (void)addClientObserver:(id <GBClientObserver>)clientObserver;
++ (void)removeClientObserver:(id <GBClientObserver>)clientObserver;
 + (void)setHttpBaseUrl:(NSURL *)url;
 + (void)setLoggerSilent:(BOOL)silent;
 
