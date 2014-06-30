@@ -17,7 +17,7 @@
 @synthesize created;
 @synthesize application;
 
-+ (GBClient *)createWithApplicationId:(NSString *)applicationId secret:(NSString *)secret {
++ (GBClient *)createWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId {
     
     NSString *path = @"/1/clients";
     NSMutableDictionary *body = [NSMutableDictionary dictionary];
@@ -25,8 +25,8 @@
     if (applicationId) {
         [body setObject:applicationId forKey:@"applicationId"];
     }
-    if (secret) {
-        [body setObject:secret forKey:@"secret"];
+    if (credentialId) {
+        [body setObject:credentialId forKey:@"credentialId"];
     }
     
     GBHttpRequest *httpRequest = [GBHttpRequest instanceWithMethod:GBRequestMethodPost path:path query:nil body:body];

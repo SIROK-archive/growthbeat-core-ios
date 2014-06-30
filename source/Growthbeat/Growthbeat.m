@@ -48,8 +48,8 @@ static NSString *const kGBPreferenceClientKey = @"client";
     }
 }
 
-+ (void)initializeWithApplicationId:(NSString *)applicationId secret:(NSString *)secret {
-    [[self sharedInstance] initializeWithApplicationId:applicationId secret:secret];
++ (void)initializeWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId {
+    [[self sharedInstance] initializeWithApplicationId:applicationId credentialId:credentialId];
 }
 
 + (void)addClientObserver:(id <GBClientObserver>)clientObserver {
@@ -75,34 +75,42 @@ static NSString *const kGBPreferenceClientKey = @"client";
 - (instancetype) init {
     self = [super init];
     if (self) {
-        [[GBHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGBHttpClientDefaultBaseUrl]];
-        [[GBPreference sharedInstance] setFileName:kGBPreferenceDefaultFileName];
+        if(![[GBHttpClient sharedInstance] baseUrl]) {
+            [[GBHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGBHttpClientDefaultBaseUrl]];
+        }
+        if(![[GBPreference sharedInstance] fileName]) {
+            [[GBPreference sharedInstance] setFileName:kGBPreferenceDefaultFileName];
+        }
         self.client = nil;
         self.clientObservers = [NSMutableArray array];
     }
     return self;
 }
 
-- (void)initializeWithApplicationId:(NSString *)applicationId secret:(NSString *)secret {
+- (void)initializeWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId {
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         
-        [[GBLogger sharedInstance] log:@"initializing... (applicationId:%@)", applicationId];
+        [[GBLogger sharedInstance] log:@"Initializing... (applicationId:%@)", applicationId];
         
         self.client = [self loadClient];
         if (client && [client.application.id isEqualToString:applicationId]) {
-            [[GBLogger sharedInstance] log:@"client already exists. (id:%@)", client.id];
+            [[GBLogger sharedInstance] log:@"Client already exists. (id:%@)", client.id];
             [self updateClient:client];
             return;
         }
         
         [[GBPreference sharedInstance] removeAll];
         
-        [[GBLogger sharedInstance] log:@"creating client... (applicationId:%@)", applicationId];
-        self.client = [GBClient createWithApplicationId:applicationId secret:secret];
-        [self saveClient:client];
-        [[GBLogger sharedInstance] log:@"client created. (id:%@)", client.id];
+        [[GBLogger sharedInstance] log:@"Creating client... (applicationId:%@)", applicationId];
+        self.client = [GBClient createWithApplicationId:applicationId credentialId:credentialId];
+        if(!client) {
+            [[GBLogger sharedInstance] log:@"Failed to create client."];
+            return;
+        }
         
+        [self saveClient:client];
+        [[GBLogger sharedInstance] log:@"Client created. (id:%@)", client.id];
         [self updateClient:client];
         
     });

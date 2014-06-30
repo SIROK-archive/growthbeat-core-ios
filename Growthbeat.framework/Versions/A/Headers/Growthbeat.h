@@ -11,7 +11,7 @@
 
 @interface Growthbeat : NSObject
 
-+ (void)initializeWithApplicationId:(NSString *)applicationId secret:(NSString *)secret;
++ (void)initializeWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId;
 + (void)addClientObserver:(id <GBClientObserver>)clientObserver;
 + (void)removeClientObserver:(id <GBClientObserver>)clientObserver;
 + (void)setPreferenceFileName:(NSString *)fileName;

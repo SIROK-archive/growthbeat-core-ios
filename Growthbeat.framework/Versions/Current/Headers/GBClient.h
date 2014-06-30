@@ -21,6 +21,6 @@
 @property (nonatomic, strong) NSDate *created;
 @property (nonatomic, strong) GBApplication *application;
 
-+ (GBClient *)createWithApplicationId:(NSString *)applicationId secret:(NSString *)secret;
++ (GBClient *)createWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId;
 
 @end
