@@ -14,7 +14,6 @@
 
 + (GBHttpClient *)sharedInstance;
 - (void)setBaseUrl:(NSURL *)baseUrl;
-- (void)httpRequest:(GBHttpRequest *)httpRequest success:(void(^) (GBHttpResponse * httpResponse)) success fail:(void(^) (GBHttpResponse * httpResponse))fail;
 - (GBHttpResponse *) httpRequest:(GBHttpRequest *)httpRequest;
 
 @end

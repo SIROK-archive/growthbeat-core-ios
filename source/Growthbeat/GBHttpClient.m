@@ -13,19 +13,16 @@ static GBHttpClient *sharedInstance = nil;
 @interface GBHttpClient () {
 
     NSURL *baseUrl;
-    NSOperationQueue *operationQueue;
     
 }
 
 @property (nonatomic, strong) NSURL *baseUrl;
-@property (nonatomic, strong) NSOperationQueue *operationQueue;
 
 @end
 
 @implementation GBHttpClient
 
 @synthesize baseUrl;
-@synthesize operationQueue;
 
 + (GBHttpClient *) sharedInstance {
 
@@ -42,33 +39,9 @@ static GBHttpClient *sharedInstance = nil;
     
     self = [super init];
     if (self) {
-        self.operationQueue = [[NSOperationQueue alloc] init];
+        self.baseUrl = nil;
     }
     return self;
-    
-}
-
-- (void) httpRequest:(GBHttpRequest *)httpRequest success:(void (^)(GBHttpResponse *httpResponse))success fail:(void (^)(GBHttpResponse *httpResponse))fail {
-    
-    NSURLRequest *urlRequest = [httpRequest urlRequestWithBaseUrl:baseUrl];
-    [NSURLConnection sendAsynchronousRequest:urlRequest queue:operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        id body = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-        
-        // TODO Check type of response instance.
-        NSHTTPURLResponse *httpUrlResponse = (NSHTTPURLResponse*) response;
-        
-        if (httpUrlResponse.statusCode >= 200 && httpUrlResponse.statusCode < 300) {
-            if (success) {
-                success([GBHttpResponse instanceWithUrlRequest:urlRequest httpUrlResponse:httpUrlResponse error:error body:body]);
-            }
-        } else {
-            if (fail) {
-                fail([GBHttpResponse instanceWithUrlRequest:urlRequest httpUrlResponse:httpUrlResponse error:error body:body]);
-            }
-        }
-        
-    }];
     
 }
 
