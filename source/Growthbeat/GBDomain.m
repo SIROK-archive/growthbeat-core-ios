@@ -11,7 +11,7 @@
 
 @implementation GBDomain
 
-+ (id) domainWithDictionary:(NSDictionary *)dictionary {
++ (instancetype) domainWithDictionary:(NSDictionary *)dictionary {
 
     if (!dictionary) {
         return nil;
@@ -21,7 +21,7 @@
 
 }
 
-- (id) initWithDictionary:(NSDictionary *)dictionary {
+- (instancetype) initWithDictionary:(NSDictionary *)dictionary {
     return [self init];
 }
 

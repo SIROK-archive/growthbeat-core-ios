@@ -24,7 +24,7 @@ static NSString *const kGBDefaultPreferenceFileName = @"growthbeat-preferences";
     }
 }
 
-- (id) init {
+- (instancetype) init {
     self = [super init];
     if (self) {
         self.fileName = kGBDefaultPreferenceFileName;

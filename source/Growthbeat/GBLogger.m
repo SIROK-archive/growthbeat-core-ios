@@ -31,7 +31,7 @@
     va_start(args, format);
     
     NSString *message = [[NSString alloc] initWithFormat:format arguments:args];
-    NSLog(@"GB - %@", message);
+    NSLog(@"Growthbeat - %@", message);
     
 }
 

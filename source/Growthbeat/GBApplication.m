@@ -15,7 +15,7 @@
 @synthesize name;
 @synthesize created;
 
-- (id) initWithDictionary:(NSDictionary *)dictionary {
+- (instancetype) initWithDictionary:(NSDictionary *)dictionary {
     
     self = [super init];
     if (self) {
@@ -36,7 +36,7 @@
 #pragma mark --
 #pragma mark NSCoding
 
-- (id) initWithCoder:(NSCoder *)aDecoder {
+- (instancetype) initWithCoder:(NSCoder *)aDecoder {
     
     self = [super init];
     if (self) {
