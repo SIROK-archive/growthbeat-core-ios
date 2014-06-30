@@ -30,11 +30,12 @@
 		B2278AAD1950E7A900DD7DC8 /* GBUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2278A981950E7A900DD7DC8 /* GBUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2278AAE1950E7A900DD7DC8 /* Growthbeat.h in Headers */ = {isa = PBXBuildFile; fileRef = B2278A991950E7A900DD7DC8 /* Growthbeat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2278AAF1950E7A900DD7DC8 /* Growthbeat.m in Sources */ = {isa = PBXBuildFile; fileRef = B2278A9A1950E7A900DD7DC8 /* Growthbeat.m */; };
-		B2278AB21950E85C00DD7DC8 /* GBApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = B2278AB01950E85C00DD7DC8 /* GBApplication.h */; };
+		B2278AB21950E85C00DD7DC8 /* GBApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = B2278AB01950E85C00DD7DC8 /* GBApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2278AB31950E85C00DD7DC8 /* GBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B2278AB11950E85C00DD7DC8 /* GBApplication.m */; };
-		B241C0AF196158BC00F228AF /* GBBlocksClientObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = B241C0AD196158BC00F228AF /* GBBlocksClientObserver.h */; };
+		B241C0AF196158BC00F228AF /* GBBlocksClientObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = B241C0AD196158BC00F228AF /* GBBlocksClientObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B241C0B0196158BC00F228AF /* GBBlocksClientObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = B241C0AE196158BC00F228AF /* GBBlocksClientObserver.m */; };
-		C1247EC11958460E00A50BF4 /* GBPreference.h in Headers */ = {isa = PBXBuildFile; fileRef = C1247EBF1958460E00A50BF4 /* GBPreference.h */; };
+		B241C0F41961829000F228AF /* GBClientObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = B241C0AC1961571400F228AF /* GBClientObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C1247EC11958460E00A50BF4 /* GBPreference.h in Headers */ = {isa = PBXBuildFile; fileRef = C1247EBF1958460E00A50BF4 /* GBPreference.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C1247EC21958460E00A50BF4 /* GBPreference.m in Sources */ = {isa = PBXBuildFile; fileRef = C1247EC01958460E00A50BF4 /* GBPreference.m */; };
 /* End PBXBuildFile section */
 
@@ -166,18 +167,19 @@
 			files = (
 				B2278AAB1950E7A900DD7DC8 /* GBRequestMethod.h in Headers */,
 				B2278AA51950E7A900DD7DC8 /* GBHttpResponse.h in Headers */,
-				B2278AB21950E85C00DD7DC8 /* GBApplication.h in Headers */,
 				B2278AA91950E7A900DD7DC8 /* GBLogger.h in Headers */,
 				B2278AA71950E7A900DD7DC8 /* GBHttpUtils.h in Headers */,
 				B2278AA31950E7A900DD7DC8 /* GBHttpRequest.h in Headers */,
 				B2278AA11950E7A900DD7DC8 /* GBHttpClient.h in Headers */,
 				B2278A9C1950E7A900DD7DC8 /* GBClient.h in Headers */,
-				B2278A9F1950E7A900DD7DC8 /* GBDomain.h in Headers */,
-				B2278A9D1950E7A900DD7DC8 /* GBDateUtils.h in Headers */,
-				B2278AAD1950E7A900DD7DC8 /* GBUtils.h in Headers */,
-				B2278AAE1950E7A900DD7DC8 /* Growthbeat.h in Headers */,
+				B2278AB21950E85C00DD7DC8 /* GBApplication.h in Headers */,
 				B241C0AF196158BC00F228AF /* GBBlocksClientObserver.h in Headers */,
 				C1247EC11958460E00A50BF4 /* GBPreference.h in Headers */,
+				B2278A9F1950E7A900DD7DC8 /* GBDomain.h in Headers */,
+				B2278A9D1950E7A900DD7DC8 /* GBDateUtils.h in Headers */,
+				B241C0F41961829000F228AF /* GBClientObserver.h in Headers */,
+				B2278AAD1950E7A900DD7DC8 /* GBUtils.h in Headers */,
+				B2278AAE1950E7A900DD7DC8 /* Growthbeat.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,7 +245,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		B2278A701950E72A00DD7DC8 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -323,7 +325,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -354,7 +356,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -364,8 +366,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
+					"$(ARCHS_STANDARD)",
+					i386,
 				);
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -383,8 +385,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
+					"$(ARCHS_STANDARD)",
+					i386,
 				);
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;

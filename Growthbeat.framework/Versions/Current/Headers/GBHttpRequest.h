@@ -11,21 +11,21 @@
 
 @interface GBHttpRequest : NSObject {
 
-    GBRequestMethod requestMethod;
+    GBRequestMethod method;
     NSString *path;
     NSDictionary *query;
     NSDictionary *body;
 
 }
 
-@property (nonatomic, assign) GBRequestMethod requestMethod;
+@property (nonatomic, assign) GBRequestMethod method;
 @property (nonatomic, strong) NSString *path;
 @property (nonatomic, strong) NSDictionary *query;
 @property (nonatomic, strong) NSDictionary *body;
 
-+ (id)instanceWithRequestMethod:(GBRequestMethod)requestMethod path:(NSString *)path;
-+ (id)instanceWithRequestMethod:(GBRequestMethod)requestMethod path:(NSString *)path query:(NSDictionary *)query;
-+ (id)instanceWithRequestMethod:(GBRequestMethod)requestMethod path:(NSString *)path query:(NSDictionary *)query body:(NSDictionary *)body;
++ (id)instanceWithMethod:(GBRequestMethod)method path:(NSString *)path;
++ (id)instanceWithMethod:(GBRequestMethod)method path:(NSString *)path query:(NSDictionary *)query;
++ (id)instanceWithMethod:(GBRequestMethod)method path:(NSString *)path query:(NSDictionary *)query body:(NSDictionary *)body;
 
 - (NSURLRequest *)urlRequestWithBaseUrl:(NSURL *)baseUrl;
 

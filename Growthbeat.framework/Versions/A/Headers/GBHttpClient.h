@@ -10,11 +10,15 @@
 #import "GBHttpRequest.h"
 #import "GBHttpResponse.h"
 
-@interface GBHttpClient : NSObject
+@interface GBHttpClient : NSObject {
+    
+    NSURL *baseUrl;
+    
+}
+
+@property (nonatomic, strong) NSURL *baseUrl;
 
 + (GBHttpClient *)sharedInstance;
-- (void)setBaseUrl:(NSURL *)baseUrl;
-- (void)httpRequest:(GBHttpRequest *)httpRequest success:(void(^) (GBHttpResponse * httpResponse)) success fail:(void(^) (GBHttpResponse * httpResponse))fail;
 - (GBHttpResponse *) httpRequest:(GBHttpRequest *)httpRequest;
 
 @end

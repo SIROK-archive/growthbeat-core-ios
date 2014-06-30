@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GBClientObserver.h"
 
 @interface Growthbeat : NSObject
 
 + (void)initializeWithApplicationId:(NSString *)applicationId secret:(NSString *)secret;
-+ (void)setHttpBaseUrl:(NSURL *)url;
++ (void)addClientObserver:(id <GBClientObserver>)clientObserver;
++ (void)removeClientObserver:(id <GBClientObserver>)clientObserver;
++ (void)setPreferenceFileName:(NSString *)fileName;
++ (void)setHttpClientBaseUrl:(NSURL *)url;
 + (void)setLoggerSilent:(BOOL)silent;
 
 @end
