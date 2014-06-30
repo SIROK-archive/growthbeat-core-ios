@@ -15,8 +15,8 @@
 #import "GBBlocksClientObserver.h"
 
 static Growthbeat *sharedInstance = nil;
-static NSString *const kGBDefaultHttpClientBaseUrl = @"https://api.growthbeat.com/";
-static NSString *const kGBDefaultPreferenceFileName = @"growthbeat-preferences";
+static NSString *const kGBHttpClientDefaultBaseUrl = @"https://api.growthbeat.com/";
+static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
 static NSString *const kGBPreferenceClientKey = @"client";
 
 @interface Growthbeat () {
@@ -28,7 +28,6 @@ static NSString *const kGBPreferenceClientKey = @"client";
 
 @property (nonatomic, strong) GBClient *client;
 @property (nonatomic, strong) NSMutableArray *clientObservers;
-
 
 @end
 
@@ -76,8 +75,8 @@ static NSString *const kGBPreferenceClientKey = @"client";
 - (instancetype) init {
     self = [super init];
     if (self) {
-        [[GBHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGBDefaultHttpClientBaseUrl]];
-        [[GBPreference sharedInstance] setFileName:kGBDefaultPreferenceFileName];
+        [[GBHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGBHttpClientDefaultBaseUrl]];
+        [[GBPreference sharedInstance] setFileName:kGBPreferenceDefaultFileName];
         self.client = nil;
         self.clientObservers = [NSMutableArray array];
     }
@@ -90,26 +89,26 @@ static NSString *const kGBPreferenceClientKey = @"client";
     
     self.client = [self loadClient];
     
-    if (self.client && [self.client.application.id isEqualToString:applicationId]) {
-        [self updateClient:self.client];
+    if (client && [client.application.id isEqualToString:applicationId]) {
+        [self updateClient:client];
         return;
     }
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         self.client = [GBClient createWithApplicationId:applicationId secret:secret];
-        [[GBLogger sharedInstance] log:@"client created (id:%@)", self.client.id];
-        [self saveClient:self.client];
-        [self updateClient:self.client];
+        [[GBLogger sharedInstance] log:@"client created (id:%@)", client.id];
+        [self saveClient:client];
+        [self updateClient:client];
     });
     
 }
 
 - (void)addClientObserver:(id <GBClientObserver>)clientObserver {
-    [self.clientObservers addObject:clientObserver];
+    [clientObservers addObject:clientObserver];
 }
 
 - (void)removeClientObserver:(id <GBClientObserver>)clientObserver {
-    [self.clientObservers removeObject:clientObserver];
+    [clientObservers removeObject:clientObserver];
 }
 
 - (void)setHttpClientBaseUrl:(NSURL *)url {
@@ -124,23 +123,23 @@ static NSString *const kGBPreferenceClientKey = @"client";
     [[GBLogger sharedInstance] setSilent:silent];
 }
 
-- (void)updateClient:(GBClient *)client {
+- (void)updateClient:(GBClient *)newClient {
     
-    for (id <GBClientObserver> clientObserver in self.clientObservers) {
-        [clientObserver update:self.client];
+    for (id <GBClientObserver> clientObserver in clientObservers) {
+        [clientObserver update:newClient];
     }
-    
+
 }
 
 - (GBClient *)loadClient {
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:client];
-    [[GBPreference sharedInstance] setObject:data forKey:kGBPreferenceClientKey];
+    
+    NSData *data = [[GBPreference sharedInstance] objectForKey:kGBPreferenceClientKey];
     
     if (!data) {
         return nil;
     }
-
-    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    
+    return  [NSKeyedUnarchiver unarchiveObjectWithData:data];
     
 }
 
