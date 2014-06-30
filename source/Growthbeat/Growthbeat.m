@@ -82,17 +82,19 @@ static NSString *const kGBPreferenceClientKey = @"client";
 }
 
 - (void)initializeWithApplicationId:(NSString *)applicationId secret:(NSString *)secret {
-
     
     [self.logger log:@"initialize (applicationId:%@)", applicationId];
     
-    if (self.client)
+    if (self.client && [self.client.application.id isEqualToString:applicationId]) {
+        [self updateClient:self.client];
         return;
+    }
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         self.client = [GBClient createWithApplicationId:applicationId secret:secret];
         [self.logger log:@"client created (id:%@)", self.client.id];
         [self saveClient:self.client];
+        [self updateClient:self.client];
     });
     
 }
@@ -112,7 +114,15 @@ static NSString *const kGBPreferenceClientKey = @"client";
 - (void)setLoggerSilent:(BOOL)silent {
     self.logger.silent = silent;
 }
-                       
+
+- (void)updateClient:(GBClient *)client {
+    
+    for (id <GBClientObserver> clientObserver in self.clientObservers) {
+        [clientObserver update:self.client];
+    }
+    
+}
+
 - (GBClient *)loadClient {
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:client];
     [[GBPreference sharedInstance] setObject:data forKey:kGBPreferenceClientKey];
