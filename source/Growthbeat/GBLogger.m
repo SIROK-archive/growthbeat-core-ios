@@ -8,9 +8,20 @@
 
 #import "GBLogger.h"
 
+static GBLogger *sharedInstance = nil;
+
 @implementation GBLogger
 
 @synthesize silent;
+
++ (GBLogger *)sharedInstance {
+    @synchronized(self) {
+        if (!sharedInstance) {
+            sharedInstance = [[self alloc] init];
+        }
+        return sharedInstance;
+    }
+}
 
 - (instancetype)init {
     self = [super init];

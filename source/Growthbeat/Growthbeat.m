@@ -21,13 +21,11 @@ static NSString *const kGBPreferenceClientKey = @"client";
 @interface Growthbeat () {
     
     GBClient *client;
-    GBLogger *logger;
     NSMutableArray *clientObservers;
     
 }
 
 @property (nonatomic, strong) GBClient *client;
-@property (nonatomic, strong) GBLogger *logger;
 @property (nonatomic, strong) NSMutableArray *clientObservers;
 
 
@@ -36,7 +34,6 @@ static NSString *const kGBPreferenceClientKey = @"client";
 @implementation Growthbeat
 
 @synthesize client;
-@synthesize logger;
 @synthesize clientObservers;
 
 + (Growthbeat *) sharedInstance {
@@ -78,7 +75,6 @@ static NSString *const kGBPreferenceClientKey = @"client";
 - (instancetype) init {
     self = [super init];
     if (self) {
-        self.logger = [[GBLogger alloc] init];
         [[GBHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGPDefaultBaseUrl]];
         self.client = [self loadClient];
         self.clientObservers = [NSMutableArray array];
@@ -88,7 +84,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
 
 - (void)initializeWithApplicationId:(NSString *)applicationId secret:(NSString *)secret {
     
-    [self.logger log:@"initialize (applicationId:%@)", applicationId];
+    [[GBLogger sharedInstance] log:@"initialize (applicationId:%@)", applicationId];
     
     if (self.client && [self.client.application.id isEqualToString:applicationId]) {
         [self updateClient:self.client];
@@ -97,7 +93,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         self.client = [GBClient createWithApplicationId:applicationId secret:secret];
-        [self.logger log:@"client created (id:%@)", self.client.id];
+        [[GBLogger sharedInstance] log:@"client created (id:%@)", self.client.id];
         [self saveClient:self.client];
         [self updateClient:self.client];
     });
@@ -121,7 +117,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
 }
 
 - (void)setLoggerSilent:(BOOL)silent {
-    self.logger.silent = silent;
+    [[GBLogger sharedInstance] setSilent:silent];
 }
 
 - (void)updateClient:(GBClient *)client {
