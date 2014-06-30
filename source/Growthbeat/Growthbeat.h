@@ -14,6 +14,7 @@
 + (void)initializeWithApplicationId:(NSString *)applicationId secret:(NSString *)secret;
 + (void)addClientObserver:(id <GBClientObserver>)clientObserver;
 + (void)removeClientObserver:(id <GBClientObserver>)clientObserver;
++ (void)setPreferenceFileName:(NSString *)fileName;
 + (void)setHttpBaseUrl:(NSURL *)url;
 + (void)setLoggerSilent:(BOOL)silent;
 

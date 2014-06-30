@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GBPreference : NSObject
+@interface GBPreference : NSObject {
+    
+    NSString *fileName;
+    
+}
+
+@property (nonatomic, strong) NSString *fileName;
 
 + (GBPreference *)sharedInstance;
 - (id)objectForKey:(id <NSCopying>)key;

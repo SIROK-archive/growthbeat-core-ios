@@ -9,21 +9,11 @@
 #import "GBPreference.h"
 
 static GBPreference *sharedInstance = nil;
-static NSString *const kGBPreferenceFileName = @"growthbeat-preferences";
-
-@interface GBPreference () {
-
-    NSURL *fileUrl;
-
-}
-
-@property (nonatomic, retain) NSURL *fileUrl;
-
-@end
+static NSString *const kGBDefaultPreferenceFileName = @"growthbeat-preferences";
 
 @implementation GBPreference
 
-@synthesize fileUrl;
+@synthesize fileName;
 
 + (GBPreference *) sharedInstance {
     @synchronized(self) {
@@ -35,18 +25,11 @@ static NSString *const kGBPreferenceFileName = @"growthbeat-preferences";
 }
 
 - (id) init {
-
     self = [super init];
     if (self) {
-        self.fileUrl = [self preferenceFileUrl];
+        self.fileName = kGBDefaultPreferenceFileName;
     }
     return self;
-
-}
-
-- (void) dealloc {
-
-    self.fileUrl = nil;
 }
 
 - (id) objectForKey:(id <NSCopying>)key {
@@ -62,7 +45,7 @@ static NSString *const kGBPreferenceFileName = @"growthbeat-preferences";
     NSMutableDictionary *prefrences = [NSMutableDictionary dictionaryWithDictionary:[self preferences]];
 
     [prefrences setObject:object forKey:key];
-    [prefrences writeToURL:fileUrl atomically:YES];
+    [prefrences writeToURL:[self preferenceFileUrl] atomically:YES];
 
 }
 
@@ -71,7 +54,7 @@ static NSString *const kGBPreferenceFileName = @"growthbeat-preferences";
     NSMutableDictionary *prefrences = [NSMutableDictionary dictionaryWithDictionary:[self preferences]];
 
     [prefrences removeObjectForKey:key];
-    [prefrences writeToURL:fileUrl atomically:YES];
+    [prefrences writeToURL:[self preferenceFileUrl] atomically:YES];
 
 }
 
@@ -84,7 +67,7 @@ static NSString *const kGBPreferenceFileName = @"growthbeat-preferences";
 }
 
 - (NSDictionary *) preferences {
-    return [NSDictionary dictionaryWithContentsOfURL:fileUrl];
+    return [NSDictionary dictionaryWithContentsOfURL:[self preferenceFileUrl]];
 }
 
 - (NSURL *) preferenceFileUrl {
@@ -96,7 +79,7 @@ static NSString *const kGBPreferenceFileName = @"growthbeat-preferences";
     }
 
     NSURL *url = [urls lastObject];
-    return [NSURL URLWithString:kGBPreferenceFileName relativeToURL:url];
+    return [NSURL URLWithString:self.fileName relativeToURL:url];
 
 }
 

@@ -15,7 +15,7 @@
 #import "GBBlocksClientObserver.h"
 
 static Growthbeat *sharedInstance = nil;
-static NSString *const kGPBaseUrl = @"http://api.localhost:8085/";
+static NSString *const kGPDefaultBaseUrl = @"https://api.growthbeat.com/";
 static NSString *const kGBPreferenceClientKey = @"client";
 
 @interface Growthbeat () {
@@ -29,6 +29,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
 @property (nonatomic, strong) GBClient *client;
 @property (nonatomic, strong) GBLogger *logger;
 @property (nonatomic, strong) NSMutableArray *clientObservers;
+
 
 @end
 
@@ -62,6 +63,10 @@ static NSString *const kGBPreferenceClientKey = @"client";
     [[self sharedInstance] removeClientObserver:clientObserver];
 }
 
++ (void)setPreferenceFileName:(NSString *)fileName {
+    [[self sharedInstance] setPreferenceFileName:fileName];
+}
+
 + (void)setHttpBaseUrl:(NSURL *)url {
     [[self sharedInstance] setHttpBaseUrl:url];
 }
@@ -74,7 +79,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
     self = [super init];
     if (self) {
         self.logger = [[GBLogger alloc] init];
-        [[GBHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGPBaseUrl]];
+        [[GBHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGPDefaultBaseUrl]];
         self.client = [self loadClient];
         self.clientObservers = [NSMutableArray array];
     }
@@ -109,6 +114,10 @@ static NSString *const kGBPreferenceClientKey = @"client";
 
 - (void)setHttpBaseUrl:(NSURL *)url {
     [[GBHttpClient sharedInstance] setBaseUrl:url];
+}
+
+- (void)setPreferenceFileName:(NSString *)fileName {
+    [[GBPreference sharedInstance] setFileName:fileName];
 }
 
 - (void)setLoggerSilent:(BOOL)silent {
