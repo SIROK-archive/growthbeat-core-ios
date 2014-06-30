@@ -11,25 +11,25 @@
 
 @implementation GBHttpRequest
 
-@synthesize requestMethod;
+@synthesize method;
 @synthesize path;
 @synthesize query;
 @synthesize body;
 
-+ (id) instanceWithRequestMethod:(GBRequestMethod)requestMethod path:(NSString *)path {
++ (id) instanceWithMethod:(GBRequestMethod)method path:(NSString *)path {
 
     GBHttpRequest *httpRequest = [[self alloc] init];
 
-    httpRequest.requestMethod = requestMethod;
+    httpRequest.method = method;
     httpRequest.path = path;
 
     return httpRequest;
 
 }
 
-+ (id) instanceWithRequestMethod:(GBRequestMethod)requestMethod path:(NSString *)path query:(NSDictionary *)query {
++ (id) instanceWithMethod:(GBRequestMethod)method path:(NSString *)path query:(NSDictionary *)query {
 
-    GBHttpRequest *httpRequest = [self instanceWithRequestMethod:requestMethod path:path];
+    GBHttpRequest *httpRequest = [self instanceWithMethod:method path:path];
 
     httpRequest.query = query;
 
@@ -37,9 +37,9 @@
 
 }
 
-+ (id) instanceWithRequestMethod:(GBRequestMethod)requestMethod path:(NSString *)path query:(NSDictionary *)query body:(NSDictionary *)body {
++ (id) instanceWithMethod:(GBRequestMethod)method path:(NSString *)path query:(NSDictionary *)query body:(NSDictionary *)body {
 
-    GBHttpRequest *httpRequest = [self instanceWithRequestMethod:requestMethod path:path query:query];
+    GBHttpRequest *httpRequest = [self instanceWithMethod:method path:path query:query];
 
     httpRequest.body = body;
 
@@ -54,7 +54,7 @@
     NSMutableDictionary *requestQuery = [NSMutableDictionary dictionaryWithDictionary:query];
     NSMutableDictionary *requestBody = [NSMutableDictionary dictionaryWithDictionary:body];
 
-    if (requestMethod == GBRequestMethodGet) {
+    if (method == GBRequestMethodGet) {
         [requestQuery addEntriesFromDictionary:requestBody];
         [requestBody removeAllObjects];
     }
@@ -69,10 +69,10 @@
     NSURL *url = [NSURL URLWithString:requestPath relativeToURL:baseUrl];
     NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:url];
 
-    [urlRequest setHTTPMethod:NSStringFromGBRequestMethod(requestMethod)];
+    [urlRequest setHTTPMethod:NSStringFromGBRequestMethod(method)];
     [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
 
-    if (requestMethod != GBRequestMethodGet) {
+    if (method != GBRequestMethodGet) {
         NSString *contentTypeString = [NSString stringWithFormat:@"application/x-www-form-urlencoded; charset=%@", CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))];
         [urlRequest setValue:contentTypeString forHTTPHeaderField:@"Content-Type"];
         [urlRequest setHTTPBody:[requestBodyString dataUsingEncoding:NSUTF8StringEncoding]];

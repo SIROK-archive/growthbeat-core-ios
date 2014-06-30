@@ -9,6 +9,7 @@
 #import "GBClient.h"
 #import "GBUtils.h"
 #import "GBHttpClient.h"
+#import "GBLogger.h"
 
 @implementation GBClient
 
@@ -28,17 +29,14 @@
         [body setObject:secret forKey:@"secret"];
     }
     
-    GBHttpRequest *httpRequest = [GBHttpRequest instanceWithRequestMethod:GBRequestMethodPost path:path query:nil body:body];
-    
+    GBHttpRequest *httpRequest = [GBHttpRequest instanceWithMethod:GBRequestMethodPost path:path query:nil body:body];
     GBHttpResponse *httpResponse = [[GBHttpClient sharedInstance] httpRequest:httpRequest];
     if(!httpResponse.success){
-        // TODO hanlde errors
-        NSLog(@"%@", httpResponse.error);
+        [[GBLogger sharedInstance] log:@"Filed to create client. %@", httpResponse.error];
         return nil;
     }
     
-    GBClient *client = [GBClient domainWithDictionary:httpResponse.body];
-    return client;
+    return [GBClient domainWithDictionary:httpResponse.body];
     
 }
 
