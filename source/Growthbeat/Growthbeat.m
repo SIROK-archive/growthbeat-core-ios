@@ -21,11 +21,13 @@ static NSString *const kGBPreferenceClientKey = @"client";
     
     GBClient *client;
     GBLogger *logger;
+    NSMutableArray *clientObservers;
     
 }
 
 @property (nonatomic, strong) GBClient *client;
 @property (nonatomic, strong) GBLogger *logger;
+@property (nonatomic, strong) NSMutableArray *clientObservers;
 
 @end
 
@@ -33,6 +35,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
 
 @synthesize client;
 @synthesize logger;
+@synthesize clientObservers;
 
 + (Growthbeat *) sharedInstance {
     @synchronized(self) {
@@ -50,6 +53,10 @@ static NSString *const kGBPreferenceClientKey = @"client";
     [[self sharedInstance] initializeWithApplicationId:applicationId secret:secret];
 }
 
++ (void)addClientObserver:(id <GBClientObserver>)clientObserver {
+    [[self sharedInstance] addClientObserver:clientObserver];
+}
+
 + (void)setHttpBaseUrl:(NSURL *)url {
     [[self sharedInstance] setHttpBaseUrl:url];
 }
@@ -58,12 +65,13 @@ static NSString *const kGBPreferenceClientKey = @"client";
     [[self sharedInstance] setLoggerSilent:silent];
 }
 
-- (id) init {
+- (instancetype) init {
     self = [super init];
     if (self) {
         self.logger = [[GBLogger alloc] init];
         [[GBHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGPBaseUrl]];
         self.client = [self loadClient];
+        self.clientObservers = [NSMutableArray array];
     }
     return self;
 }
@@ -84,6 +92,10 @@ static NSString *const kGBPreferenceClientKey = @"client";
         
     });
     
+}
+
+- (void)addClientObserver:(id <GBClientObserver>)clientObserver {
+    [self.clientObservers addObject:clientObserver];
 }
 
 - (void)setHttpBaseUrl:(NSURL *)url {

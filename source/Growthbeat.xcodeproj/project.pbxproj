@@ -65,6 +65,7 @@
 		B2278A9A1950E7A900DD7DC8 /* Growthbeat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Growthbeat.m; sourceTree = "<group>"; };
 		B2278AB01950E85C00DD7DC8 /* GBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBApplication.h; sourceTree = "<group>"; };
 		B2278AB11950E85C00DD7DC8 /* GBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBApplication.m; sourceTree = "<group>"; };
+		B241C0AC1961571400F228AF /* GBClientObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBClientObserver.h; sourceTree = "<group>"; };
 		C1247EBF1958460E00A50BF4 /* GBPreference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBPreference.h; sourceTree = "<group>"; };
 		C1247EC01958460E00A50BF4 /* GBPreference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBPreference.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,12 +114,11 @@
 				B2278AB11950E85C00DD7DC8 /* GBApplication.m */,
 				B2278A871950E7A900DD7DC8 /* GBClient.h */,
 				B2278A861950E7A900DD7DC8 /* GBClient.m */,
+				B241C0AC1961571400F228AF /* GBClientObserver.h */,
 				B2278A881950E7A900DD7DC8 /* GBDateUtils.h */,
 				B2278A891950E7A900DD7DC8 /* GBDateUtils.m */,
 				B2278A8A1950E7A900DD7DC8 /* GBDomain.h */,
 				B2278A8B1950E7A900DD7DC8 /* GBDomain.m */,
-				C1247EBF1958460E00A50BF4 /* GBPreference.h */,
-				C1247EC01958460E00A50BF4 /* GBPreference.m */,
 				B2278A8C1950E7A900DD7DC8 /* GBHttpClient.h */,
 				B2278A8D1950E7A900DD7DC8 /* GBHttpClient.m */,
 				B2278A8E1950E7A900DD7DC8 /* GBHttpRequest.h */,
@@ -129,6 +129,8 @@
 				B2278A931950E7A900DD7DC8 /* GBHttpUtils.m */,
 				B2278A941950E7A900DD7DC8 /* GBLogger.h */,
 				B2278A951950E7A900DD7DC8 /* GBLogger.m */,
+				C1247EBF1958460E00A50BF4 /* GBPreference.h */,
+				C1247EC01958460E00A50BF4 /* GBPreference.m */,
 				B2278A961950E7A900DD7DC8 /* GBRequestMethod.h */,
 				B2278A971950E7A900DD7DC8 /* GBRequestMethod.m */,
 				B2278A981950E7A900DD7DC8 /* GBUtils.h */,
