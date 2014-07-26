@@ -35,6 +35,8 @@
 		B241C0AF196158BC00F228AF /* GBBlocksClientObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = B241C0AD196158BC00F228AF /* GBBlocksClientObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B241C0B0196158BC00F228AF /* GBBlocksClientObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = B241C0AE196158BC00F228AF /* GBBlocksClientObserver.m */; };
 		B241C0F41961829000F228AF /* GBClientObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = B241C0AC1961571400F228AF /* GBClientObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B293ACDD19821EB40027D908 /* GBRSAUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B293ACDB19821EB40027D908 /* GBRSAUtils.h */; };
+		B293ACDE19821EB40027D908 /* GBRSAUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B293ACDC19821EB40027D908 /* GBRSAUtils.m */; };
 		C1247EC11958460E00A50BF4 /* GBPreference.h in Headers */ = {isa = PBXBuildFile; fileRef = C1247EBF1958460E00A50BF4 /* GBPreference.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C1247EC21958460E00A50BF4 /* GBPreference.m in Sources */ = {isa = PBXBuildFile; fileRef = C1247EC01958460E00A50BF4 /* GBPreference.m */; };
 /* End PBXBuildFile section */
@@ -71,6 +73,8 @@
 		B241C0AC1961571400F228AF /* GBClientObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GBClientObserver.h; sourceTree = "<group>"; };
 		B241C0AD196158BC00F228AF /* GBBlocksClientObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBBlocksClientObserver.h; sourceTree = "<group>"; };
 		B241C0AE196158BC00F228AF /* GBBlocksClientObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBBlocksClientObserver.m; sourceTree = "<group>"; };
+		B293ACDB19821EB40027D908 /* GBRSAUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBRSAUtils.h; sourceTree = "<group>"; };
+		B293ACDC19821EB40027D908 /* GBRSAUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBRSAUtils.m; sourceTree = "<group>"; };
 		C1247EBF1958460E00A50BF4 /* GBPreference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBPreference.h; sourceTree = "<group>"; };
 		C1247EC01958460E00A50BF4 /* GBPreference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBPreference.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +144,8 @@
 				C1247EC01958460E00A50BF4 /* GBPreference.m */,
 				B2278A961950E7A900DD7DC8 /* GBRequestMethod.h */,
 				B2278A971950E7A900DD7DC8 /* GBRequestMethod.m */,
+				B293ACDB19821EB40027D908 /* GBRSAUtils.h */,
+				B293ACDC19821EB40027D908 /* GBRSAUtils.m */,
 				B2278A981950E7A900DD7DC8 /* GBUtils.h */,
 				B2278A991950E7A900DD7DC8 /* Growthbeat.h */,
 				B2278A9A1950E7A900DD7DC8 /* Growthbeat.m */,
@@ -167,6 +173,7 @@
 			files = (
 				B2278AAB1950E7A900DD7DC8 /* GBRequestMethod.h in Headers */,
 				B2278AA51950E7A900DD7DC8 /* GBHttpResponse.h in Headers */,
+				B293ACDD19821EB40027D908 /* GBRSAUtils.h in Headers */,
 				B2278AA91950E7A900DD7DC8 /* GBLogger.h in Headers */,
 				B2278AA71950E7A900DD7DC8 /* GBHttpUtils.h in Headers */,
 				B2278AA31950E7A900DD7DC8 /* GBHttpRequest.h in Headers */,
@@ -269,6 +276,7 @@
 				B2278AAF1950E7A900DD7DC8 /* Growthbeat.m in Sources */,
 				B2278AA81950E7A900DD7DC8 /* GBHttpUtils.m in Sources */,
 				B2278A9E1950E7A900DD7DC8 /* GBDateUtils.m in Sources */,
+				B293ACDE19821EB40027D908 /* GBRSAUtils.m in Sources */,
 				B2278AA61950E7A900DD7DC8 /* GBHttpResponse.m in Sources */,
 				B2278AAA1950E7A900DD7DC8 /* GBLogger.m in Sources */,
 				B2278AA01950E7A900DD7DC8 /* GBDomain.m in Sources */,
