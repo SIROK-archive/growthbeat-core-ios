@@ -34,8 +34,8 @@
 		B2916FB11996515500A3C023 /* GBUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F931996515500A3C023 /* GBUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916FB21996515500A3C023 /* GrowthbeatCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F941996515500A3C023 /* GrowthbeatCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916FB31996515600A3C023 /* GrowthbeatCore.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916F951996515500A3C023 /* GrowthbeatCore.m */; };
-		B2916FBC199661BD00A3C023 /* GBAppDelegateWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916FBA199661BD00A3C023 /* GBAppDelegateWrapper.h */; };
-		B2916FBD199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916FBB199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h */; };
+		B2916FBC199661BD00A3C023 /* GBAppDelegateWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916FBA199661BD00A3C023 /* GBAppDelegateWrapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B2916FBD199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916FBB199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916FBF199661C600A3C023 /* GBAppDelegateWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916FBE199661C600A3C023 /* GBAppDelegateWrapper.m */; };
 		B2916FC11996625200A3C023 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2916FC01996625200A3C023 /* UIKit.framework */; };
 /* End PBXBuildFile section */
@@ -190,12 +190,12 @@
 				B2916FA91996515500A3C023 /* GBLogger.h in Headers */,
 				B2916FB21996515500A3C023 /* GrowthbeatCore.h in Headers */,
 				B2916FA11996515500A3C023 /* GBHttpClient.h in Headers */,
-				B2916FBD199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h in Headers */,
 				B2916F9A1996515500A3C023 /* GBClient.h in Headers */,
-				B2916FBC199661BD00A3C023 /* GBAppDelegateWrapper.h in Headers */,
 				B2916FA51996515500A3C023 /* GBHttpResponse.h in Headers */,
 				B2916FB11996515500A3C023 /* GBUtils.h in Headers */,
 				B2916FAB1996515500A3C023 /* GBPreference.h in Headers */,
+				B2916FBD199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h in Headers */,
+				B2916FBC199661BD00A3C023 /* GBAppDelegateWrapper.h in Headers */,
 				B2916F961996515500A3C023 /* GBApplication.h in Headers */,
 				B2916FA31996515500A3C023 /* GBHttpRequest.h in Headers */,
 				B2916FAD1996515500A3C023 /* GBRequestMethod.h in Headers */,

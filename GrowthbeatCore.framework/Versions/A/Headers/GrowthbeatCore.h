@@ -11,6 +11,7 @@
 #import "GBHttpClient.h"
 #import "GBUtils.h"
 #import "GBClient.h"
+#import "GBAppDelegateWrapper.h"
 
 @interface GrowthbeatCore : NSObject
 
