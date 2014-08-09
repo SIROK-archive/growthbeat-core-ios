@@ -77,7 +77,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
 - (instancetype) init {
     self = [super init];
     if (self) {
-        self.logger = [[GBLogger alloc] init];
+        self.logger = [[GBLogger alloc] initWithTag:@"Growthbeat"];
         if(![[GBHttpClient sharedInstance] baseUrl]) {
             [[GBHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGBHttpClientDefaultBaseUrl]];
         }

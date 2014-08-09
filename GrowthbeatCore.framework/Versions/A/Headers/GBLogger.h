@@ -18,6 +18,8 @@
 @property (nonatomic, retain) NSString *tag;
 @property (nonatomic, assign) BOOL silent;
 
+- (instancetype)initWithTag:(NSString *)tag;
+
 - (void) error:(NSString *)format, ...;
 - (void) warn:(NSString *)format, ...;
 - (void) info:(NSString *)format, ...;

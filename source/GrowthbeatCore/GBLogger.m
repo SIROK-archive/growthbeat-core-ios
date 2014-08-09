@@ -21,6 +21,14 @@
     return self;
 }
 
+- (instancetype)initWithTag:(NSString *)initialTag {
+    self = [self init];
+    if(self){
+        self.tag = initialTag;
+    }
+    return self;
+}
+
 - (void) error:(NSString *)format, ... {
     va_list args;
     va_start(args, format);
