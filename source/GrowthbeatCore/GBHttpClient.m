@@ -9,25 +9,22 @@
 #import "GBHttpClient.h"
 #import "GrowthbeatCore.h"
 
-static GBHttpClient *sharedInstance = nil;
-
 @implementation GBHttpClient
 
 @synthesize baseUrl;
-
-+ (GBHttpClient *) sharedInstance {
-    @synchronized(self) {
-        if (!sharedInstance) {
-            sharedInstance = [[self alloc] init];
-        }
-        return sharedInstance;
-    }
-}
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         self.baseUrl = nil;
+    }
+    return self;
+}
+
+- (instancetype)initWithBaseUrl:(NSURL *)initialBaseUrl {
+    self = [super init];
+    if (self) {
+        self.baseUrl = initialBaseUrl;
     }
     return self;
 }

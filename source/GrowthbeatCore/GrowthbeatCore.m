@@ -23,12 +23,14 @@ static NSString *const kGBPreferenceClientKey = @"client";
     GBClient *client;
     NSMutableArray *clientObservers;
     GBLogger *logger;
+    GBHttpClient *httpClient;
     
 }
 
 @property (nonatomic, strong) GBClient *client;
 @property (nonatomic, strong) NSMutableArray *clientObservers;
 @property (nonatomic, strong) GBLogger *logger;
+@property (nonatomic, strong) GBHttpClient *httpClient;
 
 @end
 
@@ -37,6 +39,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
 @synthesize client;
 @synthesize clientObservers;
 @synthesize logger;
+@synthesize httpClient;
 
 + (GrowthbeatCore *) sharedInstance {
     @synchronized(self) {
@@ -63,7 +66,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
 }
 
 + (void)setHttpClientBaseUrl:(NSURL *)url {
-    [[GBHttpClient sharedInstance] setBaseUrl:url];
+    [[[self sharedInstance] httpClient] setBaseUrl:url];
 }
 
 + (void)setPreferenceFileName:(NSString *)fileName {
@@ -78,9 +81,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
     self = [super init];
     if (self) {
         self.logger = [[GBLogger alloc] initWithTag:@"Growthbeat"];
-        if(![[GBHttpClient sharedInstance] baseUrl]) {
-            [[GBHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGBHttpClientDefaultBaseUrl]];
-        }
+        self.httpClient = [[GBHttpClient alloc] initWithBaseUrl:[NSURL URLWithString:kGBHttpClientDefaultBaseUrl]];
         if(![[GBPreference sharedInstance] fileName]) {
             [[GBPreference sharedInstance] setFileName:kGBPreferenceDefaultFileName];
         }

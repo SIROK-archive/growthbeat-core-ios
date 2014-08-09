@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GBClientObserver.h"
 #import "GBLogger.h"
+#import "GBHttpClient.h"
 
 @interface GrowthbeatCore : NSObject
 
@@ -20,6 +21,7 @@
 + (void)setHttpClientBaseUrl:(NSURL *)url;
 + (void)setLoggerSilent:(BOOL)silent;
 
+- (GBHttpClient *)httpClient;
 - (GBLogger *)logger;
 
 @end

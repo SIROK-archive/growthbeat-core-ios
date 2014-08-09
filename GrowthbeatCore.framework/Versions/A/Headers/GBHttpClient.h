@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) NSURL *baseUrl;
 
-+ (GBHttpClient *)sharedInstance;
+- (instancetype)initWithBaseUrl:(NSURL *)initialBaseUrl;
 - (GBHttpResponse *) httpRequest:(GBHttpRequest *)httpRequest;
 
 @end
