@@ -38,6 +38,8 @@
 		B2916FBD199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916FBB199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916FBF199661C600A3C023 /* GBAppDelegateWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916FBE199661C600A3C023 /* GBAppDelegateWrapper.m */; };
 		B2916FC11996625200A3C023 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2916FC01996625200A3C023 /* UIKit.framework */; };
+		B2916FC31996676800A3C023 /* GBDeviceUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916FC21996676800A3C023 /* GBDeviceUtils.h */; };
+		B2916FC51996676E00A3C023 /* GBDeviceUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916FC41996676E00A3C023 /* GBDeviceUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +77,8 @@
 		B2916FBB199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBAppDelegateWrapperDelegate.h; sourceTree = "<group>"; };
 		B2916FBE199661C600A3C023 /* GBAppDelegateWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBAppDelegateWrapper.m; sourceTree = "<group>"; };
 		B2916FC01996625200A3C023 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B2916FC21996676800A3C023 /* GBDeviceUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDeviceUtils.h; sourceTree = "<group>"; };
+		B2916FC41996676E00A3C023 /* GBDeviceUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBDeviceUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 				B2916F8D1996515500A3C023 /* GBPreference.h */,
 				B2916F8F1996515500A3C023 /* GBRequestMethod.h */,
 				B2916F931996515500A3C023 /* GBUtils.h */,
+				B2916FC21996676800A3C023 /* GBDeviceUtils.h */,
 				B2916F941996515500A3C023 /* GrowthbeatCore.h */,
 			);
 			name = Headers;
@@ -173,6 +178,7 @@
 				B2916F8C1996515500A3C023 /* GBLogger.m */,
 				B2916F8E1996515500A3C023 /* GBPreference.m */,
 				B2916F901996515500A3C023 /* GBRequestMethod.m */,
+				B2916FC41996676E00A3C023 /* GBDeviceUtils.m */,
 				B2916F951996515500A3C023 /* GrowthbeatCore.m */,
 			);
 			name = Sources;
@@ -198,6 +204,7 @@
 				B2916FBC199661BD00A3C023 /* GBAppDelegateWrapper.h in Headers */,
 				B2916F961996515500A3C023 /* GBApplication.h in Headers */,
 				B2916FA31996515500A3C023 /* GBHttpRequest.h in Headers */,
+				B2916FC31996676800A3C023 /* GBDeviceUtils.h in Headers */,
 				B2916FAD1996515500A3C023 /* GBRequestMethod.h in Headers */,
 				B2916FA71996515500A3C023 /* GBHttpUtils.h in Headers */,
 			);
@@ -290,6 +297,7 @@
 				B2916FAE1996515500A3C023 /* GBRequestMethod.m in Sources */,
 				B2916FA41996515500A3C023 /* GBHttpRequest.m in Sources */,
 				B2916FB31996515600A3C023 /* GrowthbeatCore.m in Sources */,
+				B2916FC51996676E00A3C023 /* GBDeviceUtils.m in Sources */,
 				B2916FA61996515500A3C023 /* GBHttpResponse.m in Sources */,
 				B2916FAC1996515500A3C023 /* GBPreference.m in Sources */,
 				B2916FBF199661C600A3C023 /* GBAppDelegateWrapper.m in Sources */,

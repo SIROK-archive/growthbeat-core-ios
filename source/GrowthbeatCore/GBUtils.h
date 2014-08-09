@@ -10,6 +10,7 @@
 #define GrowthbeatCore_GBUtils_h
 
 #import "GBDateUtils.h"
+#import "GBDeviceUtils.h"
 #import "GBHttpUtils.h"
 
 #endif
