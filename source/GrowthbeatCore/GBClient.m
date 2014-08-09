@@ -9,7 +9,7 @@
 #import "GBClient.h"
 #import "GBUtils.h"
 #import "GBHttpClient.h"
-#import "GBLogger.h"
+#import "GrowthbeatCore.h"
 
 @implementation GBClient
 
@@ -32,7 +32,7 @@
     GBHttpRequest *httpRequest = [GBHttpRequest instanceWithMethod:GBRequestMethodPost path:path query:nil body:body];
     GBHttpResponse *httpResponse = [[GBHttpClient sharedInstance] httpRequest:httpRequest];
     if(!httpResponse.success){
-        [[GBLogger sharedInstance] log:@"Filed to create client. %@", httpResponse.error];
+        [[[GrowthbeatCore sharedInstance] logger] log:@"Filed to create client. %@", httpResponse.error];
         return nil;
     }
     

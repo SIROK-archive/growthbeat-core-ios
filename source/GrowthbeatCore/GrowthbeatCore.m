@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "GrowthbeatCore.h"
-#import "GBLogger.h"
 #import "GBHttpClient.h"
 #import "GBClient.h"
 #import "GBPreference.h"
@@ -23,11 +22,13 @@ static NSString *const kGBPreferenceClientKey = @"client";
     
     GBClient *client;
     NSMutableArray *clientObservers;
+    GBLogger *logger;
     
 }
 
 @property (nonatomic, strong) GBClient *client;
 @property (nonatomic, strong) NSMutableArray *clientObservers;
+@property (nonatomic, strong) GBLogger *logger;
 
 @end
 
@@ -35,6 +36,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
 
 @synthesize client;
 @synthesize clientObservers;
+@synthesize logger;
 
 + (GrowthbeatCore *) sharedInstance {
     @synchronized(self) {
@@ -69,12 +71,13 @@ static NSString *const kGBPreferenceClientKey = @"client";
 }
 
 + (void)setLoggerSilent:(BOOL)silent {
-    [[GBLogger sharedInstance] setSilent:silent];
+    [[[self sharedInstance] logger] setSilent:silent];
 }
 
 - (instancetype) init {
     self = [super init];
     if (self) {
+        self.logger = [[GBLogger alloc] init];
         if(![[GBHttpClient sharedInstance] baseUrl]) {
             [[GBHttpClient sharedInstance] setBaseUrl:[NSURL URLWithString:kGBHttpClientDefaultBaseUrl]];
         }
@@ -91,26 +94,26 @@ static NSString *const kGBPreferenceClientKey = @"client";
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         
-        [[GBLogger sharedInstance] log:@"Initializing... (applicationId:%@)", applicationId];
+        [logger log:@"Initializing... (applicationId:%@)", applicationId];
         
         self.client = [self loadClient];
         if (client && [client.application.id isEqualToString:applicationId]) {
-            [[GBLogger sharedInstance] log:@"Client already exists. (id:%@)", client.id];
+            [logger log:@"Client already exists. (id:%@)", client.id];
             [self updateClient:client];
             return;
         }
         
         [[GBPreference sharedInstance] removeAll];
         
-        [[GBLogger sharedInstance] log:@"Creating client... (applicationId:%@)", applicationId];
+        [logger log:@"Creating client... (applicationId:%@)", applicationId];
         self.client = [GBClient createWithApplicationId:applicationId credentialId:credentialId];
         if(!client) {
-            [[GBLogger sharedInstance] log:@"Failed to create client."];
+            [logger log:@"Failed to create client."];
             return;
         }
         
         [self saveClient:client];
-        [[GBLogger sharedInstance] log:@"Client created. (id:%@)", client.id];
+        [logger log:@"Client created. (id:%@)", client.id];
         [self updateClient:client];
         
     });

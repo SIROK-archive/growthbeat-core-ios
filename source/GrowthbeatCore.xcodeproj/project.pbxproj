@@ -115,34 +115,8 @@
 		B270118F199650D7003354D8 /* GrowthbeatCore */ = {
 			isa = PBXGroup;
 			children = (
-				B2916F781996515500A3C023 /* GBApplication.h */,
-				B2916F791996515500A3C023 /* GBApplication.m */,
-				B2916F7A1996515500A3C023 /* GBBlocksClientObserver.h */,
-				B2916F7B1996515500A3C023 /* GBBlocksClientObserver.m */,
-				B2916F7C1996515500A3C023 /* GBClient.h */,
-				B2916F7D1996515500A3C023 /* GBClient.m */,
-				B2916F7E1996515500A3C023 /* GBClientObserver.h */,
-				B2916F7F1996515500A3C023 /* GBDateUtils.h */,
-				B2916F801996515500A3C023 /* GBDateUtils.m */,
-				B2916F811996515500A3C023 /* GBDomain.h */,
-				B2916F821996515500A3C023 /* GBDomain.m */,
-				B2916F831996515500A3C023 /* GBHttpClient.h */,
-				B2916F841996515500A3C023 /* GBHttpClient.m */,
-				B2916F851996515500A3C023 /* GBHttpRequest.h */,
-				B2916F861996515500A3C023 /* GBHttpRequest.m */,
-				B2916F871996515500A3C023 /* GBHttpResponse.h */,
-				B2916F881996515500A3C023 /* GBHttpResponse.m */,
-				B2916F891996515500A3C023 /* GBHttpUtils.h */,
-				B2916F8A1996515500A3C023 /* GBHttpUtils.m */,
-				B2916F8B1996515500A3C023 /* GBLogger.h */,
-				B2916F8C1996515500A3C023 /* GBLogger.m */,
-				B2916F8D1996515500A3C023 /* GBPreference.h */,
-				B2916F8E1996515500A3C023 /* GBPreference.m */,
-				B2916F8F1996515500A3C023 /* GBRequestMethod.h */,
-				B2916F901996515500A3C023 /* GBRequestMethod.m */,
-				B2916F931996515500A3C023 /* GBUtils.h */,
-				B2916F941996515500A3C023 /* GrowthbeatCore.h */,
-				B2916F951996515500A3C023 /* GrowthbeatCore.m */,
+				B2916FB41996520200A3C023 /* Headers */,
+				B2916FB51996521700A3C023 /* Sources */,
 				B2701190199650D7003354D8 /* Supporting Files */,
 			);
 			path = GrowthbeatCore;
@@ -156,6 +130,48 @@
 				B2701195199650D7003354D8 /* GrowthbeatCore-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B2916FB41996520200A3C023 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				B2916F781996515500A3C023 /* GBApplication.h */,
+				B2916F7A1996515500A3C023 /* GBBlocksClientObserver.h */,
+				B2916F7C1996515500A3C023 /* GBClient.h */,
+				B2916F7E1996515500A3C023 /* GBClientObserver.h */,
+				B2916F7F1996515500A3C023 /* GBDateUtils.h */,
+				B2916F811996515500A3C023 /* GBDomain.h */,
+				B2916F831996515500A3C023 /* GBHttpClient.h */,
+				B2916F851996515500A3C023 /* GBHttpRequest.h */,
+				B2916F871996515500A3C023 /* GBHttpResponse.h */,
+				B2916F891996515500A3C023 /* GBHttpUtils.h */,
+				B2916F8B1996515500A3C023 /* GBLogger.h */,
+				B2916F8D1996515500A3C023 /* GBPreference.h */,
+				B2916F8F1996515500A3C023 /* GBRequestMethod.h */,
+				B2916F931996515500A3C023 /* GBUtils.h */,
+				B2916F941996515500A3C023 /* GrowthbeatCore.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		B2916FB51996521700A3C023 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B2916F791996515500A3C023 /* GBApplication.m */,
+				B2916F7B1996515500A3C023 /* GBBlocksClientObserver.m */,
+				B2916F7D1996515500A3C023 /* GBClient.m */,
+				B2916F801996515500A3C023 /* GBDateUtils.m */,
+				B2916F821996515500A3C023 /* GBDomain.m */,
+				B2916F841996515500A3C023 /* GBHttpClient.m */,
+				B2916F861996515500A3C023 /* GBHttpRequest.m */,
+				B2916F881996515500A3C023 /* GBHttpResponse.m */,
+				B2916F8A1996515500A3C023 /* GBHttpUtils.m */,
+				B2916F8C1996515500A3C023 /* GBLogger.m */,
+				B2916F8E1996515500A3C023 /* GBPreference.m */,
+				B2916F901996515500A3C023 /* GBRequestMethod.m */,
+				B2916F951996515500A3C023 /* GrowthbeatCore.m */,
+			);
+			name = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,6 +387,10 @@
 				);
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/kataoka/growthpush-ios/submodules/growthbeat-core-ios",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GrowthbeatCore/GrowthbeatCore-Prefix.pch";
@@ -390,6 +410,10 @@
 				);
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/kataoka/growthpush-ios/submodules/growthbeat-core-ios",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GrowthbeatCore/GrowthbeatCore-Prefix.pch";

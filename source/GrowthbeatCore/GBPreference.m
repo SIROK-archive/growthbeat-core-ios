@@ -7,7 +7,7 @@
 //
 
 #import "GBPreference.h"
-#import "GBLogger.h"
+#import "GrowthbeatCore.h"
 
 static GBPreference *sharedInstance = nil;
 
@@ -73,7 +73,7 @@ static GBPreference *sharedInstance = nil;
 - (NSURL *) preferenceFileUrl {
     
     if (!fileName) {
-        [[GBLogger sharedInstance] log:@"GBPreference's fileName is not set."];
+        [[[GrowthbeatCore sharedInstance] logger] log:@"GBPreference's fileName is not set."];
         return nil;
     }
     

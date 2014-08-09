@@ -16,7 +16,6 @@
 
 @property (nonatomic, assign) BOOL silent;
 
-+ (GBLogger *)sharedInstance;
 - (void) log:(NSString *)format, ...;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "GBHttpClient.h"
-#import "GBLogger.h"
+#import "GrowthbeatCore.h"
 
 static GBHttpClient *sharedInstance = nil;
 
@@ -35,7 +35,7 @@ static GBHttpClient *sharedInstance = nil;
 - (GBHttpResponse *) httpRequest:(GBHttpRequest *)httpRequest {
     
     if (!baseUrl) {
-        [[GBLogger sharedInstance] log:@"GBHttpClient's baseUrl is not set."];
+        [[[GrowthbeatCore sharedInstance] logger] log:@"GBHttpClient's baseUrl is not set."];
         return nil;
     }
     
