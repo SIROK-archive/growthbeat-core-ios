@@ -34,8 +34,6 @@
 		B2916FAC1996515500A3C023 /* GBPreference.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916F8E1996515500A3C023 /* GBPreference.m */; };
 		B2916FAD1996515500A3C023 /* GBRequestMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F8F1996515500A3C023 /* GBRequestMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916FAE1996515500A3C023 /* GBRequestMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916F901996515500A3C023 /* GBRequestMethod.m */; };
-		B2916FAF1996515500A3C023 /* GBRSAUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F911996515500A3C023 /* GBRSAUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2916FB01996515500A3C023 /* GBRSAUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916F921996515500A3C023 /* GBRSAUtils.m */; };
 		B2916FB11996515500A3C023 /* GBUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F931996515500A3C023 /* GBUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916FB21996515500A3C023 /* GrowthbeatCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F941996515500A3C023 /* GrowthbeatCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916FB31996515600A3C023 /* GrowthbeatCore.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916F951996515500A3C023 /* GrowthbeatCore.m */; };
@@ -72,8 +70,6 @@
 		B2916F8E1996515500A3C023 /* GBPreference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBPreference.m; sourceTree = "<group>"; };
 		B2916F8F1996515500A3C023 /* GBRequestMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBRequestMethod.h; sourceTree = "<group>"; };
 		B2916F901996515500A3C023 /* GBRequestMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBRequestMethod.m; sourceTree = "<group>"; };
-		B2916F911996515500A3C023 /* GBRSAUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBRSAUtils.h; sourceTree = "<group>"; };
-		B2916F921996515500A3C023 /* GBRSAUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBRSAUtils.m; sourceTree = "<group>"; };
 		B2916F931996515500A3C023 /* GBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBUtils.h; sourceTree = "<group>"; };
 		B2916F941996515500A3C023 /* GrowthbeatCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowthbeatCore.h; sourceTree = "<group>"; };
 		B2916F951996515500A3C023 /* GrowthbeatCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowthbeatCore.m; sourceTree = "<group>"; };
@@ -144,8 +140,6 @@
 				B2916F8E1996515500A3C023 /* GBPreference.m */,
 				B2916F8F1996515500A3C023 /* GBRequestMethod.h */,
 				B2916F901996515500A3C023 /* GBRequestMethod.m */,
-				B2916F911996515500A3C023 /* GBRSAUtils.h */,
-				B2916F921996515500A3C023 /* GBRSAUtils.m */,
 				B2916F931996515500A3C023 /* GBUtils.h */,
 				B2916F941996515500A3C023 /* GrowthbeatCore.h */,
 				B2916F951996515500A3C023 /* GrowthbeatCore.m */,
@@ -173,7 +167,6 @@
 			files = (
 				B2916F9D1996515500A3C023 /* GBDateUtils.h in Headers */,
 				B2916F9F1996515500A3C023 /* GBDomain.h in Headers */,
-				B2916FAF1996515500A3C023 /* GBRSAUtils.h in Headers */,
 				B2916F9C1996515500A3C023 /* GBClientObserver.h in Headers */,
 				B2916F981996515500A3C023 /* GBBlocksClientObserver.h in Headers */,
 				B2916FA91996515500A3C023 /* GBLogger.h in Headers */,
@@ -278,7 +271,6 @@
 				B2916FA41996515500A3C023 /* GBHttpRequest.m in Sources */,
 				B2916FB31996515600A3C023 /* GrowthbeatCore.m in Sources */,
 				B2916FA61996515500A3C023 /* GBHttpResponse.m in Sources */,
-				B2916FB01996515500A3C023 /* GBRSAUtils.m in Sources */,
 				B2916FAC1996515500A3C023 /* GBPreference.m in Sources */,
 				B2916FA01996515500A3C023 /* GBDomain.m in Sources */,
 				B2916FA81996515500A3C023 /* GBHttpUtils.m in Sources */,
