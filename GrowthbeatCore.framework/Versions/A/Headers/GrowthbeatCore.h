@@ -7,22 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GBClientObserver.h"
 #import "GBLogger.h"
 #import "GBHttpClient.h"
 #import "GBUtils.h"
+#import "GBClient.h"
 
 @interface GrowthbeatCore : NSObject
 
 + (GrowthbeatCore *) sharedInstance;
 + (void)initializeWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId;
-+ (void)addClientObserver:(id <GBClientObserver>)clientObserver;
-+ (void)removeClientObserver:(id <GBClientObserver>)clientObserver;
 + (void)setPreferenceFileName:(NSString *)fileName;
 + (void)setHttpClientBaseUrl:(NSURL *)url;
 + (void)setLoggerSilent:(BOOL)silent;
 
 - (GBHttpClient *)httpClient;
 - (GBLogger *)logger;
+
+- (GBClient *)client;
+- (GBClient *)waitClient;
 
 @end

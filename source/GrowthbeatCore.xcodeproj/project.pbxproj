@@ -11,11 +11,8 @@
 		B2701194199650D7003354D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2701192199650D7003354D8 /* InfoPlist.strings */; };
 		B2916F961996515500A3C023 /* GBApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F781996515500A3C023 /* GBApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916F971996515500A3C023 /* GBApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916F791996515500A3C023 /* GBApplication.m */; };
-		B2916F981996515500A3C023 /* GBBlocksClientObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F7A1996515500A3C023 /* GBBlocksClientObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2916F991996515500A3C023 /* GBBlocksClientObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916F7B1996515500A3C023 /* GBBlocksClientObserver.m */; };
 		B2916F9A1996515500A3C023 /* GBClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F7C1996515500A3C023 /* GBClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916F9B1996515500A3C023 /* GBClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916F7D1996515500A3C023 /* GBClient.m */; };
-		B2916F9C1996515500A3C023 /* GBClientObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F7E1996515500A3C023 /* GBClientObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916F9D1996515500A3C023 /* GBDateUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F7F1996515500A3C023 /* GBDateUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916F9E1996515500A3C023 /* GBDateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916F801996515500A3C023 /* GBDateUtils.m */; };
 		B2916F9F1996515500A3C023 /* GBDomain.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F811996515500A3C023 /* GBDomain.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -47,11 +44,8 @@
 		B2701195199650D7003354D8 /* GrowthbeatCore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GrowthbeatCore-Prefix.pch"; sourceTree = "<group>"; };
 		B2916F781996515500A3C023 /* GBApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBApplication.h; sourceTree = "<group>"; };
 		B2916F791996515500A3C023 /* GBApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBApplication.m; sourceTree = "<group>"; };
-		B2916F7A1996515500A3C023 /* GBBlocksClientObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBBlocksClientObserver.h; sourceTree = "<group>"; };
-		B2916F7B1996515500A3C023 /* GBBlocksClientObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBBlocksClientObserver.m; sourceTree = "<group>"; };
 		B2916F7C1996515500A3C023 /* GBClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBClient.h; sourceTree = "<group>"; };
 		B2916F7D1996515500A3C023 /* GBClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBClient.m; sourceTree = "<group>"; };
-		B2916F7E1996515500A3C023 /* GBClientObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBClientObserver.h; sourceTree = "<group>"; };
 		B2916F7F1996515500A3C023 /* GBDateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDateUtils.h; sourceTree = "<group>"; };
 		B2916F801996515500A3C023 /* GBDateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBDateUtils.m; sourceTree = "<group>"; };
 		B2916F811996515500A3C023 /* GBDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDomain.h; sourceTree = "<group>"; };
@@ -136,9 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				B2916F781996515500A3C023 /* GBApplication.h */,
-				B2916F7A1996515500A3C023 /* GBBlocksClientObserver.h */,
 				B2916F7C1996515500A3C023 /* GBClient.h */,
-				B2916F7E1996515500A3C023 /* GBClientObserver.h */,
 				B2916F7F1996515500A3C023 /* GBDateUtils.h */,
 				B2916F811996515500A3C023 /* GBDomain.h */,
 				B2916F831996515500A3C023 /* GBHttpClient.h */,
@@ -158,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				B2916F791996515500A3C023 /* GBApplication.m */,
-				B2916F7B1996515500A3C023 /* GBBlocksClientObserver.m */,
 				B2916F7D1996515500A3C023 /* GBClient.m */,
 				B2916F801996515500A3C023 /* GBDateUtils.m */,
 				B2916F821996515500A3C023 /* GBDomain.m */,
@@ -183,8 +174,6 @@
 			files = (
 				B2916F9D1996515500A3C023 /* GBDateUtils.h in Headers */,
 				B2916F9F1996515500A3C023 /* GBDomain.h in Headers */,
-				B2916F9C1996515500A3C023 /* GBClientObserver.h in Headers */,
-				B2916F981996515500A3C023 /* GBBlocksClientObserver.h in Headers */,
 				B2916FA91996515500A3C023 /* GBLogger.h in Headers */,
 				B2916FB21996515500A3C023 /* GrowthbeatCore.h in Headers */,
 				B2916FA11996515500A3C023 /* GBHttpClient.h in Headers */,
@@ -291,7 +280,6 @@
 				B2916FA01996515500A3C023 /* GBDomain.m in Sources */,
 				B2916FA81996515500A3C023 /* GBHttpUtils.m in Sources */,
 				B2916F971996515500A3C023 /* GBApplication.m in Sources */,
-				B2916F991996515500A3C023 /* GBBlocksClientObserver.m in Sources */,
 				B2916F9B1996515500A3C023 /* GBClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

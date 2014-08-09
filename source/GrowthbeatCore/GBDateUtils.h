@@ -11,5 +11,6 @@
 @interface GBDateUtils : NSObject
 
 + (NSDate *)dateWithDateTimeString:(NSString *)dateTimeString;
++ (NSDate *) dateWithString:(NSString *)string format:(NSString *)format;
 
 @end
