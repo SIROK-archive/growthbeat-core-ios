@@ -11,15 +11,19 @@
 @implementation GBDateUtils
 
 + (NSDate *) dateWithDateTimeString:(NSString *)dateTimeString {
+    return [self dateWithString:dateTimeString format:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+}
 
++ (NSDate *) dateWithString:(NSString *)string format:(NSString *)format {
+    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-
+    
     [dateFormatter setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]];
     [dateFormatter setLocale:[NSLocale currentLocale]];
     [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
-
-    return [dateFormatter dateFromString:dateTimeString];
-
+    
+    return [dateFormatter dateFromString:string];
+    
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "GBClientObserver.h"
 #import "GBLogger.h"
 #import "GBHttpClient.h"
+#import "GBUtils.h"
 
 @interface GrowthbeatCore : NSObject
 
