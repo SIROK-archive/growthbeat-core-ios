@@ -32,7 +32,7 @@
     GBHttpRequest *httpRequest = [GBHttpRequest instanceWithMethod:GBRequestMethodPost path:path query:nil body:body];
     GBHttpResponse *httpResponse = [[GBHttpClient sharedInstance] httpRequest:httpRequest];
     if(!httpResponse.success){
-        [[[GrowthbeatCore sharedInstance] logger] log:@"Filed to create client. %@", httpResponse.error];
+        [[[GrowthbeatCore sharedInstance] logger] error:@"Filed to create client. %@", httpResponse.error];
         return nil;
     }
     

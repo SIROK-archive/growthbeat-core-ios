@@ -10,13 +10,17 @@
 
 @interface GBLogger : NSObject {
     
+    NSString *tag;
     BOOL silent;
     
 }
 
+@property (nonatomic, retain) NSString *tag;
 @property (nonatomic, assign) BOOL silent;
 
-+ (GBLogger *)sharedInstance;
-- (void) log:(NSString *)format, ...;
+- (void) error:(NSString *)format, ...;
+- (void) warn:(NSString *)format, ...;
+- (void) info:(NSString *)format, ...;
+- (void) debug:(NSString *)format, ...;
 
 @end

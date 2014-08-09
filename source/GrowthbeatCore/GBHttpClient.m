@@ -35,7 +35,7 @@ static GBHttpClient *sharedInstance = nil;
 - (GBHttpResponse *) httpRequest:(GBHttpRequest *)httpRequest {
     
     if (!baseUrl) {
-        [[[GrowthbeatCore sharedInstance] logger] log:@"GBHttpClient's baseUrl is not set."];
+        [[[GrowthbeatCore sharedInstance] logger] error:@"GBHttpClient's baseUrl is not set."];
         return nil;
     }
     

@@ -94,26 +94,26 @@ static NSString *const kGBPreferenceClientKey = @"client";
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         
-        [logger log:@"Initializing... (applicationId:%@)", applicationId];
+        [logger info:@"Initializing... (applicationId:%@)", applicationId];
         
         self.client = [self loadClient];
         if (client && [client.application.id isEqualToString:applicationId]) {
-            [logger log:@"Client already exists. (id:%@)", client.id];
+            [logger info:@"Client already exists. (id:%@)", client.id];
             [self updateClient:client];
             return;
         }
         
         [[GBPreference sharedInstance] removeAll];
         
-        [logger log:@"Creating client... (applicationId:%@)", applicationId];
+        [logger info:@"Creating client... (applicationId:%@)", applicationId];
         self.client = [GBClient createWithApplicationId:applicationId credentialId:credentialId];
         if(!client) {
-            [logger log:@"Failed to create client."];
+            [logger info:@"Failed to create client."];
             return;
         }
         
         [self saveClient:client];
-        [logger log:@"Client created. (id:%@)", client.id];
+        [logger info:@"Client created. (id:%@)", client.id];
         [self updateClient:client];
         
     });

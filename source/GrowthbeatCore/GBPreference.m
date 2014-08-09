@@ -73,7 +73,7 @@ static GBPreference *sharedInstance = nil;
 - (NSURL *) preferenceFileUrl {
     
     if (!fileName) {
-        [[[GrowthbeatCore sharedInstance] logger] log:@"GBPreference's fileName is not set."];
+        [[[GrowthbeatCore sharedInstance] logger] error:@"GBPreference's fileName is not set."];
         return nil;
     }
     

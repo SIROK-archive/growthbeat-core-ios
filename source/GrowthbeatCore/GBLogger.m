@@ -10,6 +10,7 @@
 
 @implementation GBLogger
 
+@synthesize tag;
 @synthesize silent;
 
 - (instancetype)init {
@@ -20,18 +21,37 @@
     return self;
 }
 
-- (void) log:(NSString *)format, ... {
-    
-    if (silent) {
-        return;
-    }
-    
+- (void) error:(NSString *)format, ... {
     va_list args;
-    
     va_start(args, format);
+    [self logWithLevel:@"ERROR" format:format args:args];
+}
+
+- (void) warn:(NSString *)format, ... {
+    va_list args;
+    va_start(args, format);
+    [self logWithLevel:@"WARN" format:format args:args];
+}
+
+- (void) info:(NSString *)format, ... {
+    va_list args;
+    va_start(args, format);
+    [self logWithLevel:@"INFO" format:format args:args];
+}
+
+- (void) debug:(NSString *)format, ... {
+    va_list args;
+    va_start(args, format);
+    [self logWithLevel:@"DEBUG" format:format args:args];
+}
+
+- (void) logWithLevel:(NSString *)level format:(NSString *)format args:(va_list)args {
+    
+    if (silent)
+        return;
     
     NSString *message = [[NSString alloc] initWithFormat:format arguments:args];
-    NSLog(@"GrowthbeatCore - %@", message);
+    NSLog(@"[%@:%@] %@", tag, level, message);
     
 }
 
