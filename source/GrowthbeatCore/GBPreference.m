@@ -9,25 +9,22 @@
 #import "GBPreference.h"
 #import "GrowthbeatCore.h"
 
-static GBPreference *sharedInstance = nil;
-
 @implementation GBPreference
 
 @synthesize fileName;
-
-+ (GBPreference *) sharedInstance {
-    @synchronized(self) {
-        if (!sharedInstance) {
-            sharedInstance = [[self alloc] init];
-        }
-        return sharedInstance;
-    }
-}
 
 - (instancetype) init {
     self = [super init];
     if (self) {
         self.fileName = nil;
+    }
+    return self;
+}
+
+- (instancetype) initWithFileName:(NSString *)initialFileName {
+    self = [super init];
+    if (self) {
+        self.fileName = initialFileName;
     }
     return self;
 }

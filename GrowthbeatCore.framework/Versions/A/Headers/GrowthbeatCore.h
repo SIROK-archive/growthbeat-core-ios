@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GBLogger.h"
 #import "GBHttpClient.h"
+#import "GBPreference.h"
 #import "GBUtils.h"
 #import "GBClient.h"
 #import "GBAppDelegateWrapper.h"
@@ -21,8 +22,9 @@
 + (void)setHttpClientBaseUrl:(NSURL *)url;
 + (void)setLoggerSilent:(BOOL)silent;
 
-- (GBHttpClient *)httpClient;
 - (GBLogger *)logger;
+- (GBHttpClient *)httpClient;
+- (GBPreference *)preference;
 
 - (GBClient *)client;
 - (GBClient *)waitClient;

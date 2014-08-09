@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "GrowthbeatCore.h"
-#import "GBHttpClient.h"
-#import "GBClient.h"
-#import "GBPreference.h"
 
 static GrowthbeatCore *sharedInstance = nil;
 static NSString *const kGBHttpClientDefaultBaseUrl = @"https://api.GrowthbeatCore.com/";
@@ -19,14 +16,17 @@ static NSString *const kGBPreferenceClientKey = @"client";
 
 @interface GrowthbeatCore () {
     
-    GBClient *client;    GBLogger *logger;
+    GBClient *client;
+    GBLogger *logger;
     GBHttpClient *httpClient;
+    GBPreference *preference;
     
 }
 
 @property (nonatomic, strong) GBClient *client;
 @property (nonatomic, strong) GBLogger *logger;
 @property (nonatomic, strong) GBHttpClient *httpClient;
+@property (nonatomic, strong) GBPreference *preference;
 
 @end
 
@@ -35,6 +35,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
 @synthesize client;
 @synthesize logger;
 @synthesize httpClient;
+@synthesize preference;
 
 + (GrowthbeatCore *) sharedInstance {
     @synchronized(self) {
@@ -57,7 +58,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
 }
 
 + (void)setPreferenceFileName:(NSString *)fileName {
-    [[GBPreference sharedInstance] setFileName:fileName];
+    [[[self sharedInstance] preference] setFileName:fileName];
 }
 
 + (void)setLoggerSilent:(BOOL)silent {
@@ -69,9 +70,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
     if (self) {
         self.logger = [[GBLogger alloc] initWithTag:@"Growthbeat"];
         self.httpClient = [[GBHttpClient alloc] initWithBaseUrl:[NSURL URLWithString:kGBHttpClientDefaultBaseUrl]];
-        if(![[GBPreference sharedInstance] fileName]) {
-            [[GBPreference sharedInstance] setFileName:kGBPreferenceDefaultFileName];
-        }
+        self.preference = [[GBPreference alloc] initWithFileName:kGBPreferenceDefaultFileName];
         self.client = nil;
     }
     return self;
@@ -89,7 +88,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
             return;
         }
         
-        [[GBPreference sharedInstance] removeAll];
+        [preference removeAll];
         
         [logger info:@"Creating client... (applicationId:%@)", applicationId];
         self.client = [GBClient createWithApplicationId:applicationId credentialId:credentialId];
@@ -117,7 +116,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
 
 - (GBClient *)loadClient {
     
-    NSData *data = [[GBPreference sharedInstance] objectForKey:kGBPreferenceClientKey];
+    NSData *data = [preference objectForKey:kGBPreferenceClientKey];
     
     if (!data) {
         return nil;
@@ -134,7 +133,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
     }
     
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:client];
-    [[GBPreference sharedInstance] setObject:data forKey:kGBPreferenceClientKey];
+    [preference setObject:data forKey:kGBPreferenceClientKey];
     
 }
 

@@ -38,7 +38,7 @@
 		B2916FBD199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916FBB199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916FBF199661C600A3C023 /* GBAppDelegateWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916FBE199661C600A3C023 /* GBAppDelegateWrapper.m */; };
 		B2916FC11996625200A3C023 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2916FC01996625200A3C023 /* UIKit.framework */; };
-		B2916FC31996676800A3C023 /* GBDeviceUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916FC21996676800A3C023 /* GBDeviceUtils.h */; };
+		B2916FC31996676800A3C023 /* GBDeviceUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916FC21996676800A3C023 /* GBDeviceUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916FC51996676E00A3C023 /* GBDeviceUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916FC41996676E00A3C023 /* GBDeviceUtils.m */; };
 /* End PBXBuildFile section */
 
@@ -203,8 +203,8 @@
 				B2916FBD199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h in Headers */,
 				B2916FBC199661BD00A3C023 /* GBAppDelegateWrapper.h in Headers */,
 				B2916F961996515500A3C023 /* GBApplication.h in Headers */,
-				B2916FA31996515500A3C023 /* GBHttpRequest.h in Headers */,
 				B2916FC31996676800A3C023 /* GBDeviceUtils.h in Headers */,
+				B2916FA31996515500A3C023 /* GBHttpRequest.h in Headers */,
 				B2916FAD1996515500A3C023 /* GBRequestMethod.h in Headers */,
 				B2916FA71996515500A3C023 /* GBHttpUtils.h in Headers */,
 			);
