@@ -34,6 +34,10 @@
 		B2916FB11996515500A3C023 /* GBUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F931996515500A3C023 /* GBUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916FB21996515500A3C023 /* GrowthbeatCore.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F941996515500A3C023 /* GrowthbeatCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916FB31996515600A3C023 /* GrowthbeatCore.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916F951996515500A3C023 /* GrowthbeatCore.m */; };
+		B2916FBC199661BD00A3C023 /* GBAppDelegateWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916FBA199661BD00A3C023 /* GBAppDelegateWrapper.h */; };
+		B2916FBD199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916FBB199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h */; };
+		B2916FBF199661C600A3C023 /* GBAppDelegateWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916FBE199661C600A3C023 /* GBAppDelegateWrapper.m */; };
+		B2916FC11996625200A3C023 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2916FC01996625200A3C023 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +71,10 @@
 		B2916F931996515500A3C023 /* GBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBUtils.h; sourceTree = "<group>"; };
 		B2916F941996515500A3C023 /* GrowthbeatCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowthbeatCore.h; sourceTree = "<group>"; };
 		B2916F951996515500A3C023 /* GrowthbeatCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowthbeatCore.m; sourceTree = "<group>"; };
+		B2916FBA199661BD00A3C023 /* GBAppDelegateWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBAppDelegateWrapper.h; sourceTree = "<group>"; };
+		B2916FBB199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBAppDelegateWrapperDelegate.h; sourceTree = "<group>"; };
+		B2916FBE199661C600A3C023 /* GBAppDelegateWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBAppDelegateWrapper.m; sourceTree = "<group>"; };
+		B2916FC01996625200A3C023 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2916FC11996625200A3C023 /* UIKit.framework in Frameworks */,
 				B270118E199650D7003354D8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +110,7 @@
 		B270118C199650D7003354D8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B2916FC01996625200A3C023 /* UIKit.framework */,
 				B270118D199650D7003354D8 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -129,6 +139,8 @@
 		B2916FB41996520200A3C023 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				B2916FBA199661BD00A3C023 /* GBAppDelegateWrapper.h */,
+				B2916FBB199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h */,
 				B2916F781996515500A3C023 /* GBApplication.h */,
 				B2916F7C1996515500A3C023 /* GBClient.h */,
 				B2916F7F1996515500A3C023 /* GBDateUtils.h */,
@@ -149,6 +161,7 @@
 		B2916FB51996521700A3C023 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B2916FBE199661C600A3C023 /* GBAppDelegateWrapper.m */,
 				B2916F791996515500A3C023 /* GBApplication.m */,
 				B2916F7D1996515500A3C023 /* GBClient.m */,
 				B2916F801996515500A3C023 /* GBDateUtils.m */,
@@ -177,7 +190,9 @@
 				B2916FA91996515500A3C023 /* GBLogger.h in Headers */,
 				B2916FB21996515500A3C023 /* GrowthbeatCore.h in Headers */,
 				B2916FA11996515500A3C023 /* GBHttpClient.h in Headers */,
+				B2916FBD199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h in Headers */,
 				B2916F9A1996515500A3C023 /* GBClient.h in Headers */,
+				B2916FBC199661BD00A3C023 /* GBAppDelegateWrapper.h in Headers */,
 				B2916FA51996515500A3C023 /* GBHttpResponse.h in Headers */,
 				B2916FB11996515500A3C023 /* GBUtils.h in Headers */,
 				B2916FAB1996515500A3C023 /* GBPreference.h in Headers */,
@@ -277,6 +292,7 @@
 				B2916FB31996515600A3C023 /* GrowthbeatCore.m in Sources */,
 				B2916FA61996515500A3C023 /* GBHttpResponse.m in Sources */,
 				B2916FAC1996515500A3C023 /* GBPreference.m in Sources */,
+				B2916FBF199661C600A3C023 /* GBAppDelegateWrapper.m in Sources */,
 				B2916FA01996515500A3C023 /* GBDomain.m in Sources */,
 				B2916FA81996515500A3C023 /* GBHttpUtils.m in Sources */,
 				B2916F971996515500A3C023 /* GBApplication.m in Sources */,
