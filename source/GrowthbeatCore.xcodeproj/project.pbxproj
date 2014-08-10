@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B253410819979D5A004C8EDB /* GBContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = B253410619979D5A004C8EDB /* GBContentType.h */; };
+		B253410919979D5A004C8EDB /* GBContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = B253410719979D5A004C8EDB /* GBContentType.m */; };
+		B253410C19979D8A004C8EDB /* GBHttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B253410A19979D8A004C8EDB /* GBHttpRequest.h */; };
+		B253410D19979D8A004C8EDB /* GBHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B253410B19979D8A004C8EDB /* GBHttpRequest.m */; };
+		B253411019979DBE004C8EDB /* GBMultipartFile.h in Headers */ = {isa = PBXBuildFile; fileRef = B253410E19979DBE004C8EDB /* GBMultipartFile.h */; };
+		B253411119979DBE004C8EDB /* GBMultipartFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B253410F19979DBE004C8EDB /* GBMultipartFile.m */; };
 		B270118E199650D7003354D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B270118D199650D7003354D8 /* Foundation.framework */; };
 		B2701194199650D7003354D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2701192199650D7003354D8 /* InfoPlist.strings */; };
 		B2916F961996515500A3C023 /* GBApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F781996515500A3C023 /* GBApplication.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -19,8 +25,6 @@
 		B2916FA01996515500A3C023 /* GBDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916F821996515500A3C023 /* GBDomain.m */; };
 		B2916FA11996515500A3C023 /* GBHttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F831996515500A3C023 /* GBHttpClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916FA21996515500A3C023 /* GBHttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916F841996515500A3C023 /* GBHttpClient.m */; };
-		B2916FA31996515500A3C023 /* GBHttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F851996515500A3C023 /* GBHttpRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2916FA41996515500A3C023 /* GBHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916F861996515500A3C023 /* GBHttpRequest.m */; };
 		B2916FA51996515500A3C023 /* GBHttpResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F871996515500A3C023 /* GBHttpResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2916FA61996515500A3C023 /* GBHttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = B2916F881996515500A3C023 /* GBHttpResponse.m */; };
 		B2916FA71996515500A3C023 /* GBHttpUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2916F891996515500A3C023 /* GBHttpUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,6 +47,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B253410619979D5A004C8EDB /* GBContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBContentType.h; sourceTree = "<group>"; };
+		B253410719979D5A004C8EDB /* GBContentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBContentType.m; sourceTree = "<group>"; };
+		B253410A19979D8A004C8EDB /* GBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBHttpRequest.h; sourceTree = "<group>"; };
+		B253410B19979D8A004C8EDB /* GBHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBHttpRequest.m; sourceTree = "<group>"; };
+		B253410E19979DBE004C8EDB /* GBMultipartFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBMultipartFile.h; sourceTree = "<group>"; };
+		B253410F19979DBE004C8EDB /* GBMultipartFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBMultipartFile.m; sourceTree = "<group>"; };
 		B270118A199650D7003354D8 /* GrowthbeatCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework.static; includeInIndex = 0; path = GrowthbeatCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B270118D199650D7003354D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B2701191199650D7003354D8 /* GrowthbeatCore-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GrowthbeatCore-Info.plist"; sourceTree = "<group>"; };
@@ -58,8 +68,6 @@
 		B2916F821996515500A3C023 /* GBDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBDomain.m; sourceTree = "<group>"; };
 		B2916F831996515500A3C023 /* GBHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBHttpClient.h; sourceTree = "<group>"; };
 		B2916F841996515500A3C023 /* GBHttpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBHttpClient.m; sourceTree = "<group>"; };
-		B2916F851996515500A3C023 /* GBHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBHttpRequest.h; sourceTree = "<group>"; };
-		B2916F861996515500A3C023 /* GBHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBHttpRequest.m; sourceTree = "<group>"; };
 		B2916F871996515500A3C023 /* GBHttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBHttpResponse.h; sourceTree = "<group>"; };
 		B2916F881996515500A3C023 /* GBHttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBHttpResponse.m; sourceTree = "<group>"; };
 		B2916F891996515500A3C023 /* GBHttpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBHttpUtils.h; sourceTree = "<group>"; };
@@ -148,16 +156,18 @@
 				B2916F781996515500A3C023 /* GBApplication.h */,
 				B2916F7C1996515500A3C023 /* GBClient.h */,
 				B2916F7F1996515500A3C023 /* GBDateUtils.h */,
+				B2916FC21996676800A3C023 /* GBDeviceUtils.h */,
 				B2916F811996515500A3C023 /* GBDomain.h */,
 				B2916F831996515500A3C023 /* GBHttpClient.h */,
-				B2916F851996515500A3C023 /* GBHttpRequest.h */,
 				B2916F871996515500A3C023 /* GBHttpResponse.h */,
 				B2916F891996515500A3C023 /* GBHttpUtils.h */,
 				B2916F8B1996515500A3C023 /* GBLogger.h */,
 				B2916F8D1996515500A3C023 /* GBPreference.h */,
 				B2916F8F1996515500A3C023 /* GBRequestMethod.h */,
 				B2916F931996515500A3C023 /* GBUtils.h */,
-				B2916FC21996676800A3C023 /* GBDeviceUtils.h */,
+				B253410619979D5A004C8EDB /* GBContentType.h */,
+				B253410A19979D8A004C8EDB /* GBHttpRequest.h */,
+				B253410E19979DBE004C8EDB /* GBMultipartFile.h */,
 				B2916F941996515500A3C023 /* GrowthbeatCore.h */,
 			);
 			name = Headers;
@@ -170,15 +180,17 @@
 				B2916F791996515500A3C023 /* GBApplication.m */,
 				B2916F7D1996515500A3C023 /* GBClient.m */,
 				B2916F801996515500A3C023 /* GBDateUtils.m */,
+				B2916FC41996676E00A3C023 /* GBDeviceUtils.m */,
 				B2916F821996515500A3C023 /* GBDomain.m */,
 				B2916F841996515500A3C023 /* GBHttpClient.m */,
-				B2916F861996515500A3C023 /* GBHttpRequest.m */,
 				B2916F881996515500A3C023 /* GBHttpResponse.m */,
 				B2916F8A1996515500A3C023 /* GBHttpUtils.m */,
 				B2916F8C1996515500A3C023 /* GBLogger.m */,
 				B2916F8E1996515500A3C023 /* GBPreference.m */,
 				B2916F901996515500A3C023 /* GBRequestMethod.m */,
-				B2916FC41996676E00A3C023 /* GBDeviceUtils.m */,
+				B253410719979D5A004C8EDB /* GBContentType.m */,
+				B253410B19979D8A004C8EDB /* GBHttpRequest.m */,
+				B253410F19979DBE004C8EDB /* GBMultipartFile.m */,
 				B2916F951996515500A3C023 /* GrowthbeatCore.m */,
 			);
 			name = Sources;
@@ -197,14 +209,16 @@
 				B2916FB21996515500A3C023 /* GrowthbeatCore.h in Headers */,
 				B2916FA11996515500A3C023 /* GBHttpClient.h in Headers */,
 				B2916F9A1996515500A3C023 /* GBClient.h in Headers */,
+				B253410819979D5A004C8EDB /* GBContentType.h in Headers */,
 				B2916FA51996515500A3C023 /* GBHttpResponse.h in Headers */,
 				B2916FB11996515500A3C023 /* GBUtils.h in Headers */,
 				B2916FAB1996515500A3C023 /* GBPreference.h in Headers */,
 				B2916FBD199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h in Headers */,
+				B253410C19979D8A004C8EDB /* GBHttpRequest.h in Headers */,
 				B2916FBC199661BD00A3C023 /* GBAppDelegateWrapper.h in Headers */,
+				B253411019979DBE004C8EDB /* GBMultipartFile.h in Headers */,
 				B2916F961996515500A3C023 /* GBApplication.h in Headers */,
 				B2916FC31996676800A3C023 /* GBDeviceUtils.h in Headers */,
-				B2916FA31996515500A3C023 /* GBHttpRequest.h in Headers */,
 				B2916FAD1996515500A3C023 /* GBRequestMethod.h in Headers */,
 				B2916FA71996515500A3C023 /* GBHttpUtils.h in Headers */,
 			);
@@ -295,13 +309,15 @@
 				B2916F9E1996515500A3C023 /* GBDateUtils.m in Sources */,
 				B2916FA21996515500A3C023 /* GBHttpClient.m in Sources */,
 				B2916FAE1996515500A3C023 /* GBRequestMethod.m in Sources */,
-				B2916FA41996515500A3C023 /* GBHttpRequest.m in Sources */,
 				B2916FB31996515600A3C023 /* GrowthbeatCore.m in Sources */,
+				B253411119979DBE004C8EDB /* GBMultipartFile.m in Sources */,
 				B2916FC51996676E00A3C023 /* GBDeviceUtils.m in Sources */,
 				B2916FA61996515500A3C023 /* GBHttpResponse.m in Sources */,
 				B2916FAC1996515500A3C023 /* GBPreference.m in Sources */,
 				B2916FBF199661C600A3C023 /* GBAppDelegateWrapper.m in Sources */,
 				B2916FA01996515500A3C023 /* GBDomain.m in Sources */,
+				B253410919979D5A004C8EDB /* GBContentType.m in Sources */,
+				B253410D19979D8A004C8EDB /* GBHttpRequest.m in Sources */,
 				B2916FA81996515500A3C023 /* GBHttpUtils.m in Sources */,
 				B2916F971996515500A3C023 /* GBApplication.m in Sources */,
 				B2916F9B1996515500A3C023 /* GBClient.m in Sources */,

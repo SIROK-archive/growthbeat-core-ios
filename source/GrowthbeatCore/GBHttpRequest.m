@@ -1,9 +1,9 @@
 //
-//  GBHttpRequest.m
-//  GrowthbeatCore
+//  GPHttpRequest.m
+//  pickaxe
 //
-//  Created by Naoyuki Kataoka on 2014/06/12.
-//  Copyright (c) 2014 SIROK, Inc. All rights reserved.
+//  Created by Kataoka Naoyuki on 2013/07/03.
+//  Copyright (c) 2013年 SIROK, Inc. All rights reserved.
 //
 
 #import "GBHttpRequest.h"
@@ -11,25 +11,26 @@
 
 @implementation GBHttpRequest
 
-@synthesize method;
+@synthesize requestMethod;
+@synthesize contentType;
 @synthesize path;
 @synthesize query;
 @synthesize body;
 
-+ (id) instanceWithMethod:(GBRequestMethod)method path:(NSString *)path {
++ (id) instanceWithMethod:(GBRequestMethod)requestMethod path:(NSString *)path {
 
     GBHttpRequest *httpRequest = [[self alloc] init];
 
-    httpRequest.method = method;
+    httpRequest.requestMethod = requestMethod;
     httpRequest.path = path;
 
     return httpRequest;
 
 }
 
-+ (id) instanceWithMethod:(GBRequestMethod)method path:(NSString *)path query:(NSDictionary *)query {
++ (id) instanceWithMethod:(GBRequestMethod)requestMethod path:(NSString *)path query:(NSDictionary *)query {
 
-    GBHttpRequest *httpRequest = [self instanceWithMethod:method path:path];
+    GBHttpRequest *httpRequest = [self instanceWithMethod:requestMethod path:path];
 
     httpRequest.query = query;
 
@@ -37,30 +38,72 @@
 
 }
 
-+ (id) instanceWithMethod:(GBRequestMethod)method path:(NSString *)path query:(NSDictionary *)query body:(NSDictionary *)body {
-
-    GBHttpRequest *httpRequest = [self instanceWithMethod:method path:path query:query];
-
++ (id) instanceWithMethod:(GBRequestMethod)requestMethod path:(NSString *)path query:(NSDictionary *)query body:(NSDictionary *)body {
+    
+    GBHttpRequest *httpRequest = [self instanceWithMethod:requestMethod path:path query:query];
+    
     httpRequest.body = body;
-
+    
     return httpRequest;
+    
+}
+
++ (id) instanceWithMethod:(GBRequestMethod)requestMethod path:(NSString *)path query:(NSDictionary *)query body:(NSDictionary *)body contentType:(GBContentType)contentType {
+    
+    GBHttpRequest *httpRequest = [self instanceWithMethod:requestMethod path:path query:query body:body];
+    
+    httpRequest.contentType = contentType;
+    
+    return httpRequest;
+    
+}
+
+- (void) dealloc {
+
+    self.path = nil;
+    self.query = nil;
+    self.body = nil;
 
 }
 
-
 - (NSURLRequest *) urlRequestWithBaseUrl:(NSURL *)baseUrl {
+    
+    if(contentType == GRContentTypeUnknown)
+        contentType = GRContentTypeJson;
 
     NSString *requestPath = path ? path : @"";
     NSMutableDictionary *requestQuery = [NSMutableDictionary dictionaryWithDictionary:query];
-    NSMutableDictionary *requestBody = [NSMutableDictionary dictionaryWithDictionary:body];
+    NSData *requestBody = nil;
+    NSString *contentTypeString = nil;
 
-    if (method == GBRequestMethodGet) {
-        [requestQuery addEntriesFromDictionary:requestBody];
-        [requestBody removeAllObjects];
+    if (requestMethod == GBRequestMethodGet) {
+        [requestQuery addEntriesFromDictionary:body];
+    } else {
+        switch (contentType) {
+            case GRContentTypeFormUrlEncoded:
+                requestBody = [GBHttpUtils formUrlencodedBodyWithDictionary:body];
+                break;
+            case GRContentTypeJson:
+                requestBody = [GBHttpUtils jsonBodyWithDictionary:body];
+                break;
+            case GRContentTypeMultipart:
+                requestBody = [GBHttpUtils multipartBodyWithDictionary:body];
+                break;
+            default:
+                break;
+        }
     }
-
+    
+    switch (contentType) {
+        case GRContentTypeMultipart:
+            contentTypeString = [NSString stringWithFormat:@"%@; boundary=%@; charset=%@", NSStringFromContnetType(contentType), kMultipartBoundary, CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))];
+            break;
+        default:
+            contentTypeString = [NSString stringWithFormat:@"%@; charset=%@", NSStringFromContnetType(contentType), CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))];
+            break;
+    }
+    
     NSString *requestQueryString = [GBHttpUtils queryStringWithDictionary:requestQuery];
-    NSString *requestBodyString = [GBHttpUtils queryStringWithDictionary:requestBody];
 
     if ([requestQueryString length] > 0) {
         requestPath = [NSString stringWithFormat:@"%@?%@", requestPath, requestQueryString];
@@ -68,14 +111,12 @@
 
     NSURL *url = [NSURL URLWithString:requestPath relativeToURL:baseUrl];
     NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:url];
-
-    [urlRequest setHTTPMethod:NSStringFromGBRequestMethod(method)];
+    [urlRequest setHTTPMethod:NSStringFromGBRequestMethod(requestMethod)];
     [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Accept"];
 
-    if (method != GBRequestMethodGet) {
-        NSString *contentTypeString = [NSString stringWithFormat:@"application/x-www-form-urlencoded; charset=%@", CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))];
+    if (requestMethod != GBRequestMethodGet) {
         [urlRequest setValue:contentTypeString forHTTPHeaderField:@"Content-Type"];
-        [urlRequest setHTTPBody:[requestBodyString dataUsingEncoding:NSUTF8StringEncoding]];
+        [urlRequest setHTTPBody:requestBody];
     }
 
     return urlRequest;
