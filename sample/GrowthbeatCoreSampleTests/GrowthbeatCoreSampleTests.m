@@ -1,18 +1,18 @@
 //
-//  GrowthbeatSampleTests.m
-//  GrowthbeatSampleTests
+//  GrowthbeatCoreSampleTests.m
+//  GrowthbeatCoreSampleTests
 //
-//  Created by Kataoka Naoyuki on 2014/06/30.
+//  Created by Kataoka Naoyuki on 2014/08/10.
 //  Copyright (c) 2014年 SIROK, Inc. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface GrowthbeatSampleTests : XCTestCase
+@interface GrowthbeatCoreSampleTests : XCTestCase
 
 @end
 
-@implementation GrowthbeatSampleTests
+@implementation GrowthbeatCoreSampleTests
 
 - (void)setUp
 {

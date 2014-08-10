@@ -11,7 +11,7 @@
 
 static GrowthbeatCore *sharedInstance = nil;
 static NSString *const kGBHttpClientDefaultBaseUrl = @"https://api.GrowthbeatCore.com/";
-static NSString *const kGBPreferenceDefaultFileName = @"GrowthbeatCore-preferences";
+static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
 static NSString *const kGBPreferenceClientKey = @"client";
 
 @interface GrowthbeatCore () {
