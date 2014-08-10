@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B253410819979D5A004C8EDB /* GBContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = B253410619979D5A004C8EDB /* GBContentType.h */; };
+		B253410819979D5A004C8EDB /* GBContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = B253410619979D5A004C8EDB /* GBContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B253410919979D5A004C8EDB /* GBContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = B253410719979D5A004C8EDB /* GBContentType.m */; };
-		B253410C19979D8A004C8EDB /* GBHttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B253410A19979D8A004C8EDB /* GBHttpRequest.h */; };
+		B253410C19979D8A004C8EDB /* GBHttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = B253410A19979D8A004C8EDB /* GBHttpRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B253410D19979D8A004C8EDB /* GBHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = B253410B19979D8A004C8EDB /* GBHttpRequest.m */; };
-		B253411019979DBE004C8EDB /* GBMultipartFile.h in Headers */ = {isa = PBXBuildFile; fileRef = B253410E19979DBE004C8EDB /* GBMultipartFile.h */; };
+		B253411019979DBE004C8EDB /* GBMultipartFile.h in Headers */ = {isa = PBXBuildFile; fileRef = B253410E19979DBE004C8EDB /* GBMultipartFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B253411119979DBE004C8EDB /* GBMultipartFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B253410F19979DBE004C8EDB /* GBMultipartFile.m */; };
 		B270118E199650D7003354D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B270118D199650D7003354D8 /* Foundation.framework */; };
 		B2701194199650D7003354D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B2701192199650D7003354D8 /* InfoPlist.strings */; };
@@ -211,12 +211,12 @@
 				B2916F9A1996515500A3C023 /* GBClient.h in Headers */,
 				B253410819979D5A004C8EDB /* GBContentType.h in Headers */,
 				B2916FA51996515500A3C023 /* GBHttpResponse.h in Headers */,
+				B253410C19979D8A004C8EDB /* GBHttpRequest.h in Headers */,
+				B253411019979DBE004C8EDB /* GBMultipartFile.h in Headers */,
 				B2916FB11996515500A3C023 /* GBUtils.h in Headers */,
 				B2916FAB1996515500A3C023 /* GBPreference.h in Headers */,
 				B2916FBD199661BD00A3C023 /* GBAppDelegateWrapperDelegate.h in Headers */,
-				B253410C19979D8A004C8EDB /* GBHttpRequest.h in Headers */,
 				B2916FBC199661BD00A3C023 /* GBAppDelegateWrapper.h in Headers */,
-				B253411019979DBE004C8EDB /* GBMultipartFile.h in Headers */,
 				B2916F961996515500A3C023 /* GBApplication.h in Headers */,
 				B2916FC31996676800A3C023 /* GBDeviceUtils.h in Headers */,
 				B2916FAD1996515500A3C023 /* GBRequestMethod.h in Headers */,
