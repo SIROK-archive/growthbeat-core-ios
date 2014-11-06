@@ -11,29 +11,29 @@
 NSString *NSStringFromContnetType(GBContentType contentType) {
     
     switch (contentType) {
-        case GRContentTypeUnknown:
+        case GBContentTypeUnknown:
             return nil;
-        case GRContentTypeFormUrlEncoded:
+        case GBContentTypeFormUrlEncoded:
             return @"application/x-www-form-urlencoded";
-        case GRContentTypeMultipart:
+        case GBContentTypeMultipart:
             return @"multipart/form-data";
-        case GRContentTypeJson:
+        case GBContentTypeJson:
             return @"application/json";
     }
     
 }
 
-GBContentType GRContentTypeFromNSString(NSString *contentTypeString) {
+GBContentType GBContentTypeFromNSString(NSString *contentTypeString) {
     
     if ([contentTypeString isEqualToString:@"application/x-www-form-urlencoded"]) {
-        return GRContentTypeFormUrlEncoded;
+        return GBContentTypeFormUrlEncoded;
     }
     if ([contentTypeString isEqualToString:@"multipart/form-data"]) {
-        return GRContentTypeMultipart;
+        return GBContentTypeMultipart;
     }
     if ([contentTypeString isEqualToString:@"application/json"]) {
-        return GRContentTypeJson;
+        return GBContentTypeJson;
     }
-    return GRContentTypeUnknown;
+    return GBContentTypeUnknown;
     
 }

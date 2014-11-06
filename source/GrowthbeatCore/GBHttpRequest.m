@@ -1,5 +1,5 @@
 //
-//  GPHttpRequest.m
+//  GBHttpRequest.m
 //  pickaxe
 //
 //  Created by Kataoka Naoyuki on 2013/07/03.
@@ -68,8 +68,8 @@
 
 - (NSURLRequest *) urlRequestWithBaseUrl:(NSURL *)baseUrl {
     
-    if(contentType == GRContentTypeUnknown)
-        contentType = GRContentTypeJson;
+    if(contentType == GBContentTypeUnknown)
+        contentType = GBContentTypeJson;
 
     NSString *requestPath = path ? path : @"";
     NSMutableDictionary *requestQuery = [NSMutableDictionary dictionaryWithDictionary:query];
@@ -80,13 +80,13 @@
         [requestQuery addEntriesFromDictionary:body];
     } else {
         switch (contentType) {
-            case GRContentTypeFormUrlEncoded:
+            case GBContentTypeFormUrlEncoded:
                 requestBody = [GBHttpUtils formUrlencodedBodyWithDictionary:body];
                 break;
-            case GRContentTypeJson:
+            case GBContentTypeJson:
                 requestBody = [GBHttpUtils jsonBodyWithDictionary:body];
                 break;
-            case GRContentTypeMultipart:
+            case GBContentTypeMultipart:
                 requestBody = [GBHttpUtils multipartBodyWithDictionary:body];
                 break;
             default:
@@ -95,7 +95,7 @@
     }
     
     switch (contentType) {
-        case GRContentTypeMultipart:
+        case GBContentTypeMultipart:
             contentTypeString = [NSString stringWithFormat:@"%@; boundary=%@; charset=%@", NSStringFromContnetType(contentType), kMultipartBoundary, CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))];
             break;
         default:
