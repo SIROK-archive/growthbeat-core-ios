@@ -50,22 +50,6 @@ static NSString *const kGBPreferenceClientKey = @"client";
     }
 }
 
-+ (void)initializeWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId {
-    [[self sharedInstance] initializeWithApplicationId:applicationId credentialId:credentialId];
-}
-
-+ (void)setHttpClientBaseUrl:(NSURL *)url {
-    [[[self sharedInstance] httpClient] setBaseUrl:url];
-}
-
-+ (void)setPreferenceFileName:(NSString *)fileName {
-    [[[self sharedInstance] preference] setFileName:fileName];
-}
-
-+ (void)setLoggerSilent:(BOOL)silent {
-    [[[self sharedInstance] logger] setSilent:silent];
-}
-
 - (instancetype) init {
     self = [super init];
     if (self) {
