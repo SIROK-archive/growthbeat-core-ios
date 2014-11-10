@@ -186,40 +186,8 @@
 		B20AD1CC1A0C32FE003ABF66 /* GrowthbeatCore */ = {
 			isa = PBXGroup;
 			children = (
-				B20AD1E41A0C3391003ABF66 /* GBAppDelegateWrapper.h */,
-				B20AD1E51A0C3391003ABF66 /* GBAppDelegateWrapper.m */,
-				B20AD1E61A0C3391003ABF66 /* GBAppDelegateWrapperDelegate.h */,
-				B20AD1E71A0C3391003ABF66 /* GBApplication.h */,
-				B20AD1E81A0C3391003ABF66 /* GBApplication.m */,
-				B20AD1E91A0C3391003ABF66 /* GBClient.h */,
-				B20AD1EA1A0C3391003ABF66 /* GBClient.m */,
-				B20AD1EB1A0C3391003ABF66 /* GBContentType.h */,
-				B20AD1EC1A0C3391003ABF66 /* GBContentType.m */,
-				B20AD1ED1A0C3391003ABF66 /* GBDateUtils.h */,
-				B20AD1EE1A0C3391003ABF66 /* GBDateUtils.m */,
-				B20AD1EF1A0C3391003ABF66 /* GBDeviceUtils.h */,
-				B20AD1F01A0C3391003ABF66 /* GBDeviceUtils.m */,
-				B20AD1F11A0C3391003ABF66 /* GBDomain.h */,
-				B20AD1F21A0C3392003ABF66 /* GBDomain.m */,
-				B20AD1F31A0C3392003ABF66 /* GBHttpClient.h */,
-				B20AD1F41A0C3392003ABF66 /* GBHttpClient.m */,
-				B20AD1F51A0C3392003ABF66 /* GBHttpRequest.h */,
-				B20AD1F61A0C3392003ABF66 /* GBHttpRequest.m */,
-				B20AD1F71A0C3392003ABF66 /* GBHttpResponse.h */,
-				B20AD1F81A0C3392003ABF66 /* GBHttpResponse.m */,
-				B20AD1F91A0C3392003ABF66 /* GBHttpUtils.h */,
-				B20AD1FA1A0C3392003ABF66 /* GBHttpUtils.m */,
-				B20AD1FB1A0C3392003ABF66 /* GBLogger.h */,
-				B20AD1FC1A0C3392003ABF66 /* GBLogger.m */,
-				B20AD1FD1A0C3392003ABF66 /* GBMultipartFile.h */,
-				B20AD1FE1A0C3392003ABF66 /* GBMultipartFile.m */,
-				B20AD1FF1A0C3392003ABF66 /* GBPreference.h */,
-				B20AD2001A0C3392003ABF66 /* GBPreference.m */,
-				B20AD2011A0C3392003ABF66 /* GBRequestMethod.h */,
-				B20AD2021A0C3392003ABF66 /* GBRequestMethod.m */,
-				B20AD2031A0C3392003ABF66 /* GBUtils.h */,
-				B20AD2131A0C33A4003ABF66 /* GrowthbeatCore.h */,
-				B20AD2141A0C33A4003ABF66 /* GrowthbeatCore.m */,
+				B20AD24D1A0C3C57003ABF66 /* Headers */,
+				B20AD24E1A0C3C5E003ABF66 /* Sources */,
 			);
 			path = GrowthbeatCore;
 			sourceTree = "<group>";
@@ -238,6 +206,54 @@
 				B20AD1DB1A0C32FE003ABF66 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B20AD24D1A0C3C57003ABF66 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				B20AD1E41A0C3391003ABF66 /* GBAppDelegateWrapper.h */,
+				B20AD1E61A0C3391003ABF66 /* GBAppDelegateWrapperDelegate.h */,
+				B20AD1E71A0C3391003ABF66 /* GBApplication.h */,
+				B20AD1E91A0C3391003ABF66 /* GBClient.h */,
+				B20AD1EB1A0C3391003ABF66 /* GBContentType.h */,
+				B20AD1ED1A0C3391003ABF66 /* GBDateUtils.h */,
+				B20AD1EF1A0C3391003ABF66 /* GBDeviceUtils.h */,
+				B20AD1F11A0C3391003ABF66 /* GBDomain.h */,
+				B20AD1F31A0C3392003ABF66 /* GBHttpClient.h */,
+				B20AD1F51A0C3392003ABF66 /* GBHttpRequest.h */,
+				B20AD1F71A0C3392003ABF66 /* GBHttpResponse.h */,
+				B20AD1F91A0C3392003ABF66 /* GBHttpUtils.h */,
+				B20AD1FB1A0C3392003ABF66 /* GBLogger.h */,
+				B20AD1FD1A0C3392003ABF66 /* GBMultipartFile.h */,
+				B20AD1FF1A0C3392003ABF66 /* GBPreference.h */,
+				B20AD2011A0C3392003ABF66 /* GBRequestMethod.h */,
+				B20AD2031A0C3392003ABF66 /* GBUtils.h */,
+				B20AD2131A0C33A4003ABF66 /* GrowthbeatCore.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		B20AD24E1A0C3C5E003ABF66 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B20AD1E51A0C3391003ABF66 /* GBAppDelegateWrapper.m */,
+				B20AD1E81A0C3391003ABF66 /* GBApplication.m */,
+				B20AD1EA1A0C3391003ABF66 /* GBClient.m */,
+				B20AD1EC1A0C3391003ABF66 /* GBContentType.m */,
+				B20AD1EE1A0C3391003ABF66 /* GBDateUtils.m */,
+				B20AD1F01A0C3391003ABF66 /* GBDeviceUtils.m */,
+				B20AD1F21A0C3392003ABF66 /* GBDomain.m */,
+				B20AD1F41A0C3392003ABF66 /* GBHttpClient.m */,
+				B20AD1F61A0C3392003ABF66 /* GBHttpRequest.m */,
+				B20AD1F81A0C3392003ABF66 /* GBHttpResponse.m */,
+				B20AD1FA1A0C3392003ABF66 /* GBHttpUtils.m */,
+				B20AD1FC1A0C3392003ABF66 /* GBLogger.m */,
+				B20AD1FE1A0C3392003ABF66 /* GBMultipartFile.m */,
+				B20AD2001A0C3392003ABF66 /* GBPreference.m */,
+				B20AD2021A0C3392003ABF66 /* GBRequestMethod.m */,
+				B20AD2141A0C33A4003ABF66 /* GrowthbeatCore.m */,
+			);
+			name = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,7 +369,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\nset +u\n# Avoid recursively calling this script.\nif [[ $SF_MASTER_SCRIPT_RUNNING ]]\nthen\nexit 0\nfi\nset -u\nexport SF_MASTER_SCRIPT_RUNNING=1\n\nSF_TARGET_NAME=${PROJECT_NAME}\nSF_EXECUTABLE_PATH=\"lib${SF_TARGET_NAME}.a\"\nSF_WRAPPER_NAME=\"${SF_TARGET_NAME}.framework\"\n\n# The following conditionals come from\n# https://github.com/kstenerud/iOS-Universal-Framework\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\nSF_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\nSF_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SF_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\nSF_OTHER_PLATFORM=iphonesimulator\nelse\nSF_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$SF_SDK_PLATFORM$ ]]\nthen\nSF_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${SF_OTHER_PLATFORM}\"\nelse\necho \"Could not find platform name from build products directory: $BUILT_PRODUCTS_DIR\"\nexit 1\nfi\n\n# Build the other platform.\nxcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${SF_OTHER_PLATFORM}${SF_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" OBJROOT=\"${OBJROOT}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\" $ACTION\n\n# Smash the two static libraries into one fat binary and store it in the .framework\nxcrun lipo -create \"${BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" -output \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n\n# Copy the binary to the other architecture folder to have a complete framework in both.\ncp -a \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"";
+			shellScript = "set -e\nset +u\n# Avoid recursively calling this script.\nif [[ $SF_MASTER_SCRIPT_RUNNING ]]\nthen\nexit 0\nfi\nset -u\nexport SF_MASTER_SCRIPT_RUNNING=1\n\nSF_TARGET_NAME=${PROJECT_NAME}\nSF_EXECUTABLE_PATH=\"lib${SF_TARGET_NAME}.a\"\nSF_WRAPPER_NAME=\"${SF_TARGET_NAME}.framework\"\n\n# The following conditionals come from\n# https://github.com/kstenerud/iOS-Universal-Framework\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\nSF_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\nSF_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SF_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\nSF_OTHER_PLATFORM=iphonesimulator\nelse\nSF_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$SF_SDK_PLATFORM$ ]]\nthen\nSF_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${SF_OTHER_PLATFORM}\"\nelse\necho \"Could not find platform name from build products directory: $BUILT_PRODUCTS_DIR\"\nexit 1\nfi\n\n# Build the other platform.\nxcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${SF_OTHER_PLATFORM}${SF_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" OBJROOT=\"${OBJROOT}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\" $ACTION\n\n# Smash the two static libraries into one fat binary and store it in the .framework\nxcrun lipo -create \"${BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" -output \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n\n# Copy the binary to the other architecture folder to have a complete framework in both.\ncp -a \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n\n# Open products directory\nopen \"${BUILT_PRODUCTS_DIR}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

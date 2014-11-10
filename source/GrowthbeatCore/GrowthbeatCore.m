@@ -10,7 +10,8 @@
 #import "GrowthbeatCore.h"
 
 static GrowthbeatCore *sharedInstance = nil;
-static NSString *const kGBHttpClientDefaultBaseUrl = @"https://api.GrowthbeatCore.com/";
+static NSString *const kGBLoggerDefaultTag = @"GrowthbeatCore";
+static NSString *const kGBHttpClientDefaultBaseUrl = @"https://api.growthbeat.com/";
 static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
 static NSString *const kGBPreferenceClientKey = @"client";
 
@@ -68,7 +69,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
 - (instancetype) init {
     self = [super init];
     if (self) {
-        self.logger = [[GBLogger alloc] initWithTag:@"Growthbeat"];
+        self.logger = [[GBLogger alloc] initWithTag:kGBLoggerDefaultTag];
         self.httpClient = [[GBHttpClient alloc] initWithBaseUrl:[NSURL URLWithString:kGBHttpClientDefaultBaseUrl]];
         self.preference = [[GBPreference alloc] initWithFileName:kGBPreferenceDefaultFileName];
         self.client = nil;
