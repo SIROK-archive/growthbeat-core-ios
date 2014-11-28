@@ -47,9 +47,20 @@
 }
 
 + (NSString *) timeZone {
-
     return [[NSTimeZone systemTimeZone] name];
+}
 
++ (NSString *) timeZoneOffset {
+    return [[NSString alloc] initWithFormat:@"%ld", [[NSTimeZone localTimeZone] secondsFromGMT] / 3600];
+}
+
++ (NSString *) locale {
+    return [[NSLocale currentLocale] objectForKey:NSLocaleCountryCode];
+}
+
++ (NSString *)country {
+    NSLocale *locale = [NSLocale currentLocale];
+    return [locale displayNameForKey:NSLocaleIdentifier value:[locale localeIdentifier]];
 }
 
 + (NSString *) version {
