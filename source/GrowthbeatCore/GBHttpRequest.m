@@ -69,7 +69,7 @@
 - (NSURLRequest *) urlRequestWithBaseUrl:(NSURL *)baseUrl {
     
     if(contentType == GBContentTypeUnknown)
-        contentType = GBContentTypeJson;
+        contentType = GBContentTypeFormUrlEncoded;
 
     NSString *requestPath = path ? path : @"";
     NSMutableDictionary *requestQuery = [NSMutableDictionary dictionaryWithDictionary:query];
