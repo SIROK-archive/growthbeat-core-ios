@@ -29,19 +29,27 @@
     return self;
 }
 
-- (id) objectForKey:(id <NSCopying>)key {
+- (id <NSCoding>) objectForKey:(id <NSCopying>)key {
 
     NSDictionary *prefrences = [self preferences];
 
-    return [prefrences objectForKey:key];
+    NSData *data = [prefrences objectForKey:key];
+    if(!data)
+        return nil;
+    
+    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
 
 }
 
-- (void) setObject:(id)object forKey:(id <NSCopying>)key {
+- (void) setObject:(id <NSCoding>)object forKey:(id <NSCopying>)key {
 
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:object];
+    if(!data)
+        return;
+    
     NSMutableDictionary *prefrences = [NSMutableDictionary dictionaryWithDictionary:[self preferences]];
 
-    [prefrences setObject:object forKey:key];
+    [prefrences setObject:data forKey:key];
     [prefrences writeToURL:[self preferenceFileUrl] atomically:YES];
 
 }

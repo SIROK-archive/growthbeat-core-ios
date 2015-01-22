@@ -11,6 +11,8 @@
 #import "GBHttpClient.h"
 #import "GrowthbeatCore.h"
 
+static NSString *const kGBPreferenceClientKey = @"client";
+
 @implementation GBClient
 
 @synthesize id;
@@ -32,12 +34,20 @@
     GBHttpRequest *httpRequest = [GBHttpRequest instanceWithMethod:GBRequestMethodPost path:path query:nil body:body];
     GBHttpResponse *httpResponse = [[[GrowthbeatCore sharedInstance] httpClient] httpRequest:httpRequest];
     if(!httpResponse.success){
-        [[[GrowthbeatCore sharedInstance] logger] error:@"Filed to create client. %@", httpResponse.error?httpResponse.error:[httpResponse.body objectForKey:@"message"]];
+        [[[GrowthbeatCore sharedInstance] logger] error:@"Failed to create client. %@", httpResponse.error?httpResponse.error:[httpResponse.body objectForKey:@"message"]];
         return nil;
     }
     
     return [GBClient domainWithDictionary:httpResponse.body];
     
+}
+
++ (void) save:(GBClient *)client {
+    [[[GrowthbeatCore sharedInstance] preference] setObject:client forKey:kGBPreferenceClientKey];
+}
+
++ (GBClient *) load {
+    return [[[GrowthbeatCore sharedInstance] preference] objectForKey:kGBPreferenceClientKey];
 }
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary {

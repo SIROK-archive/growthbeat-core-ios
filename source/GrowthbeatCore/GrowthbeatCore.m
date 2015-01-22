@@ -13,7 +13,6 @@ static GrowthbeatCore *sharedInstance = nil;
 static NSString *const kGBLoggerDefaultTag = @"GrowthbeatCore";
 static NSString *const kGBHttpClientDefaultBaseUrl = @"https://api.growthbeat.com/";
 static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
-static NSString *const kGBPreferenceClientKey = @"client";
 
 @interface GrowthbeatCore () {
     
@@ -67,7 +66,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
         
         [logger info:@"Initializing... (applicationId:%@)", applicationId];
         
-        self.client = [self loadClient];
+        self.client = [GBClient load];
         if (client && [client.application.id isEqualToString:applicationId]) {
             [logger info:@"Client already exists. (id:%@)", client.id];
             return;
@@ -82,7 +81,7 @@ static NSString *const kGBPreferenceClientKey = @"client";
             return;
         }
         
-        [self saveClient:client];
+        [GBClient save:client];
         [logger info:@"Client created. (id:%@)", client.id];
         
     });
@@ -96,29 +95,6 @@ static NSString *const kGBPreferenceClientKey = @"client";
             return client;
         usleep(100 * 1000);
     }
-    
-}
-
-- (GBClient *)loadClient {
-    
-    NSData *data = [preference objectForKey:kGBPreferenceClientKey];
-    
-    if (!data) {
-        return nil;
-    }
-    
-    return  [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    
-}
-
-- (void) saveClient:(GBClient *)newClient {
-    
-    if (!newClient) {
-        return;
-    }
-    
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:client];
-    [preference setObject:data forKey:kGBPreferenceClientKey];
     
 }
 
