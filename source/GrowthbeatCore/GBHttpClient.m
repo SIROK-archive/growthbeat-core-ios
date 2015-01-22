@@ -46,7 +46,9 @@
         body = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     }
     
-    // TODO Check type of response instance.
+    if(![urlResponse isKindOfClass:[NSHTTPURLResponse class]])
+        return nil;
+    
     NSHTTPURLResponse *httpUrlResponse = (NSHTTPURLResponse*) urlResponse;
     
     return [GBHttpResponse instanceWithUrlRequest:urlRequest httpUrlResponse:httpUrlResponse error:error body:body];
