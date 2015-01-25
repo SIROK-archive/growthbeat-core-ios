@@ -20,6 +20,7 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
     GBLogger *logger;
     GBHttpClient *httpClient;
     GBPreference *preference;
+    BOOL initialized;
     
 }
 
@@ -27,6 +28,7 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
 @property (nonatomic, strong) GBLogger *logger;
 @property (nonatomic, strong) GBHttpClient *httpClient;
 @property (nonatomic, strong) GBPreference *preference;
+@property (nonatomic, assign) BOOL initialized;
 
 @end
 
@@ -36,6 +38,7 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
 @synthesize logger;
 @synthesize httpClient;
 @synthesize preference;
+@synthesize initialized;
 
 + (GrowthbeatCore *) sharedInstance {
     @synchronized(self) {
@@ -52,15 +55,22 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
 - (instancetype) init {
     self = [super init];
     if (self) {
+        self.client = nil;
         self.logger = [[GBLogger alloc] initWithTag:kGBLoggerDefaultTag];
         self.httpClient = [[GBHttpClient alloc] initWithBaseUrl:[NSURL URLWithString:kGBHttpClientDefaultBaseUrl]];
         self.preference = [[GBPreference alloc] initWithFileName:kGBPreferenceDefaultFileName];
-        self.client = nil;
+        self.initialized = NO;
     }
     return self;
 }
 
 - (void)initializeWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId {
+    
+    if (initialized) {
+        [logger warn:@"GrowthbeatCore is already initialized."];
+        return;
+    }
+    initialized = YES;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         
