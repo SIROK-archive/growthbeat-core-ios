@@ -15,7 +15,7 @@ Growthbeat Core SDK for iOS
 1. Write initialization code
 
 	```objc
-	[GrowthbeatCore initializeWithApplicationId:@"APPLICATION_ID" credentialId:@"CREDENTIAL_ID"];
+	[[GrowthbeatCore sharedInstance] initializeWithApplicationId:@"APPLICATION_ID" credentialId:@"CREDENTIAL_ID"];
 	```
 
 ## Growthbeat Full SDK
@@ -27,14 +27,21 @@ Growthbeat is growth hack platform for mobile apps. This repository includes onl
 
 ## Integrations
 
-### Growth Push
+### Growth Analytics
+
+[Growth Analytics](https://analytics.growthbeat.com/) is analytics service for mobile apps.
+
+* [Growth Analytics SDK for iOS](https://github.com/SIROK/growthanalytics-ios)
+* [Growth Analytics SDK for Android](https://github.com/SIROK/growthanalytics-android)
+
+### Growth Push (Under development)
 
 [Growth Push](https://growthpush.com/) is push notification and analysis platform for mobile apps.
 
 * [Growth Push SDK for iOS](https://github.com/SIROK/growthpush-ios)
 * [Growth Push SDK for Android](https://github.com/SIROK/growthpush-android)
 
-### Growth Replay
+### Growth Replay (Under development)
 
 [Growth Replay](https://growthreplay.com/) is usability testing tool for mobile apps.
 
@@ -43,15 +50,8 @@ Growthbeat is growth hack platform for mobile apps. This repository includes onl
 
 # Building framework
 
-[iOS-Universal-Framework](https://github.com/kstenerud/iOS-Universal-Framework) is required.
-
-```bash
-git clone https://github.com/kstenerud/iOS-Universal-Framework.git
-cd ./iOS-Universal-Framework/Real\ Framework/
-./install.sh
-```
-
-Archive the project on Xcode and you will get framework package.
+1. Set build target to GrowthbeatCoreFramework and iOS Device.
+1. Run.
 
 ## License
 
