@@ -50,8 +50,8 @@
     return [[NSTimeZone systemTimeZone] name];
 }
 
-+ (NSString *) timeZoneOffset {
-    return [[NSString alloc] initWithFormat:@"%ld", [[NSTimeZone localTimeZone] secondsFromGMT] / 3600];
++ (NSInteger) timeZoneOffset {
+    return [[NSTimeZone localTimeZone] secondsFromGMT] / 3600;
 }
 
 + (NSString *) locale {
