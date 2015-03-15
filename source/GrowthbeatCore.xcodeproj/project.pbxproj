@@ -56,6 +56,9 @@
 		B20AD23A1A0C35DE003ABF66 /* GBRequestMethod.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B20AD2011A0C3392003ABF66 /* GBRequestMethod.h */; };
 		B20AD23B1A0C35DE003ABF66 /* GBUtils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B20AD2031A0C3392003ABF66 /* GBUtils.h */; };
 		B20AD23C1A0C35DE003ABF66 /* GrowthbeatCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B20AD2131A0C33A4003ABF66 /* GrowthbeatCore.h */; };
+		B282CED31AB556B0002D6F10 /* GIntent.m in Sources */ = {isa = PBXBuildFile; fileRef = B282CECD1AB556B0002D6F10 /* GIntent.m */; };
+		B282CED41AB556B0002D6F10 /* GBNopeIntentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B282CED01AB556B0002D6F10 /* GBNopeIntentHandler.m */; };
+		B282CED51AB556B0002D6F10 /* GBOpenBrowserIntentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B282CED21AB556B0002D6F10 /* GBOpenBrowserIntentHandler.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +115,7 @@
 		B20AD1ED1A0C3391003ABF66 /* GBDateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDateUtils.h; sourceTree = "<group>"; };
 		B20AD1EE1A0C3391003ABF66 /* GBDateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBDateUtils.m; sourceTree = "<group>"; };
 		B20AD1EF1A0C3391003ABF66 /* GBDeviceUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDeviceUtils.h; sourceTree = "<group>"; };
-		B20AD1F01A0C3391003ABF66 /* GBDeviceUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBDeviceUtils.m; sourceTree = "<group>"; };
+		B20AD1F01A0C3391003ABF66 /* GBDeviceUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GBDeviceUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B20AD1F11A0C3391003ABF66 /* GBDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBDomain.h; sourceTree = "<group>"; };
 		B20AD1F21A0C3392003ABF66 /* GBDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBDomain.m; sourceTree = "<group>"; };
 		B20AD1F31A0C3392003ABF66 /* GBHttpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBHttpClient.h; sourceTree = "<group>"; };
@@ -134,6 +137,13 @@
 		B20AD2031A0C3392003ABF66 /* GBUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBUtils.h; sourceTree = "<group>"; };
 		B20AD2131A0C33A4003ABF66 /* GrowthbeatCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowthbeatCore.h; sourceTree = "<group>"; };
 		B20AD2141A0C33A4003ABF66 /* GrowthbeatCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowthbeatCore.m; sourceTree = "<group>"; };
+		B282CECC1AB556B0002D6F10 /* GBIntent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GBIntent.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B282CECD1AB556B0002D6F10 /* GIntent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GIntent.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B282CECE1AB556B0002D6F10 /* GBIntentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GBIntentHandler.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B282CECF1AB556B0002D6F10 /* GBNopeIntentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GBNopeIntentHandler.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B282CED01AB556B0002D6F10 /* GBNopeIntentHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GBNopeIntentHandler.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B282CED11AB556B0002D6F10 /* GBOpenBrowserIntentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GBOpenBrowserIntentHandler.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B282CED21AB556B0002D6F10 /* GBOpenBrowserIntentHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GBOpenBrowserIntentHandler.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,8 +197,12 @@
 				B20AD1F51A0C3392003ABF66 /* GBHttpRequest.h */,
 				B20AD1F71A0C3392003ABF66 /* GBHttpResponse.h */,
 				B20AD1F91A0C3392003ABF66 /* GBHttpUtils.h */,
+				B282CECC1AB556B0002D6F10 /* GBIntent.h */,
+				B282CECE1AB556B0002D6F10 /* GBIntentHandler.h */,
 				B20AD1FB1A0C3392003ABF66 /* GBLogger.h */,
 				B20AD1FD1A0C3392003ABF66 /* GBMultipartFile.h */,
+				B282CECF1AB556B0002D6F10 /* GBNopeIntentHandler.h */,
+				B282CED11AB556B0002D6F10 /* GBOpenBrowserIntentHandler.h */,
 				B20AD1FF1A0C3392003ABF66 /* GBPreference.h */,
 				B20AD2011A0C3392003ABF66 /* GBRequestMethod.h */,
 				B20AD2031A0C3392003ABF66 /* GBUtils.h */,
@@ -213,8 +227,11 @@
 				B20AD1FA1A0C3392003ABF66 /* GBHttpUtils.m */,
 				B20AD1FC1A0C3392003ABF66 /* GBLogger.m */,
 				B20AD1FE1A0C3392003ABF66 /* GBMultipartFile.m */,
+				B282CED01AB556B0002D6F10 /* GBNopeIntentHandler.m */,
+				B282CED21AB556B0002D6F10 /* GBOpenBrowserIntentHandler.m */,
 				B20AD2001A0C3392003ABF66 /* GBPreference.m */,
 				B20AD2021A0C3392003ABF66 /* GBRequestMethod.m */,
+				B282CECD1AB556B0002D6F10 /* GIntent.m */,
 				B20AD2141A0C33A4003ABF66 /* GrowthbeatCore.m */,
 			);
 			name = Sources;
@@ -316,9 +333,12 @@
 				B20AD2071A0C3392003ABF66 /* GBContentType.m in Sources */,
 				B20AD2101A0C3392003ABF66 /* GBMultipartFile.m in Sources */,
 				B20AD2061A0C3392003ABF66 /* GBClient.m in Sources */,
+				B282CED41AB556B0002D6F10 /* GBNopeIntentHandler.m in Sources */,
+				B282CED31AB556B0002D6F10 /* GIntent.m in Sources */,
 				B20AD20D1A0C3392003ABF66 /* GBHttpResponse.m in Sources */,
 				B20AD2041A0C3392003ABF66 /* GBAppDelegateWrapper.m in Sources */,
 				B20AD2081A0C3392003ABF66 /* GBDateUtils.m in Sources */,
+				B282CED51AB556B0002D6F10 /* GBOpenBrowserIntentHandler.m in Sources */,
 				B20AD2051A0C3392003ABF66 /* GBApplication.m in Sources */,
 				B20AD20A1A0C3392003ABF66 /* GBDomain.m in Sources */,
 				B20AD2151A0C33A5003ABF66 /* GrowthbeatCore.m in Sources */,
