@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GrowthbeatCore.h"
+#import "GBOpenBrowserIntentHandler.h"
 
 static GrowthbeatCore *sharedInstance = nil;
 static NSString *const kGBLoggerDefaultTag = @"GrowthbeatCore";
@@ -40,6 +41,8 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
 @synthesize preference;
 @synthesize initialized;
 
+@synthesize intentHandlers;
+
 + (GrowthbeatCore *) sharedInstance {
     @synchronized(self) {
         if ([[[UIDevice currentDevice] systemVersion] floatValue] < 5.0f) {
@@ -60,6 +63,7 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
         self.httpClient = [[GBHttpClient alloc] initWithBaseUrl:[NSURL URLWithString:kGBHttpClientDefaultBaseUrl]];
         self.preference = [[GBPreference alloc] initWithFileName:kGBPreferenceDefaultFileName];
         self.initialized = NO;
+        self.intentHandlers = [NSArray arrayWithObjects:[[GBOpenBrowserIntentHandler alloc] init], nil];
     }
     return self;
 }
@@ -105,6 +109,21 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
             return client;
         usleep(100 * 1000);
     }
+    
+}
+
+#pragma mark --
+#pragma mark GBIntentHandler
+
+- (BOOL)handleIntent:(GBIntent *)intent {
+    
+    for (id <GBIntentHandler> intentHandler in self.intentHandlers) {
+        if ([intentHandler handleIntent:intent]) {
+            return YES;
+        }
+    }
+    
+    return NO;
     
 }
 

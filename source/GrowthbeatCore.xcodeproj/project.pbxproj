@@ -59,6 +59,10 @@
 		B282CED31AB556B0002D6F10 /* GBIntent.m in Sources */ = {isa = PBXBuildFile; fileRef = B282CECD1AB556B0002D6F10 /* GBIntent.m */; };
 		B282CED41AB556B0002D6F10 /* GBNopeIntentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B282CED01AB556B0002D6F10 /* GBNopeIntentHandler.m */; };
 		B282CED51AB556B0002D6F10 /* GBOpenBrowserIntentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B282CED21AB556B0002D6F10 /* GBOpenBrowserIntentHandler.m */; };
+		B282CED61AB56189002D6F10 /* GBIntent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B282CECC1AB556B0002D6F10 /* GBIntent.h */; };
+		B282CED71AB56189002D6F10 /* GBIntentHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B282CECE1AB556B0002D6F10 /* GBIntentHandler.h */; };
+		B282CED81AB56189002D6F10 /* GBNopeIntentHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B282CECF1AB556B0002D6F10 /* GBNopeIntentHandler.h */; };
+		B282CED91AB56189002D6F10 /* GBOpenBrowserIntentHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B282CED11AB556B0002D6F10 /* GBOpenBrowserIntentHandler.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +82,10 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				B282CED61AB56189002D6F10 /* GBIntent.h in CopyFiles */,
+				B282CED71AB56189002D6F10 /* GBIntentHandler.h in CopyFiles */,
+				B282CED81AB56189002D6F10 /* GBNopeIntentHandler.h in CopyFiles */,
+				B282CED91AB56189002D6F10 /* GBOpenBrowserIntentHandler.h in CopyFiles */,
 				B20AD22B1A0C35DE003ABF66 /* GBAppDelegateWrapper.h in CopyFiles */,
 				B20AD22C1A0C35DE003ABF66 /* GBAppDelegateWrapperDelegate.h in CopyFiles */,
 				B20AD22D1A0C35DE003ABF66 /* GBApplication.h in CopyFiles */,

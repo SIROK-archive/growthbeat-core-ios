@@ -13,8 +13,15 @@
 #import "GBUtils.h"
 #import "GBClient.h"
 #import "GBAppDelegateWrapper.h"
+#import "GBIntentHandler.h"
 
-@interface GrowthbeatCore : NSObject
+@interface GrowthbeatCore : NSObject <GBIntentHandler> {
+    
+    NSArray *intentHandlers;
+    
+}
+
+@property (nonatomic, strong) NSArray *intentHandlers;
 
 + (GrowthbeatCore *) sharedInstance;
 
