@@ -12,23 +12,24 @@
 @implementation GBOpenBrowserIntentHandler
 
 - (BOOL)handleIntent:(GBIntent *)intent {
-	if ([intent.action isEqualToString:@"open-browser"]) {
-		BOOL error = NO;
-		@try {
-			NSURL *url = [NSURL URLWithString:[intent.data objectForKey:@"url"]];
-			error = [[UIApplication sharedApplication] openURL:url];
-		}
-		@catch (NSException *exception) {
-			NSLog(@"exception %@", exception);
-			error = YES;
-		}
-		@finally {
-			
-		}
-		return !error;
-	} else {
-		return NO;
-	}
+    
+	if (![intent.action isEqualToString:@"open-browser"])
+        return NO;
+    
+    BOOL error = NO;
+    @try {
+        NSURL *url = [NSURL URLWithString:[intent.data objectForKey:@"url"]];
+        error = [[UIApplication sharedApplication] openURL:url];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"exception %@", exception);
+        error = YES;
+    }
+    @finally {
+        
+    }
+    return !error;
+    
 }
 
 @end

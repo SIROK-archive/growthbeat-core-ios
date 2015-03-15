@@ -12,6 +12,8 @@
 	NSString *action;
 	NSDictionary *data;
 }
+
 @property (nonatomic, strong) NSString *action;
 @property (nonatomic, strong) NSDictionary *data;
+
 @end

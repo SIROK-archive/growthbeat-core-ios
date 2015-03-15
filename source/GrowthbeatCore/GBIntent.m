@@ -7,10 +7,27 @@
 //
 
 #import "GBIntent.h"
+#import "GBDateUtils.h"
 
 @implementation GBIntent
+
 @synthesize action;
 @synthesize data;
+
+- (instancetype) initWithDictionary:(NSDictionary *)dictionary {
+    
+    self = [super init];
+    if (self) {
+        if ([dictionary objectForKey:@"action"] && [dictionary objectForKey:@"action"] != [NSNull null]) {
+            self.action = [dictionary objectForKey:@"action"];
+        }
+        if ([dictionary objectForKey:@"data"] && [dictionary objectForKey:@"data"] != [NSNull null]) {
+            self.data = [dictionary objectForKey:@"data"];
+        }
+    }
+    return self;
+    
+}
 
 #pragma mark --
 #pragma mark NSCoding
@@ -31,15 +48,6 @@
 - (void) encodeWithCoder:(NSCoder *)aCoder {
 	[aCoder encodeObject:action forKey:@"action"];
 	[aCoder encodeObject:data forKey:@"data"];
-}
-
-+ (id)domainWithDictionary:(NSDictionary *)dictionary {
-	GBIntent *intent = [[GBIntent alloc] init];
-	
-	intent.action = [dictionary objectForKey:@"action"];
-	intent.data = [dictionary objectForKey:@"data"];
-	
-	return intent;
 }
 
 @end

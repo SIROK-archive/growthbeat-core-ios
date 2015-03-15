@@ -6,11 +6,10 @@
 //  Copyright (c) 2015年 SIROK, Inc. All rights reserved.
 //
 
-
 #import "GBIntent.h"
 
 @protocol GBIntentHandler <NSObject>
 
-- (BOOL)handleIntent:(GBIntent*)intent;
+- (BOOL)handleIntent:(GBIntent *)intent;
 
 @end

@@ -9,11 +9,14 @@
 #import "GBNopeIntentHandler.h"
 
 @implementation GBNopeIntentHandler
+
 - (BOOL)handleIntent:(GBIntent *)intent {
-	if ([intent.action isEqualToString:@"nope"]) {
-		return YES;
-	} else {
-		return NO;
-	}
+    
+    if (![intent.action isEqualToString:@"nope"])
+        return NO;
+    
+    return YES;
+    
 }
+
 @end
