@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "GrowthbeatCore.h"
-#import "GBOpenBrowserIntentHandler.h"
+#import "GBOpenUrlIntentHandler.h"
+#import "GBNopeIntentHandler.h"
 
 static GrowthbeatCore *sharedInstance = nil;
 static NSString *const kGBLoggerDefaultTag = @"GrowthbeatCore";
@@ -63,7 +64,7 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
         self.httpClient = [[GBHttpClient alloc] initWithBaseUrl:[NSURL URLWithString:kGBHttpClientDefaultBaseUrl]];
         self.preference = [[GBPreference alloc] initWithFileName:kGBPreferenceDefaultFileName];
         self.initialized = NO;
-        self.intentHandlers = [NSArray arrayWithObjects:[[GBOpenBrowserIntentHandler alloc] init], nil];
+        self.intentHandlers = @[[[GBOpenUrlIntentHandler alloc] init], [[GBNopeIntentHandler alloc] init]];
     }
     return self;
 }

@@ -1,34 +1,33 @@
 //
-//  GBOpenBrowserIntentHandler.m
+//  GBOpenUrlIntentHandler.m
 //  GrowthbeatCore
 //
 //  Created by 堀内 暢之 on 2015/03/08.
 //  Copyright (c) 2015年 SIROK, Inc. All rights reserved.
 //
 
-#import "GBOpenBrowserIntentHandler.h"
+#import "GBOpenUrlIntentHandler.h"
 #import <UIKit/UIKit.h>
+#import "GrowthbeatCore.h"
 
-@implementation GBOpenBrowserIntentHandler
+@implementation GBOpenUrlIntentHandler
 
 - (BOOL)handleIntent:(GBIntent *)intent {
     
-	if (![intent.action isEqualToString:@"open-browser"])
+	if (![intent.action isEqualToString:@"open_url"])
         return NO;
     
-    BOOL error = NO;
     @try {
         NSURL *url = [NSURL URLWithString:[intent.data objectForKey:@"url"]];
-        error = [[UIApplication sharedApplication] openURL:url];
+        return ![[UIApplication sharedApplication] openURL:url];
     }
     @catch (NSException *exception) {
-        NSLog(@"exception %@", exception);
-        error = YES;
+        [[[GrowthbeatCore sharedInstance] logger] warn:@"Handling intent error: %@", exception];
     }
     @finally {
-        
     }
-    return !error;
+    
+    return NO;
     
 }
 

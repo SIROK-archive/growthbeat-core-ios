@@ -1,5 +1,5 @@
 //
-//  GBOpenBrowserIntentHandler.h
+//  GBOpenUrlIntentHandler.h
 //  GrowthbeatCore
 //
 //  Created by 堀内 暢之 on 2015/03/08.
@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "GBIntentHandler.h"
 
-@interface GBOpenBrowserIntentHandler : NSObject <GBIntentHandler>
+@interface GBOpenUrlIntentHandler : NSObject <GBIntentHandler>
 
 @end
