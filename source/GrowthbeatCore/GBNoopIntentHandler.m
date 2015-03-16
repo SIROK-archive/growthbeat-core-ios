@@ -12,7 +12,7 @@
 
 - (BOOL)handleIntent:(GBIntent *)intent {
     
-    if (![intent.action isEqualToString:@"noop"])
+    if (intent.type != GBIntentTypeNoop)
         return NO;
     
     return YES;

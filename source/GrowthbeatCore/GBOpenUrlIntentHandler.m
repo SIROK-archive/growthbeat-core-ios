@@ -14,12 +14,12 @@
 
 - (BOOL)handleIntent:(GBIntent *)intent {
     
-	if (![intent.action isEqualToString:@"open_url"])
+    if (intent.type != GBIntentTypeOpenUrl)
         return NO;
     
     @try {
-        NSURL *url = [NSURL URLWithString:[intent.data objectForKey:@"url"]];
-        return ![[UIApplication sharedApplication] openURL:url];
+//        NSURL *url = [NSURL URLWithString:[intent.data objectForKey:@"url"]];
+//        return ![[UIApplication sharedApplication] openURL:url];
     }
     @catch (NSException *exception) {
         [[[GrowthbeatCore sharedInstance] logger] warn:@"Handling intent error: %@", exception];

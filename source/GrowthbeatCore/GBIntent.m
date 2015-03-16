@@ -11,18 +11,30 @@
 
 @implementation GBIntent
 
-@synthesize action;
-@synthesize data;
+@synthesize id;
+@synthesize applicationId;
+@synthesize name;
+@synthesize type;
+@synthesize created;
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary {
     
     self = [super init];
     if (self) {
-        if ([dictionary objectForKey:@"action"] && [dictionary objectForKey:@"action"] != [NSNull null]) {
-            self.action = [dictionary objectForKey:@"action"];
+        if ([dictionary objectForKey:@"id"] && [dictionary objectForKey:@"id"] != [NSNull null]) {
+            self.id = [dictionary objectForKey:@"id"];
         }
-        if ([dictionary objectForKey:@"data"] && [dictionary objectForKey:@"data"] != [NSNull null]) {
-            self.data = [dictionary objectForKey:@"data"];
+        if ([dictionary objectForKey:@"applicationId"] && [dictionary objectForKey:@"applicationId"] != [NSNull null]) {
+            self.applicationId = [dictionary objectForKey:@"applicationId"];
+        }
+        if ([dictionary objectForKey:@"name"] && [dictionary objectForKey:@"name"] != [NSNull null]) {
+            self.name = [dictionary objectForKey:@"name"];
+        }
+        if ([dictionary objectForKey:@"type"] && [dictionary objectForKey:@"type"] != [NSNull null]) {
+            self.type = GBIntentTypeFromNSString([dictionary objectForKey:@"type"]);
+        }
+        if ([dictionary objectForKey:@"created"] && [dictionary objectForKey:@"created"] != [NSNull null]) {
+            self.created = [GBDateUtils dateWithDateTimeString:[dictionary objectForKey:@"created"]];
         }
     }
     return self;
@@ -34,20 +46,32 @@
 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
 	self = [super init];
-	if (self) {
-		if ([aDecoder containsValueForKey:@"action"]) {
-			self.action = [aDecoder decodeObjectForKey:@"action"];
-		}
-		if ([aDecoder containsValueForKey:@"data"]) {
-			self.data = [aDecoder decodeObjectForKey:@"data"];
-		}
+    if (self) {
+        if ([aDecoder containsValueForKey:@"id"]) {
+            self.id = [aDecoder decodeObjectForKey:@"id"];
+        }
+        if ([aDecoder containsValueForKey:@"applicationId"]) {
+            self.applicationId = [aDecoder decodeObjectForKey:@"applicationId"];
+        }
+        if ([aDecoder containsValueForKey:@"name"]) {
+            self.name = [aDecoder decodeObjectForKey:@"name"];
+        }
+        if ([aDecoder containsValueForKey:@"type"]) {
+            self.type = [aDecoder decodeIntegerForKey:@"type"];
+        }
+        if ([aDecoder containsValueForKey:@"created"]) {
+            self.created = [aDecoder decodeObjectForKey:@"created"];
+        }
 	}
 	return self;
 }
 
 - (void) encodeWithCoder:(NSCoder *)aCoder {
-	[aCoder encodeObject:action forKey:@"action"];
-	[aCoder encodeObject:data forKey:@"data"];
+    [aCoder encodeObject:id forKey:@"id"];
+    [aCoder encodeObject:applicationId forKey:@"applicationId"];
+    [aCoder encodeObject:name forKey:@"name"];
+    [aCoder encodeInteger:type forKey:@"type"];
+    [aCoder encodeObject:created forKey:@"created"];
 }
 
 @end

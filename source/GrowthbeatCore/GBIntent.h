@@ -7,13 +7,21 @@
 //
 
 #import "GBDomain.h"
+#import "GBIntentType.h"
 
 @interface GBIntent : GBDomain <NSCoding> {
-	NSString *action;
-	NSDictionary *data;
+    
+    NSString *id;
+    NSString *applicationId;
+    NSString *name;
+    GBIntentType type;
+    NSDate *created;
 }
 
-@property (nonatomic, strong) NSString *action;
-@property (nonatomic, strong) NSDictionary *data;
+@property (nonatomic, strong) NSString *id;
+@property (nonatomic, strong) NSString *applicationId;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, assign) GBIntentType type;
+@property (nonatomic, strong) NSDate *created;
 
 @end
