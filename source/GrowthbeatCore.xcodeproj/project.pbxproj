@@ -64,6 +64,7 @@
 		B282CED81AB56189002D6F10 /* GBNoopIntentHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B282CECF1AB556B0002D6F10 /* GBNoopIntentHandler.h */; };
 		B282CED91AB56189002D6F10 /* GBOpenUrlIntentHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B282CED11AB556B0002D6F10 /* GBOpenUrlIntentHandler.h */; };
 		B2C4A04E1AB78A7500015D16 /* GBIntentType.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C4A04D1AB78A7500015D16 /* GBIntentType.m */; };
+		B2C4A0541AB78D7500015D16 /* GBOpenUrlIntent.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C4A0531AB78D7500015D16 /* GBOpenUrlIntent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,8 @@
 		B282CED21AB556B0002D6F10 /* GBOpenUrlIntentHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GBOpenUrlIntentHandler.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B2C4A04C1AB78A7500015D16 /* GBIntentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBIntentType.h; sourceTree = "<group>"; };
 		B2C4A04D1AB78A7500015D16 /* GBIntentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBIntentType.m; sourceTree = "<group>"; };
+		B2C4A0521AB78D7500015D16 /* GBOpenUrlIntent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBOpenUrlIntent.h; sourceTree = "<group>"; };
+		B2C4A0531AB78D7500015D16 /* GBOpenUrlIntent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBOpenUrlIntent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +217,7 @@
 				B20AD1FB1A0C3392003ABF66 /* GBLogger.h */,
 				B20AD1FD1A0C3392003ABF66 /* GBMultipartFile.h */,
 				B282CECF1AB556B0002D6F10 /* GBNoopIntentHandler.h */,
+				B2C4A0521AB78D7500015D16 /* GBOpenUrlIntent.h */,
 				B282CED11AB556B0002D6F10 /* GBOpenUrlIntentHandler.h */,
 				B20AD1FF1A0C3392003ABF66 /* GBPreference.h */,
 				B20AD2011A0C3392003ABF66 /* GBRequestMethod.h */,
@@ -242,6 +246,7 @@
 				B20AD1FC1A0C3392003ABF66 /* GBLogger.m */,
 				B20AD1FE1A0C3392003ABF66 /* GBMultipartFile.m */,
 				B282CED01AB556B0002D6F10 /* GBNoopIntentHandler.m */,
+				B2C4A0531AB78D7500015D16 /* GBOpenUrlIntent.m */,
 				B282CED21AB556B0002D6F10 /* GBOpenUrlIntentHandler.m */,
 				B20AD2001A0C3392003ABF66 /* GBPreference.m */,
 				B20AD2021A0C3392003ABF66 /* GBRequestMethod.m */,
@@ -360,6 +365,7 @@
 				B20AD20F1A0C3392003ABF66 /* GBLogger.m in Sources */,
 				B20AD2091A0C3392003ABF66 /* GBDeviceUtils.m in Sources */,
 				B20AD2121A0C3392003ABF66 /* GBRequestMethod.m in Sources */,
+				B2C4A0541AB78D7500015D16 /* GBOpenUrlIntent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #import "GBOpenUrlIntentHandler.h"
 #import <UIKit/UIKit.h>
 #import "GrowthbeatCore.h"
+#import "GBOpenUrlIntent.h"
 
 @implementation GBOpenUrlIntentHandler
 
@@ -16,10 +17,14 @@
     
     if (intent.type != GBIntentTypeOpenUrl)
         return NO;
+    if (![intent isKindOfClass:[GBOpenUrlIntent class]])
+        return NO;
+    
+    GBOpenUrlIntent *openUrlIntent = (GBOpenUrlIntent *)intent;
     
     @try {
-//        NSURL *url = [NSURL URLWithString:[intent.data objectForKey:@"url"]];
-//        return ![[UIApplication sharedApplication] openURL:url];
+        NSURL *url = [NSURL URLWithString:openUrlIntent.url];
+        return ![[UIApplication sharedApplication] openURL:url];
     }
     @catch (NSException *exception) {
         [[[GrowthbeatCore sharedInstance] logger] warn:@"Handling intent error: %@", exception];
