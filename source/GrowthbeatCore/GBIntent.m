@@ -8,6 +8,9 @@
 
 #import "GBIntent.h"
 #import "GBDateUtils.h"
+#import "GBCustomIntent.h"
+#import "GBNoopIntent.h"
+#import "GBOpenUrlIntent.h"
 
 @implementation GBIntent
 
@@ -17,7 +20,23 @@
 @synthesize type;
 @synthesize created;
 
-- (instancetype) initWithDictionary:(NSDictionary *)dictionary {
++ (instancetype)domainWithDictionary:(NSDictionary *)dictionary {
+    
+    GBIntent *intent = [super domainWithDictionary:dictionary];
+    switch (intent.type) {
+        case GBIntentTypeCustom:
+            return [GBCustomIntent domainWithDictionary:dictionary];
+        case GBIntentTypeNoop:
+            return [GBNoopIntent domainWithDictionary:dictionary];
+        case GBIntentTypeOpenUrl:
+            return [GBOpenUrlIntent domainWithDictionary:dictionary];
+        default:
+            return nil;
+    }
+    
+}
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     
     self = [super init];
     if (self) {
