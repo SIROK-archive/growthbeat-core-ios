@@ -21,7 +21,7 @@
 
 }
 
-- (instancetype) initWithDictionary:(NSDictionary *)dictionary {
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     return [self init];
 }
 

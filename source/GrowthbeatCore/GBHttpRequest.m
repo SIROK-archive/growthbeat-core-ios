@@ -96,10 +96,10 @@
     
     switch (contentType) {
         case GBContentTypeMultipart:
-            contentTypeString = [NSString stringWithFormat:@"%@; boundary=%@; charset=%@", NSStringFromContnetType(contentType), kMultipartBoundary, CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))];
+            contentTypeString = [NSString stringWithFormat:@"%@; boundary=%@; charset=%@", NSStringFromGBContentType(contentType), kMultipartBoundary, CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))];
             break;
         default:
-            contentTypeString = [NSString stringWithFormat:@"%@; charset=%@", NSStringFromContnetType(contentType), CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))];
+            contentTypeString = [NSString stringWithFormat:@"%@; charset=%@", NSStringFromGBContentType(contentType), CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))];
             break;
     }
     
