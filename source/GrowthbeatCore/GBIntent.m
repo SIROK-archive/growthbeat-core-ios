@@ -22,14 +22,23 @@
 
 + (instancetype)domainWithDictionary:(NSDictionary *)dictionary {
     
-    GBIntent *intent = [super domainWithDictionary:dictionary];
+    GBIntent *intent = [[self alloc] initWithDictionary:dictionary];
     switch (intent.type) {
         case GBIntentTypeCustom:
-            return [GBCustomIntent domainWithDictionary:dictionary];
+            if([intent isKindOfClass:[GBCustomIntent class]])
+                return intent;
+            else
+                return [GBCustomIntent domainWithDictionary:dictionary];
         case GBIntentTypeNoop:
-            return [GBNoopIntent domainWithDictionary:dictionary];
+            if([intent isKindOfClass:[GBNoopIntent class]])
+                return intent;
+            else
+                return [GBNoopIntent domainWithDictionary:dictionary];
         case GBIntentTypeOpenUrl:
-            return [GBOpenUrlIntent domainWithDictionary:dictionary];
+            if([intent isKindOfClass:[GBOpenUrlIntent class]])
+                return intent;
+            else
+                return [GBOpenUrlIntent domainWithDictionary:dictionary];
         default:
             return nil;
     }
