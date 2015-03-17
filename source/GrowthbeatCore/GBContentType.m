@@ -8,7 +8,7 @@
 
 #import "GBContentType.h"
 
-NSString *NSStringFromContnetType(GBContentType contentType) {
+NSString *NSStringFromGBContentType(GBContentType contentType) {
     
     switch (contentType) {
         case GBContentTypeUnknown:
