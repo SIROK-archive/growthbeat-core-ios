@@ -17,8 +17,8 @@ NSString *NSStringFromContnetType(GBIntentType intentType) {
             return @"custom";
         case GBIntentTypeNoop:
             return @"noop";
-        case GBIntentTypeOpenUrl:
-            return @"open_url";
+        case GBIntentTypeUrl:
+            return @"url";
     }
     
 }
@@ -31,8 +31,8 @@ GBIntentType GBIntentTypeFromNSString(NSString *intentTypeString) {
     if ([intentTypeString isEqualToString:@"noop"]) {
         return GBIntentTypeNoop;
     }
-    if ([intentTypeString isEqualToString:@"open_url"]) {
-        return GBIntentTypeOpenUrl;
+    if ([intentTypeString isEqualToString:@"url"]) {
+        return GBIntentTypeUrl;
     }
     return GBIntentTypeUnknown;
     
