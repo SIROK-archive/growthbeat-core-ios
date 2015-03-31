@@ -58,19 +58,19 @@
 		B20AD23C1A0C35DE003ABF66 /* GrowthbeatCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B20AD2131A0C33A4003ABF66 /* GrowthbeatCore.h */; };
 		B282CED31AB556B0002D6F10 /* GBIntent.m in Sources */ = {isa = PBXBuildFile; fileRef = B282CECD1AB556B0002D6F10 /* GBIntent.m */; };
 		B282CED41AB556B0002D6F10 /* GBNoopIntentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B282CED01AB556B0002D6F10 /* GBNoopIntentHandler.m */; };
-		B282CED51AB556B0002D6F10 /* GBOpenUrlIntentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B282CED21AB556B0002D6F10 /* GBOpenUrlIntentHandler.m */; };
+		B282CED51AB556B0002D6F10 /* GBUrlIntentHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = B282CED21AB556B0002D6F10 /* GBUrlIntentHandler.m */; };
 		B282CED61AB56189002D6F10 /* GBIntent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B282CECC1AB556B0002D6F10 /* GBIntent.h */; };
 		B282CED71AB56189002D6F10 /* GBIntentHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B282CECE1AB556B0002D6F10 /* GBIntentHandler.h */; };
 		B282CED81AB56189002D6F10 /* GBNoopIntentHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B282CECF1AB556B0002D6F10 /* GBNoopIntentHandler.h */; };
-		B282CED91AB56189002D6F10 /* GBOpenUrlIntentHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B282CED11AB556B0002D6F10 /* GBOpenUrlIntentHandler.h */; };
+		B282CED91AB56189002D6F10 /* GBUrlIntentHandler.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B282CED11AB556B0002D6F10 /* GBUrlIntentHandler.h */; };
 		B2C4A04E1AB78A7500015D16 /* GBIntentType.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C4A04D1AB78A7500015D16 /* GBIntentType.m */; };
-		B2C4A0541AB78D7500015D16 /* GBOpenUrlIntent.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C4A0531AB78D7500015D16 /* GBOpenUrlIntent.m */; };
+		B2C4A0541AB78D7500015D16 /* GBUrlIntent.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C4A0531AB78D7500015D16 /* GBUrlIntent.m */; };
 		B2C4A0571AB78EFC00015D16 /* GBNoopIntent.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C4A0561AB78EFC00015D16 /* GBNoopIntent.m */; };
 		B2C4A05A1AB78F2500015D16 /* GBCustomIntent.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C4A0591AB78F2500015D16 /* GBCustomIntent.m */; };
 		B2C4A05B1AB7922100015D16 /* GBCustomIntent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B2C4A0581AB78F2500015D16 /* GBCustomIntent.h */; };
 		B2C4A05C1AB7922100015D16 /* GBIntentType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B2C4A04C1AB78A7500015D16 /* GBIntentType.h */; };
 		B2C4A05D1AB7922100015D16 /* GBNoopIntent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B2C4A0551AB78EFC00015D16 /* GBNoopIntent.h */; };
-		B2C4A05E1AB7922100015D16 /* GBOpenUrlIntent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B2C4A0521AB78D7500015D16 /* GBOpenUrlIntent.h */; };
+		B2C4A05E1AB7922100015D16 /* GBUrlIntent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B2C4A0521AB78D7500015D16 /* GBUrlIntent.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,11 +93,11 @@
 				B2C4A05B1AB7922100015D16 /* GBCustomIntent.h in CopyFiles */,
 				B2C4A05C1AB7922100015D16 /* GBIntentType.h in CopyFiles */,
 				B2C4A05D1AB7922100015D16 /* GBNoopIntent.h in CopyFiles */,
-				B2C4A05E1AB7922100015D16 /* GBOpenUrlIntent.h in CopyFiles */,
+				B2C4A05E1AB7922100015D16 /* GBUrlIntent.h in CopyFiles */,
 				B282CED61AB56189002D6F10 /* GBIntent.h in CopyFiles */,
 				B282CED71AB56189002D6F10 /* GBIntentHandler.h in CopyFiles */,
 				B282CED81AB56189002D6F10 /* GBNoopIntentHandler.h in CopyFiles */,
-				B282CED91AB56189002D6F10 /* GBOpenUrlIntentHandler.h in CopyFiles */,
+				B282CED91AB56189002D6F10 /* GBUrlIntentHandler.h in CopyFiles */,
 				B20AD22B1A0C35DE003ABF66 /* GBAppDelegateWrapper.h in CopyFiles */,
 				B20AD22C1A0C35DE003ABF66 /* GBAppDelegateWrapperDelegate.h in CopyFiles */,
 				B20AD22D1A0C35DE003ABF66 /* GBApplication.h in CopyFiles */,
@@ -162,12 +162,12 @@
 		B282CECE1AB556B0002D6F10 /* GBIntentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GBIntentHandler.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		B282CECF1AB556B0002D6F10 /* GBNoopIntentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GBNoopIntentHandler.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		B282CED01AB556B0002D6F10 /* GBNoopIntentHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GBNoopIntentHandler.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		B282CED11AB556B0002D6F10 /* GBOpenUrlIntentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GBOpenUrlIntentHandler.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		B282CED21AB556B0002D6F10 /* GBOpenUrlIntentHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GBOpenUrlIntentHandler.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		B282CED11AB556B0002D6F10 /* GBUrlIntentHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GBUrlIntentHandler.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		B282CED21AB556B0002D6F10 /* GBUrlIntentHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GBUrlIntentHandler.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		B2C4A04C1AB78A7500015D16 /* GBIntentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBIntentType.h; sourceTree = "<group>"; };
 		B2C4A04D1AB78A7500015D16 /* GBIntentType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBIntentType.m; sourceTree = "<group>"; };
-		B2C4A0521AB78D7500015D16 /* GBOpenUrlIntent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBOpenUrlIntent.h; sourceTree = "<group>"; };
-		B2C4A0531AB78D7500015D16 /* GBOpenUrlIntent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBOpenUrlIntent.m; sourceTree = "<group>"; };
+		B2C4A0521AB78D7500015D16 /* GBUrlIntent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBUrlIntent.h; sourceTree = "<group>"; };
+		B2C4A0531AB78D7500015D16 /* GBUrlIntent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBUrlIntent.m; sourceTree = "<group>"; };
 		B2C4A0551AB78EFC00015D16 /* GBNoopIntent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBNoopIntent.h; sourceTree = "<group>"; };
 		B2C4A0561AB78EFC00015D16 /* GBNoopIntent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBNoopIntent.m; sourceTree = "<group>"; };
 		B2C4A0581AB78F2500015D16 /* GBCustomIntent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBCustomIntent.h; sourceTree = "<group>"; };
@@ -233,10 +233,10 @@
 				B20AD1FD1A0C3392003ABF66 /* GBMultipartFile.h */,
 				B2C4A0551AB78EFC00015D16 /* GBNoopIntent.h */,
 				B282CECF1AB556B0002D6F10 /* GBNoopIntentHandler.h */,
-				B2C4A0521AB78D7500015D16 /* GBOpenUrlIntent.h */,
-				B282CED11AB556B0002D6F10 /* GBOpenUrlIntentHandler.h */,
 				B20AD1FF1A0C3392003ABF66 /* GBPreference.h */,
 				B20AD2011A0C3392003ABF66 /* GBRequestMethod.h */,
+				B2C4A0521AB78D7500015D16 /* GBUrlIntent.h */,
+				B282CED11AB556B0002D6F10 /* GBUrlIntentHandler.h */,
 				B20AD2031A0C3392003ABF66 /* GBUtils.h */,
 				B20AD2131A0C33A4003ABF66 /* GrowthbeatCore.h */,
 			);
@@ -264,10 +264,10 @@
 				B20AD1FE1A0C3392003ABF66 /* GBMultipartFile.m */,
 				B2C4A0561AB78EFC00015D16 /* GBNoopIntent.m */,
 				B282CED01AB556B0002D6F10 /* GBNoopIntentHandler.m */,
-				B2C4A0531AB78D7500015D16 /* GBOpenUrlIntent.m */,
-				B282CED21AB556B0002D6F10 /* GBOpenUrlIntentHandler.m */,
 				B20AD2001A0C3392003ABF66 /* GBPreference.m */,
 				B20AD2021A0C3392003ABF66 /* GBRequestMethod.m */,
+				B2C4A0531AB78D7500015D16 /* GBUrlIntent.m */,
+				B282CED21AB556B0002D6F10 /* GBUrlIntentHandler.m */,
 				B20AD2141A0C33A4003ABF66 /* GrowthbeatCore.m */,
 			);
 			name = Sources;
@@ -300,7 +300,7 @@
 		B20AD1C21A0C32FE003ABF66 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "SIROK, Inc.";
 				TargetAttributes = {
 					B20AD1C91A0C32FE003ABF66 = {
@@ -375,7 +375,7 @@
 				B20AD20D1A0C3392003ABF66 /* GBHttpResponse.m in Sources */,
 				B20AD2041A0C3392003ABF66 /* GBAppDelegateWrapper.m in Sources */,
 				B20AD2081A0C3392003ABF66 /* GBDateUtils.m in Sources */,
-				B282CED51AB556B0002D6F10 /* GBOpenUrlIntentHandler.m in Sources */,
+				B282CED51AB556B0002D6F10 /* GBUrlIntentHandler.m in Sources */,
 				B20AD2051A0C3392003ABF66 /* GBApplication.m in Sources */,
 				B20AD20A1A0C3392003ABF66 /* GBDomain.m in Sources */,
 				B20AD2151A0C33A5003ABF66 /* GrowthbeatCore.m in Sources */,
@@ -385,7 +385,7 @@
 				B2C4A05A1AB78F2500015D16 /* GBCustomIntent.m in Sources */,
 				B20AD2121A0C3392003ABF66 /* GBRequestMethod.m in Sources */,
 				B2C4A0571AB78EFC00015D16 /* GBNoopIntent.m in Sources */,
-				B2C4A0541AB78D7500015D16 /* GBOpenUrlIntent.m in Sources */,
+				B2C4A0541AB78D7500015D16 /* GBUrlIntent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,7 +419,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = 0.1.3;
+				FRAMEWORK_VERSION = 0.1.4;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -436,7 +436,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 			};
@@ -462,7 +462,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_VERSION = 0.1.3;
+				FRAMEWORK_VERSION = 0.1.4;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

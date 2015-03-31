@@ -10,7 +10,7 @@
 #import "GBDateUtils.h"
 #import "GBCustomIntent.h"
 #import "GBNoopIntent.h"
-#import "GBOpenUrlIntent.h"
+#import "GBUrlIntent.h"
 
 @implementation GBIntent
 
@@ -34,11 +34,11 @@
                 return intent;
             else
                 return [GBNoopIntent domainWithDictionary:dictionary];
-        case GBIntentTypeOpenUrl:
-            if([intent isKindOfClass:[GBOpenUrlIntent class]])
+        case GBIntentTypeUrl:
+            if([intent isKindOfClass:[GBUrlIntent class]])
                 return intent;
             else
-                return [GBOpenUrlIntent domainWithDictionary:dictionary];
+                return [GBUrlIntent domainWithDictionary:dictionary];
         default:
             return nil;
     }

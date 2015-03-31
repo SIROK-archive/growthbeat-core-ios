@@ -12,7 +12,7 @@ typedef NS_ENUM (NSUInteger, GBIntentType) {
     GBIntentTypeUnknown = 0,
     GBIntentTypeCustom,
     GBIntentTypeNoop,
-    GBIntentTypeOpenUrl
+    GBIntentTypeUrl
 };
 
 NSString *NSStringFromGBIntentType(GBIntentType intentType);
