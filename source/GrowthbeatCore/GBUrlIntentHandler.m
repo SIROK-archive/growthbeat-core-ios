@@ -1,29 +1,29 @@
 //
-//  GBOpenUrlIntentHandler.m
+//  GBUrlIntentHandler.m
 //  GrowthbeatCore
 //
 //  Created by 堀内 暢之 on 2015/03/08.
 //  Copyright (c) 2015年 SIROK, Inc. All rights reserved.
 //
 
-#import "GBOpenUrlIntentHandler.h"
+#import "GBUrlIntentHandler.h"
 #import <UIKit/UIKit.h>
 #import "GrowthbeatCore.h"
-#import "GBOpenUrlIntent.h"
+#import "GBUrlIntent.h"
 
-@implementation GBOpenUrlIntentHandler
+@implementation GBUrlIntentHandler
 
 - (BOOL)handleIntent:(GBIntent *)intent {
     
-    if (intent.type != GBIntentTypeOpenUrl)
+    if (intent.type != GBIntentTypeUrl)
         return NO;
-    if (![intent isKindOfClass:[GBOpenUrlIntent class]])
+    if (![intent isKindOfClass:[GBUrlIntent class]])
         return NO;
     
-    GBOpenUrlIntent *openUrlIntent = (GBOpenUrlIntent *)intent;
+    GBUrlIntent *urlIntent = (GBUrlIntent *)intent;
     
     @try {
-        NSURL *url = [NSURL URLWithString:openUrlIntent.url];
+        NSURL *url = [NSURL URLWithString:urlIntent.url];
         return ![[UIApplication sharedApplication] openURL:url];
     }
     @catch (NSException *exception) {

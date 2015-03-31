@@ -1,5 +1,5 @@
 //
-//  GBOpenUrlIntent.h
+//  GBUrlIntent.h
 //  GrowthbeatCore
 //
 //  Created by Naoyuki Kataoka on 2015/03/17.
@@ -8,7 +8,7 @@
 
 #import "GBIntent.h"
 
-@interface GBOpenUrlIntent : GBIntent <NSCoding> {
+@interface GBUrlIntent : GBIntent <NSCoding> {
     
     NSString *url;
     
