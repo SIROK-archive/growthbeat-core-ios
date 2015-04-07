@@ -72,7 +72,6 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
 - (void) initializeWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId {
 
     if (initialized) {
-        [logger warn:@"GrowthbeatCore is already initialized."];
         return;
     }
     initialized = YES;
