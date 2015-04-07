@@ -27,19 +27,19 @@
     switch (intent.type) {
         case GBIntentTypeCustom:
             if ([intent isKindOfClass:[GBCustomIntent class]]) {
-                return nil;
+                return intent;
             } else {
                 return [GBCustomIntent domainWithDictionary:dictionary];
             }
         case GBIntentTypeNoop:
             if ([intent isKindOfClass:[GBNoopIntent class]]) {
-                return nil;
+                return intent;
             } else {
                 return [GBNoopIntent domainWithDictionary:dictionary];
             }
         case GBIntentTypeUrl:
             if ([intent isKindOfClass:[GBUrlIntent class]]) {
-                return nil;
+                return intent;
             } else {
                 return [GBUrlIntent domainWithDictionary:dictionary];
             }
