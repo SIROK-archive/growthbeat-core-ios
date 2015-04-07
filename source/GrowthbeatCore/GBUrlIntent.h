@@ -9,9 +9,9 @@
 #import "GBIntent.h"
 
 @interface GBUrlIntent : GBIntent <NSCoding> {
-    
+
     NSString *url;
-    
+
 }
 
 @property (nonatomic, strong) NSString *url;

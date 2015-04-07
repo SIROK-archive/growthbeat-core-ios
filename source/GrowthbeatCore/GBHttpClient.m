@@ -13,7 +13,7 @@
 
 @synthesize baseUrl;
 
-- (instancetype)init {
+- (instancetype) init {
     self = [super init];
     if (self) {
         self.baseUrl = nil;
@@ -21,7 +21,7 @@
     return self;
 }
 
-- (instancetype)initWithBaseUrl:(NSURL *)initialBaseUrl {
+- (instancetype) initWithBaseUrl:(NSURL *)initialBaseUrl {
     self = [super init];
     if (self) {
         self.baseUrl = initialBaseUrl;
@@ -30,28 +30,30 @@
 }
 
 - (GBHttpResponse *) httpRequest:(GBHttpRequest *)httpRequest {
-    
+
     if (!baseUrl) {
         [[[GrowthbeatCore sharedInstance] logger] error:@"GBHttpClient's baseUrl is not set."];
         return nil;
     }
-    
+
     NSURLRequest *urlRequest = [httpRequest urlRequestWithBaseUrl:baseUrl];
     NSURLResponse *urlResponse = nil;
     NSError *error = nil;
     NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:&error];
-    
+
     id body = nil;
-    if(data) {
+    if (data) {
         body = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
     }
-    
+
     NSHTTPURLResponse *httpUrlResponse = nil;
-    if([urlResponse isKindOfClass:[NSHTTPURLResponse class]])
-        httpUrlResponse = (NSHTTPURLResponse*) urlResponse;;
-    
+    if ([urlResponse isKindOfClass:[NSHTTPURLResponse class]]) {
+        httpUrlResponse = (NSHTTPURLResponse *)urlResponse;
+    }
+    ;
+
     return [GBHttpResponse instanceWithUrlRequest:urlRequest httpUrlResponse:httpUrlResponse error:error body:body];
-            
+
 }
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation AppDelegate
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL) application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[GrowthbeatCore sharedInstance] initializeWithApplicationId:@"OyTg8vZd4KTNQDJ5" credentialId:@"3EKydeJ0imxJ5WqS22FJfdVamFLgu7XA"];
     return YES;
 }

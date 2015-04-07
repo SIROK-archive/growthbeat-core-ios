@@ -9,9 +9,9 @@
 #import "GBIntent.h"
 
 @interface GBCustomIntent : GBIntent <NSCoding> {
-    
+
     NSDictionary *extra;
-    
+
 }
 
 @property (nonatomic, strong) NSDictionary *extra;

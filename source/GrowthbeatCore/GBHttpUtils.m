@@ -31,41 +31,41 @@
 
 }
 
-+ (NSData *)formUrlencodedBodyWithDictionary:(NSDictionary *)params {
++ (NSData *) formUrlencodedBodyWithDictionary:(NSDictionary *)params {
     return [[self queryStringWithDictionary:params] dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-+ (NSData *)jsonBodyWithDictionary:(NSDictionary *)params {
++ (NSData *) jsonBodyWithDictionary:(NSDictionary *)params {
     return [NSJSONSerialization dataWithJSONObject:params options:NSJSONWritingPrettyPrinted error:nil];
 }
 
-+ (NSData *)multipartBodyWithDictionary:(NSDictionary *)params {
-    
++ (NSData *) multipartBodyWithDictionary:(NSDictionary *)params {
+
     NSMutableData *body = [NSMutableData data];
-    
+
     for (id key in [params keyEnumerator]) {
         id value = [params objectForKey:key];
-        
+
         [body appendData:[[NSString stringWithFormat:@"--%@\r\n", kMultipartBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
-        
-        if([value isKindOfClass:[GBMultipartFile class]]){
+
+        if ([value isKindOfClass:[GBMultipartFile class]]) {
             GBMultipartFile *multipartFile = (GBMultipartFile *)value;
             [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", key, multipartFile.fileName] dataUsingEncoding:NSUTF8StringEncoding]];
             [body appendData:[[NSString stringWithFormat:@"Content-Type: %@\r\n\r\n", multipartFile.contentType] dataUsingEncoding:NSUTF8StringEncoding]];
             [body appendData:multipartFile.body];
-        }else{
+        } else {
             [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", key] dataUsingEncoding:NSUTF8StringEncoding]];
             [body appendData:[[NSString stringWithFormat:@"%@", value] dataUsingEncoding:NSUTF8StringEncoding]];
         }
-        
+
         [body appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-        
+
     }
-    
+
     [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", kMultipartBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    
+
     return body;
-    
+
 }
 
 @end

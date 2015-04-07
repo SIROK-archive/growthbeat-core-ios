@@ -9,7 +9,7 @@
 #import "GBIntentType.h"
 
 NSString *NSStringFromContnetType(GBIntentType intentType) {
-    
+
     switch (intentType) {
         case GBIntentTypeUnknown:
             return nil;
@@ -20,11 +20,11 @@ NSString *NSStringFromContnetType(GBIntentType intentType) {
         case GBIntentTypeUrl:
             return @"url";
     }
-    
+
 }
 
 GBIntentType GBIntentTypeFromNSString(NSString *intentTypeString) {
-    
+
     if ([intentTypeString isEqualToString:@"custom"]) {
         return GBIntentTypeCustom;
     }
@@ -35,5 +35,5 @@ GBIntentType GBIntentTypeFromNSString(NSString *intentTypeString) {
         return GBIntentTypeUrl;
     }
     return GBIntentTypeUnknown;
-    
+
 }

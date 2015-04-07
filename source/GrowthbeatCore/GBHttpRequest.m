@@ -39,23 +39,23 @@
 }
 
 + (id) instanceWithMethod:(GBRequestMethod)requestMethod path:(NSString *)path query:(NSDictionary *)query body:(NSDictionary *)body {
-    
+
     GBHttpRequest *httpRequest = [self instanceWithMethod:requestMethod path:path query:query];
-    
+
     httpRequest.body = body;
-    
+
     return httpRequest;
-    
+
 }
 
 + (id) instanceWithMethod:(GBRequestMethod)requestMethod path:(NSString *)path query:(NSDictionary *)query body:(NSDictionary *)body contentType:(GBContentType)contentType {
-    
+
     GBHttpRequest *httpRequest = [self instanceWithMethod:requestMethod path:path query:query body:body];
-    
+
     httpRequest.contentType = contentType;
-    
+
     return httpRequest;
-    
+
 }
 
 - (void) dealloc {
@@ -67,9 +67,10 @@
 }
 
 - (NSURLRequest *) urlRequestWithBaseUrl:(NSURL *)baseUrl {
-    
-    if(contentType == GBContentTypeUnknown)
+
+    if (contentType == GBContentTypeUnknown) {
         contentType = GBContentTypeFormUrlEncoded;
+    }
 
     NSString *requestPath = path ? path : @"";
     NSMutableDictionary *requestQuery = [NSMutableDictionary dictionaryWithDictionary:query];
@@ -93,7 +94,7 @@
                 break;
         }
     }
-    
+
     switch (contentType) {
         case GBContentTypeMultipart:
             contentTypeString = [NSString stringWithFormat:@"%@; boundary=%@; charset=%@", NSStringFromGBContentType(contentType), kMultipartBoundary, CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))];
@@ -102,7 +103,7 @@
             contentTypeString = [NSString stringWithFormat:@"%@; charset=%@", NSStringFromGBContentType(contentType), CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding))];
             break;
     }
-    
+
     NSString *requestQueryString = [GBHttpUtils queryStringWithDictionary:requestQuery];
 
     if ([requestQueryString length] > 0) {

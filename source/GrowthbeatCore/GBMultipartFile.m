@@ -14,16 +14,16 @@
 @synthesize contentType;
 @synthesize body;
 
-+ (id)multipartFileWithFileName:(NSString *)fileName contentType:(NSString *)contentType body:(NSData *)body {
-    
++ (id) multipartFileWithFileName:(NSString *)fileName contentType:(NSString *)contentType body:(NSData *)body {
+
     GBMultipartFile *multipartFile = [[self alloc] init];
-    
+
     multipartFile.fileName = fileName;
     multipartFile.contentType = contentType;
     multipartFile.body = body;
-    
+
     return multipartFile;
-    
+
 }
 
 @end

@@ -16,14 +16,14 @@
 #import "GBIntentHandler.h"
 
 @interface GrowthbeatCore : NSObject <GBIntentHandler> {
-    
+
     NSArray *intentHandlers;
-    
+
 }
 
 @property (nonatomic, strong) NSArray *intentHandlers;
 
-+ (GrowthbeatCore *) sharedInstance;
++ (GrowthbeatCore *)sharedInstance;
 
 - (void)initializeWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId;
 

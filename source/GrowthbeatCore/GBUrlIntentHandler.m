@@ -13,15 +13,17 @@
 
 @implementation GBUrlIntentHandler
 
-- (BOOL)handleIntent:(GBIntent *)intent {
-    
-    if (intent.type != GBIntentTypeUrl)
+- (BOOL) handleIntent:(GBIntent *)intent {
+
+    if (intent.type != GBIntentTypeUrl) {
         return NO;
-    if (![intent isKindOfClass:[GBUrlIntent class]])
+    }
+    if (![intent isKindOfClass:[GBUrlIntent class]]) {
         return NO;
-    
+    }
+
     GBUrlIntent *urlIntent = (GBUrlIntent *)intent;
-    
+
     @try {
         NSURL *url = [NSURL URLWithString:urlIntent.url];
         return ![[UIApplication sharedApplication] openURL:url];
@@ -31,9 +33,9 @@
     }
     @finally {
     }
-    
+
     return NO;
-    
+
 }
 
 @end
