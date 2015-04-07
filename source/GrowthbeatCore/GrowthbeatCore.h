@@ -13,6 +13,7 @@
 #import "GBUtils.h"
 #import "GBClient.h"
 #import "GBAppDelegateWrapper.h"
+#import "GBIntent.h"
 
 @interface GrowthbeatCore : NSObject {
 
@@ -32,5 +33,7 @@
 
 - (GBClient *)client;
 - (GBClient *)waitClient;
+
+- (BOOL)handleIntent:(GBIntent *)intent;
 
 @end
