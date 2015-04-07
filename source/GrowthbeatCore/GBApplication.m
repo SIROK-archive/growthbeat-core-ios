@@ -16,7 +16,7 @@
 @synthesize created;
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary {
-    
+
     self = [super init];
     if (self) {
         if ([dictionary objectForKey:@"id"] && [dictionary objectForKey:@"id"] != [NSNull null]) {
@@ -30,14 +30,14 @@
         }
     }
     return self;
-    
+
 }
 
 #pragma mark --
 #pragma mark NSCoding
 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
-    
+
     self = [super init];
     if (self) {
         if ([aDecoder containsValueForKey:@"id"]) {
@@ -51,15 +51,15 @@
         }
     }
     return self;
-    
+
 }
 
 - (void) encodeWithCoder:(NSCoder *)aCoder {
-    
+
     [aCoder encodeObject:id forKey:@"id"];
     [aCoder encodeObject:name forKey:@"name"];
     [aCoder encodeObject:created forKey:@"created"];
-    
+
 }
 
 @end

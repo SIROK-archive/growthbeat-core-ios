@@ -10,13 +10,14 @@
 
 @implementation GBNoopIntentHandler
 
-- (BOOL)handleIntent:(GBIntent *)intent {
-    
-    if (intent.type != GBIntentTypeNoop)
+- (BOOL) handleIntent:(GBIntent *)intent {
+
+    if (intent.type != GBIntentTypeNoop) {
         return NO;
-    
+    }
+
     return YES;
-    
+
 }
 
 @end

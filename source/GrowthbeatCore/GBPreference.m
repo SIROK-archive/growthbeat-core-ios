@@ -34,9 +34,11 @@
     NSDictionary *prefrences = [self preferences];
 
     NSData *data = [prefrences objectForKey:key];
-    if(!data)
+
+    if (!data) {
         return nil;
-    
+    }
+
     return [NSKeyedUnarchiver unarchiveObjectWithData:data];
 
 }
@@ -44,9 +46,11 @@
 - (void) setObject:(id <NSCoding>)object forKey:(id <NSCopying>)key {
 
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:object];
-    if(!data)
+
+    if (!data) {
         return;
-    
+    }
+
     NSMutableDictionary *prefrences = [NSMutableDictionary dictionaryWithDictionary:[self preferences]];
 
     [prefrences setObject:data forKey:key];
@@ -76,12 +80,12 @@
 }
 
 - (NSURL *) preferenceFileUrl {
-    
+
     if (!fileName) {
         [[[GrowthbeatCore sharedInstance] logger] error:@"GBPreference's fileName is not set."];
         return nil;
     }
-    
+
     NSArray *urls = [[NSFileManager defaultManager] URLsForDirectory:NSLibraryDirectory inDomains:NSUserDomainMask];
 
     if ([urls count] == 0) {

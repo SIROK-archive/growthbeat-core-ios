@@ -1,5 +1,5 @@
 //
-//  GBUrlIntent.h
+//  GBCustomIntent.h
 //  GrowthbeatCore
 //
 //  Created by Naoyuki Kataoka on 2015/03/17.
@@ -8,12 +8,12 @@
 
 #import "GBIntent.h"
 
-@interface GBUrlIntent : GBIntent <NSCoding> {
-    
-    NSString *url;
-    
+@interface GBCustomIntent : GBIntent <NSCoding> {
+
+    NSDictionary *extra;
+
 }
 
-@property (nonatomic, strong) NSString *url;
+@property (nonatomic, strong) NSDictionary *extra;
 
 @end

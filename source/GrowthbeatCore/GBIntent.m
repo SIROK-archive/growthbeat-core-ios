@@ -20,33 +20,37 @@
 @synthesize type;
 @synthesize created;
 
-+ (instancetype)domainWithDictionary:(NSDictionary *)dictionary {
-    
++ (instancetype) domainWithDictionary:(NSDictionary *)dictionary {
+
     GBIntent *intent = [[self alloc] initWithDictionary:dictionary];
+
     switch (intent.type) {
         case GBIntentTypeCustom:
-            if([intent isKindOfClass:[GBCustomIntent class]])
+            if ([intent isKindOfClass:[GBCustomIntent class]]) {
                 return intent;
-            else
+            } else {
                 return [GBCustomIntent domainWithDictionary:dictionary];
+            }
         case GBIntentTypeNoop:
-            if([intent isKindOfClass:[GBNoopIntent class]])
+            if ([intent isKindOfClass:[GBNoopIntent class]]) {
                 return intent;
-            else
+            } else {
                 return [GBNoopIntent domainWithDictionary:dictionary];
+            }
         case GBIntentTypeUrl:
-            if([intent isKindOfClass:[GBUrlIntent class]])
+            if ([intent isKindOfClass:[GBUrlIntent class]]) {
                 return intent;
-            else
+            } else {
                 return [GBUrlIntent domainWithDictionary:dictionary];
+            }
         default:
             return nil;
     }
-    
+
 }
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    
+- (instancetype) initWithDictionary:(NSDictionary *)dictionary {
+
     self = [super init];
     if (self) {
         if ([dictionary objectForKey:@"id"] && [dictionary objectForKey:@"id"] != [NSNull null]) {
@@ -66,14 +70,14 @@
         }
     }
     return self;
-    
+
 }
 
 #pragma mark --
 #pragma mark NSCoding
 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
-	self = [super init];
+    self = [super init];
     if (self) {
         if ([aDecoder containsValueForKey:@"id"]) {
             self.id = [aDecoder decodeObjectForKey:@"id"];
@@ -90,8 +94,8 @@
         if ([aDecoder containsValueForKey:@"created"]) {
             self.created = [aDecoder decodeObjectForKey:@"created"];
         }
-	}
-	return self;
+    }
+    return self;
 }
 
 - (void) encodeWithCoder:(NSCoder *)aCoder {

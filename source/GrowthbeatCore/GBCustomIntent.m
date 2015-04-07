@@ -13,7 +13,7 @@
 @synthesize extra;
 
 - (instancetype) initWithDictionary:(NSDictionary *)dictionary {
-    
+
     self = [super initWithDictionary:dictionary];
     if (self) {
         if ([dictionary objectForKey:@"extra"] && [dictionary objectForKey:@"extra"] != [NSNull null]) {
@@ -21,7 +21,7 @@
         }
     }
     return self;
-    
+
 }
 
 #pragma mark --

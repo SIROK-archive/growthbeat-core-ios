@@ -19,30 +19,33 @@ static NSString *const kGBPreferenceClientKey = @"client";
 @synthesize created;
 @synthesize application;
 
-+ (GBClient *)createWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId {
-    
++ (GBClient *) createWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId {
+
     NSString *path = @"/1/clients";
     NSMutableDictionary *body = [NSMutableDictionary dictionary];
-    
+
     if (applicationId) {
         [body setObject:applicationId forKey:@"applicationId"];
     }
     if (credentialId) {
         [body setObject:credentialId forKey:@"credentialId"];
     }
-    
+
     GBHttpRequest *httpRequest = [GBHttpRequest instanceWithMethod:GBRequestMethodPost path:path query:nil body:body];
     GBHttpResponse *httpResponse = [[[GrowthbeatCore sharedInstance] httpClient] httpRequest:httpRequest];
-    if(!httpResponse.success){
-        [[[GrowthbeatCore sharedInstance] logger] error:@"Failed to create client. %@", httpResponse.error?httpResponse.error:[httpResponse.body objectForKey:@"message"]];
+    if (!httpResponse.success) {
+        [[[GrowthbeatCore sharedInstance] logger] error:@"Failed to create client. %@", httpResponse.error ? httpResponse.error : [httpResponse.body objectForKey:@"message"]];
         return nil;
     }
-    
+
     return [GBClient domainWithDictionary:httpResponse.body];
-    
+
 }
 
 + (void) save:(GBClient *)client {
+    if (!client) {
+        return;
+    }
     [[[GrowthbeatCore sharedInstance] preference] setObject:client forKey:kGBPreferenceClientKey];
 }
 

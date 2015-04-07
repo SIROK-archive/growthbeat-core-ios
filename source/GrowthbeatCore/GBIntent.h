@@ -10,7 +10,7 @@
 #import "GBIntentType.h"
 
 @interface GBIntent : GBDomain <NSCoding> {
-    
+
     NSString *id;
     NSString *applicationId;
     NSString *name;

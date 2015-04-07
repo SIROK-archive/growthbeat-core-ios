@@ -9,7 +9,7 @@
 #import "GBContentType.h"
 
 NSString *NSStringFromGBContentType(GBContentType contentType) {
-    
+
     switch (contentType) {
         case GBContentTypeUnknown:
             return nil;
@@ -20,11 +20,11 @@ NSString *NSStringFromGBContentType(GBContentType contentType) {
         case GBContentTypeJson:
             return @"application/json";
     }
-    
+
 }
 
 GBContentType GBContentTypeFromNSString(NSString *contentTypeString) {
-    
+
     if ([contentTypeString isEqualToString:@"application/x-www-form-urlencoded"]) {
         return GBContentTypeFormUrlEncoded;
     }
@@ -35,5 +35,5 @@ GBContentType GBContentTypeFromNSString(NSString *contentTypeString) {
         return GBContentTypeJson;
     }
     return GBContentTypeUnknown;
-    
+
 }

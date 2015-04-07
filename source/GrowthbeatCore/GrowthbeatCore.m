@@ -17,13 +17,13 @@ static NSString *const kGBHttpClientDefaultBaseUrl = @"https://api.growthbeat.co
 static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
 
 @interface GrowthbeatCore () {
-    
+
     GBClient *client;
     GBLogger *logger;
     GBHttpClient *httpClient;
     GBPreference *preference;
     BOOL initialized;
-    
+
 }
 
 @property (nonatomic, strong) GBClient *client;
@@ -69,63 +69,60 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
     return self;
 }
 
-- (void)initializeWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId {
-    
+- (void) initializeWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId {
+
     if (initialized) {
-        [logger warn:@"GrowthbeatCore is already initialized."];
         return;
     }
     initialized = YES;
-    
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        
+
         [logger info:@"Initializing... (applicationId:%@)", applicationId];
-        
+
         self.client = [GBClient load];
         if (client && [client.application.id isEqualToString:applicationId]) {
             [logger info:@"Client already exists. (id:%@)", client.id];
             return;
         }
-        
+
         [preference removeAll];
-        
+
         [logger info:@"Creating client... (applicationId:%@)", applicationId];
         self.client = [GBClient createWithApplicationId:applicationId credentialId:credentialId];
-        if(!client) {
+        if (!client) {
             [logger info:@"Failed to create client."];
             return;
         }
-        
+
         [GBClient save:client];
         [logger info:@"Client created. (id:%@)", client.id];
-        
+
     });
-    
+
 }
 
-- (GBClient *)waitClient {
-    
+- (GBClient *) waitClient {
+
     while (true) {
-        if(client != nil)
+        if (client != nil) {
             return client;
+        }
         usleep(100 * 1000);
     }
-    
+
 }
 
-#pragma mark --
-#pragma mark GBIntentHandler
+- (BOOL) handleIntent:(GBIntent *)intent {
 
-- (BOOL)handleIntent:(GBIntent *)intent {
-    
     for (id <GBIntentHandler> intentHandler in self.intentHandlers) {
         if ([intentHandler handleIntent:intent]) {
             return YES;
         }
     }
-    
+
     return NO;
-    
+
 }
 
 @end

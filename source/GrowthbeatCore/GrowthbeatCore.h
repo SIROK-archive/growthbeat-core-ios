@@ -13,17 +13,17 @@
 #import "GBUtils.h"
 #import "GBClient.h"
 #import "GBAppDelegateWrapper.h"
-#import "GBIntentHandler.h"
+#import "GBIntent.h"
 
-@interface GrowthbeatCore : NSObject <GBIntentHandler> {
-    
+@interface GrowthbeatCore : NSObject {
+
     NSArray *intentHandlers;
-    
+
 }
 
 @property (nonatomic, strong) NSArray *intentHandlers;
 
-+ (GrowthbeatCore *) sharedInstance;
++ (GrowthbeatCore *)sharedInstance;
 
 - (void)initializeWithApplicationId:(NSString *)applicationId credentialId:(NSString *)credentialId;
 
@@ -33,5 +33,7 @@
 
 - (GBClient *)client;
 - (GBClient *)waitClient;
+
+- (BOOL)handleIntent:(GBIntent *)intent;
 
 @end
