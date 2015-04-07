@@ -13,9 +13,8 @@
 #import "GBUtils.h"
 #import "GBClient.h"
 #import "GBAppDelegateWrapper.h"
-#import "GBIntentHandler.h"
 
-@interface GrowthbeatCore : NSObject <GBIntentHandler> {
+@interface GrowthbeatCore : NSObject {
 
     NSArray *intentHandlers;
 

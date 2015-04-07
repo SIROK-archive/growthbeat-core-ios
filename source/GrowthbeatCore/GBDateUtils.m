@@ -20,7 +20,7 @@
 
     [dateFormatter setCalendar:[[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar]];
     [dateFormatter setLocale:[NSLocale currentLocale]];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+    [dateFormatter setDateFormat:format];
 
     return [dateFormatter dateFromString:string];
 

@@ -114,9 +114,6 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
 
 }
 
-#pragma mark --
-#pragma mark GBIntentHandler
-
 - (BOOL) handleIntent:(GBIntent *)intent {
 
     for (id <GBIntentHandler> intentHandler in self.intentHandlers) {

@@ -43,6 +43,9 @@ static NSString *const kGBPreferenceClientKey = @"client";
 }
 
 + (void) save:(GBClient *)client {
+    if (!client) {
+        return;
+    }
     [[[GrowthbeatCore sharedInstance] preference] setObject:client forKey:kGBPreferenceClientKey];
 }
 

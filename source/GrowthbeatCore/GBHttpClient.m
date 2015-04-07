@@ -50,7 +50,6 @@
     if ([urlResponse isKindOfClass:[NSHTTPURLResponse class]]) {
         httpUrlResponse = (NSHTTPURLResponse *)urlResponse;
     }
-    ;
 
     return [GBHttpResponse instanceWithUrlRequest:urlRequest httpUrlResponse:httpUrlResponse error:error body:body];
 

@@ -16,6 +16,7 @@
 		B223CBAD1997878900447704 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B223CBAB1997878900447704 /* Main.storyboard */; };
 		B223CBB01997878900447704 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B223CBAF1997878900447704 /* ViewController.m */; };
 		B223CBB21997878900447704 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B223CBB11997878900447704 /* Images.xcassets */; };
+		B252D7981AD40591009E371B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B252D7971AD40591009E371B /* SystemConfiguration.framework */; };
 		B2701B32199787B300FEE878 /* GrowthbeatCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2701B31199787B300FEE878 /* GrowthbeatCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		B223CBAF1997878900447704 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B223CBB11997878900447704 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B223CBB81997878900447704 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B252D7971AD40591009E371B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B2701B31199787B300FEE878 /* GrowthbeatCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GrowthbeatCore.framework; path = ../GrowthbeatCore.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B252D7981AD40591009E371B /* SystemConfiguration.framework in Frameworks */,
 				B2701B32199787B300FEE878 /* GrowthbeatCore.framework in Frameworks */,
 				B223CB9C1997878900447704 /* CoreGraphics.framework in Frameworks */,
 				B223CB9E1997878900447704 /* UIKit.framework in Frameworks */,
@@ -73,6 +76,7 @@
 		B223CB981997878900447704 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B252D7971AD40591009E371B /* SystemConfiguration.framework */,
 				B2701B31199787B300FEE878 /* GrowthbeatCore.framework */,
 				B223CB991997878900447704 /* Foundation.framework */,
 				B223CB9B1997878900447704 /* CoreGraphics.framework */,

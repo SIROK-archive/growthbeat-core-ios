@@ -18,23 +18,15 @@
     if (intent.type != GBIntentTypeUrl) {
         return NO;
     }
+
     if (![intent isKindOfClass:[GBUrlIntent class]]) {
         return NO;
     }
 
     GBUrlIntent *urlIntent = (GBUrlIntent *)intent;
 
-    @try {
-        NSURL *url = [NSURL URLWithString:urlIntent.url];
-        return ![[UIApplication sharedApplication] openURL:url];
-    }
-    @catch (NSException *exception) {
-        [[[GrowthbeatCore sharedInstance] logger] warn:@"Handling intent error: %@", exception];
-    }
-    @finally {
-    }
-
-    return NO;
+    NSURL *url = [NSURL URLWithString:urlIntent.url];
+    return [[UIApplication sharedApplication] openURL:url];
 
 }
 
