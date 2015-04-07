@@ -128,7 +128,7 @@
         return 0;
     }
 
-    natural_t mem_free = vm_stat.free_count * pagesize;
+    natural_t mem_free = vm_stat.free_count * (unsigned int)pagesize;
 
     return (unsigned int)mem_free;
 }
