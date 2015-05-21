@@ -12,19 +12,22 @@
 @implementation GBHttpClient
 
 @synthesize baseUrl;
+@synthesize timeout;
 
 - (instancetype) init {
     self = [super init];
     if (self) {
         self.baseUrl = nil;
+        self.timeout = 0;
     }
     return self;
 }
 
-- (instancetype) initWithBaseUrl:(NSURL *)initialBaseUrl {
+- (instancetype) initWithBaseUrl:(NSURL *)initialBaseUrl timeout:(NSTimeInterval)initialTimeout {
     self = [super init];
     if (self) {
         self.baseUrl = initialBaseUrl;
+        self.timeout = initialTimeout;
     }
     return self;
 }
@@ -37,6 +40,10 @@
     }
 
     NSURLRequest *urlRequest = [httpRequest urlRequestWithBaseUrl:baseUrl];
+    if([urlRequest isKindOfClass:[NSMutableURLRequest class]] && timeout > 0) {
+        ((NSMutableURLRequest *)urlRequest).timeoutInterval = timeout;
+    }
+    
     NSURLResponse *urlResponse = nil;
     NSError *error = nil;
     NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:&error];
