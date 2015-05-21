@@ -76,18 +76,19 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
         return;
     }
     initialized = YES;
+    
+    [logger info:@"Initializing... (applicationId:%@)", applicationId];
+    
+    self.client = [GBClient load];
+    if (client && [client.application.id isEqualToString:applicationId]) {
+        [logger info:@"Client already exists. (id:%@)", client.id];
+        return;
+    }
+    
+    [preference removeAll];
+    self.client = nil;
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-
-        [logger info:@"Initializing... (applicationId:%@)", applicationId];
-
-        self.client = [GBClient load];
-        if (client && [client.application.id isEqualToString:applicationId]) {
-            [logger info:@"Client already exists. (id:%@)", client.id];
-            return;
-        }
-
-        [preference removeAll];
 
         [logger info:@"Creating client... (applicationId:%@)", applicationId];
         self.client = [GBClient createWithApplicationId:applicationId credentialId:credentialId];
