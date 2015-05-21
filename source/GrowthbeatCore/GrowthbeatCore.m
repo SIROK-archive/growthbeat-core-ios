@@ -14,6 +14,7 @@
 static GrowthbeatCore *sharedInstance = nil;
 static NSString *const kGBLoggerDefaultTag = @"GrowthbeatCore";
 static NSString *const kGBHttpClientDefaultBaseUrl = @"https://api.growthbeat.com/";
+static NSTimeInterval const kGBHttpClientDefaultTimeout = 60;
 static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
 
 @interface GrowthbeatCore () {
@@ -61,7 +62,7 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
     if (self) {
         self.client = nil;
         self.logger = [[GBLogger alloc] initWithTag:kGBLoggerDefaultTag];
-        self.httpClient = [[GBHttpClient alloc] initWithBaseUrl:[NSURL URLWithString:kGBHttpClientDefaultBaseUrl]];
+        self.httpClient = [[GBHttpClient alloc] initWithBaseUrl:[NSURL URLWithString:kGBHttpClientDefaultBaseUrl] timeout:kGBHttpClientDefaultTimeout];
         self.preference = [[GBPreference alloc] initWithFileName:kGBPreferenceDefaultFileName];
         self.initialized = NO;
         self.intentHandlers = @[[[GBUrlIntentHandler alloc] init], [[GBNoopIntentHandler alloc] init]];
