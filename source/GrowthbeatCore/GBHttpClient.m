@@ -40,10 +40,10 @@
     }
 
     NSURLRequest *urlRequest = [httpRequest urlRequestWithBaseUrl:baseUrl];
-    if([urlRequest isKindOfClass:[NSMutableURLRequest class]] && timeout > 0) {
+    if ([urlRequest isKindOfClass:[NSMutableURLRequest class]] && timeout > 0) {
         ((NSMutableURLRequest *)urlRequest).timeoutInterval = timeout;
     }
-    
+
     NSURLResponse *urlResponse = nil;
     NSError *error = nil;
     NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:&error];
