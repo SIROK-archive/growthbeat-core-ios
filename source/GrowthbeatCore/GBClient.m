@@ -42,16 +42,13 @@ static NSString *const kGBPreferenceClientKey = @"client";
 
 }
 
-+ (GBClient *) findWithApplicationId:(NSString *)applicationId token:(NSString *)token credentialId:(NSString *)credentialId {
++ (GBClient *) findWithId:(NSString *)id credentialId:(NSString *)credentialId {
     
     NSString *path = @"/1/clients";
     NSMutableDictionary *body = [NSMutableDictionary dictionary];
     
-    if (applicationId) {
-        [body setObject:applicationId forKey:@"applicationId"];
-    }
-    if (token) {
-        [body setObject:token forKey:@"token"];
+    if (id) {
+        [body setObject:id forKey:@"id"];
     }
     if (credentialId) {
         [body setObject:credentialId forKey:@"credentialId"];

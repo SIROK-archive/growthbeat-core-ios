@@ -85,7 +85,7 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             
             [logger info:@"load client... (applicationId:%@)", applicationId];
-            self.client = [GBClient findWithApplicationId:applicationId token:gpClient.token credentialId:credentialId];
+            self.client = [GBClient findWithId:gpClient.growthbeatClientId credentialId:credentialId];
             if (!client) {
                 [logger info:@"Failed to load client."];
                 return;
