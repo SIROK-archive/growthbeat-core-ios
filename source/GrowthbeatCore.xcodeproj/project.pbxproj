@@ -71,6 +71,7 @@
 		B2C4A05C1AB7922100015D16 /* GBIntentType.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B2C4A04C1AB78A7500015D16 /* GBIntentType.h */; };
 		B2C4A05D1AB7922100015D16 /* GBNoopIntent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B2C4A0551AB78EFC00015D16 /* GBNoopIntent.h */; };
 		B2C4A05E1AB7922100015D16 /* GBUrlIntent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B2C4A0521AB78D7500015D16 /* GBUrlIntent.h */; };
+		CE26C8741B0EF4E300785995 /* GBGPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CE26C8731B0EF4E300785995 /* GBGPClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +173,8 @@
 		B2C4A0561AB78EFC00015D16 /* GBNoopIntent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBNoopIntent.m; sourceTree = "<group>"; };
 		B2C4A0581AB78F2500015D16 /* GBCustomIntent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBCustomIntent.h; sourceTree = "<group>"; };
 		B2C4A0591AB78F2500015D16 /* GBCustomIntent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBCustomIntent.m; sourceTree = "<group>"; };
+		CE26C8721B0EF4E300785995 /* GBGPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBGPClient.h; sourceTree = "<group>"; };
+		CE26C8731B0EF4E300785995 /* GBGPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBGPClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +220,7 @@
 				B20AD1E61A0C3391003ABF66 /* GBAppDelegateWrapperDelegate.h */,
 				B20AD1E71A0C3391003ABF66 /* GBApplication.h */,
 				B20AD1E91A0C3391003ABF66 /* GBClient.h */,
+				CE26C8721B0EF4E300785995 /* GBGPClient.h */,
 				B20AD1EB1A0C3391003ABF66 /* GBContentType.h */,
 				B2C4A0581AB78F2500015D16 /* GBCustomIntent.h */,
 				B20AD1ED1A0C3391003ABF66 /* GBDateUtils.h */,
@@ -249,6 +253,7 @@
 				B20AD1E51A0C3391003ABF66 /* GBAppDelegateWrapper.m */,
 				B20AD1E81A0C3391003ABF66 /* GBApplication.m */,
 				B20AD1EA1A0C3391003ABF66 /* GBClient.m */,
+				CE26C8731B0EF4E300785995 /* GBGPClient.m */,
 				B20AD1EC1A0C3391003ABF66 /* GBContentType.m */,
 				B2C4A0591AB78F2500015D16 /* GBCustomIntent.m */,
 				B20AD1EE1A0C3391003ABF66 /* GBDateUtils.m */,
@@ -369,6 +374,7 @@
 				B20AD2071A0C3392003ABF66 /* GBContentType.m in Sources */,
 				B20AD2101A0C3392003ABF66 /* GBMultipartFile.m in Sources */,
 				B20AD2061A0C3392003ABF66 /* GBClient.m in Sources */,
+				CE26C8741B0EF4E300785995 /* GBGPClient.m in Sources */,
 				B2C4A04E1AB78A7500015D16 /* GBIntentType.m in Sources */,
 				B282CED41AB556B0002D6F10 /* GBNoopIntentHandler.m in Sources */,
 				B282CED31AB556B0002D6F10 /* GBIntent.m in Sources */,
