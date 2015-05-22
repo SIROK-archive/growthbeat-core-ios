@@ -84,16 +84,16 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
     if (gpClient) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             
-            [logger info:@"load client... (applicationId:%@)", applicationId];
+            [logger info:@"convert client... (GrowthPushClientId:%d, GrowthbeatClientId)", gpClient.id, gpClient.growthbeatClientId];
             self.client = [GBClient findWithId:gpClient.growthbeatClientId credentialId:credentialId];
             if (!client) {
-                [logger info:@"Failed to load client."];
+                [logger info:@"Failed to convert client."];
                 return;
             }
             
-            [preference removeAll];
+            [GBGPClient removePreference];
             [GBClient save:client];
-            [logger info:@"Client created. (id:%@)", client.id];
+            [logger info:@"Client converted. (id:%@)", client.id];
             
         });
     } else {

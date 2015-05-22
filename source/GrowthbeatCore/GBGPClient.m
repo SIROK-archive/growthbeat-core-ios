@@ -28,6 +28,11 @@ static NSString *const kGBGPPreferenceClientKey = @"client";
     return [preference objectForKey:kGBGPPreferenceClientKey];
 }
 
++ (void) removePreference {
+    GBPreference *preference = [[GBPreference alloc] initWithFileName:kGBGPPreferenceFileName];
+    [preference removeAll];
+}
+
 #pragma mark --
 #pragma mark NSCoding
 

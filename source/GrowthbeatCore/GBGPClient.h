@@ -31,5 +31,6 @@
 @property (nonatomic, strong) NSDate *created;
 
 + (GBGPClient *) load;
++ (void) removePreference;
 
 @end
