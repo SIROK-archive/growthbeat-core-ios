@@ -42,6 +42,32 @@ static NSString *const kGBPreferenceClientKey = @"client";
 
 }
 
++ (GBClient *) findWithApplicationId:(NSString *)applicationId token:(NSString *)token credentialId:(NSString *)credentialId {
+    
+    NSString *path = @"/1/clients";
+    NSMutableDictionary *body = [NSMutableDictionary dictionary];
+    
+    if (applicationId) {
+        [body setObject:applicationId forKey:@"applicationId"];
+    }
+    if (token) {
+        [body setObject:token forKey:@"token"];
+    }
+    if (credentialId) {
+        [body setObject:credentialId forKey:@"credentialId"];
+    }
+    
+    GBHttpRequest *httpRequest = [GBHttpRequest instanceWithMethod:GBRequestMethodGet path:path query:nil body:body];
+    GBHttpResponse *httpResponse = [[[GrowthbeatCore sharedInstance] httpClient] httpRequest:httpRequest];
+    if (!httpResponse.success) {
+        [[[GrowthbeatCore sharedInstance] logger] error:@"Failed to create client. %@", httpResponse.error ? httpResponse.error : [httpResponse.body objectForKey:@"message"]];
+        return nil;
+    }
+    
+    return [GBClient domainWithDictionary:httpResponse.body];
+    
+}
+
 + (void) save:(GBClient *)client {
     if (!client) {
         return;
