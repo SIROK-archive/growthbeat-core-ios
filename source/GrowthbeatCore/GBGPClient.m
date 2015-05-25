@@ -11,6 +11,7 @@
 
 static NSString *const kGBGPPreferenceFileName = @"growthpush-preferences";
 static NSString *const kGBGPPreferenceClientKey = @"client";
+static GBPreference *preference = nil;
 
 @implementation GBGPClient
 
@@ -23,13 +24,20 @@ static NSString *const kGBGPPreferenceClientKey = @"client";
 @synthesize environment;
 @synthesize created;
 
++ (GBPreference *) preference {
+    @synchronized(self) {
+        if (!preference) {
+            preference = [[GBPreference alloc] initWithFileName:kGBGPPreferenceFileName];
+        }
+        return preference;
+    }
+}
+
 + (GBGPClient *) load {
-    GBPreference *preference = [[GBPreference alloc] initWithFileName:kGBGPPreferenceFileName];
     return [preference objectForKey:kGBGPPreferenceClientKey];
 }
 
 + (void) removePreference {
-    GBPreference *preference = [[GBPreference alloc] initWithFileName:kGBGPPreferenceFileName];
     [preference removeAll];
 }
 
