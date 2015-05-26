@@ -95,10 +95,10 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             
-            [logger info:@"convert client... (GrowthPushClientId:%d, GrowthbeatClientId)", gpClient.id, gpClient.growthbeatClientId];
+            [logger info:@"convert client... (GrowthPushClientId:%d, GrowthbeatClientId:%@)", gpClient.id, gpClient.growthbeatClientId];
             self.client = [GBClient findWithId:gpClient.growthbeatClientId credentialId:credentialId];
             if (!client || ![client.application.id isEqualToString:applicationId]) {
-                [logger info:@"Failed to convert client."];
+                [logger error:@"Failed to convert client."];
                 self.client = nil;
                 [GBGPClient removePreference];
                 return;

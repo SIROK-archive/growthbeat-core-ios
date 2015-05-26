@@ -44,20 +44,17 @@ static NSString *const kGBPreferenceClientKey = @"client";
 
 + (GBClient *) findWithId:(NSString *)id credentialId:(NSString *)credentialId {
     
-    NSString *path = @"/1/clients";
-    NSMutableDictionary *body = [NSMutableDictionary dictionary];
+    NSString *path = [NSString stringWithFormat:@"/1/clients/%@" ,id];
+    NSMutableDictionary *query = [NSMutableDictionary dictionary];
     
-    if (id) {
-        [body setObject:id forKey:@"id"];
-    }
     if (credentialId) {
-        [body setObject:credentialId forKey:@"credentialId"];
+        [query setObject:credentialId forKey:@"credentialId"];
     }
     
-    GBHttpRequest *httpRequest = [GBHttpRequest instanceWithMethod:GBRequestMethodGet path:path query:nil body:body];
+    GBHttpRequest *httpRequest = [GBHttpRequest instanceWithMethod:GBRequestMethodGet path:path query:query body:nil];
     GBHttpResponse *httpResponse = [[[GrowthbeatCore sharedInstance] httpClient] httpRequest:httpRequest];
     if (!httpResponse.success) {
-        [[[GrowthbeatCore sharedInstance] logger] error:@"Failed to create client. %@", httpResponse.error ? httpResponse.error : [httpResponse.body objectForKey:@"message"]];
+        [[[GrowthbeatCore sharedInstance] logger] error:@"Failed to find client. %@", httpResponse.error ? httpResponse.error : [httpResponse.body objectForKey:@"message"]];
         return nil;
     }
     
