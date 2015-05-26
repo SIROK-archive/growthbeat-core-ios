@@ -13,6 +13,7 @@
     long long id;
     NSInteger applicationId;
     NSString *code;
+    NSString *growthbeatApplicationId;
     NSString *growthbeatClientId;
     NSString *token;
     NSString *os;
@@ -24,6 +25,7 @@
 @property (nonatomic, assign) long long id;
 @property (nonatomic, assign) NSInteger applicationId;
 @property (nonatomic, strong) NSString *code;
+@property (nonatomic, strong) NSString *growthbeatApplicationId;
 @property (nonatomic, strong) NSString *growthbeatClientId;
 @property (nonatomic, strong) NSString *token;
 @property (nonatomic, strong) NSString *os;

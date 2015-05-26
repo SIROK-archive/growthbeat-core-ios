@@ -25,6 +25,7 @@ static GBHttpClient *httpClient = nil;
 @synthesize applicationId;
 @synthesize code;
 @synthesize growthbeatClientId;
+@synthesize growthbeatApplicationId;
 @synthesize token;
 @synthesize os;
 @synthesize environment;
@@ -50,8 +51,8 @@ static GBHttpClient *httpClient = nil;
 
 + (GBGPClient *) load {
     GBGPClient *gpClient = [[GBGPClient preference] objectForKey:kGBGPPreferenceClientKey];
-    if (!gpClient.growthbeatClientId) {
-        gpClient.growthbeatClientId = nil;
+    if (gpClient && (!gpClient.growthbeatClientId || !gpClient.growthbeatApplicationId)) {
+        gpClient = [GBGPClient findWithGPClientId:gpClient.id code:gpClient.code];
     }
     return gpClient;
 }
@@ -60,7 +61,7 @@ static GBHttpClient *httpClient = nil;
     [[GBGPClient preference] removeAll];
 }
 
-- (GBGPClient *) findWithGPClientId:(long long)clientId code:(NSString *)_code {
++ (GBGPClient *) findWithGPClientId:(long long)clientId code:(NSString *)_code {
     NSString *path = [NSString stringWithFormat:@"/1/clients/%lld", clientId];
     NSMutableDictionary *query = [NSMutableDictionary dictionary];
     
@@ -94,6 +95,9 @@ static GBHttpClient *httpClient = nil;
         if ([aDecoder containsValueForKey:@"code"]) {
             self.code = [aDecoder decodeObjectForKey:@"code"];
         }
+        if ([aDecoder containsValueForKey:@"growthbeatApplicationId"]) {
+            self.code = [aDecoder decodeObjectForKey:@"growthbeatApplicationId"];
+        }
         if ([aDecoder containsValueForKey:@"growthbeatClientId"]) {
             self.code = [aDecoder decodeObjectForKey:@"growthbeatClientId"];
         }
@@ -119,6 +123,7 @@ static GBHttpClient *httpClient = nil;
     [aCoder encodeObject:@(id) forKey:@"id"];
     [aCoder encodeInteger:applicationId forKey:@"applicationId"];
     [aCoder encodeObject:code forKey:@"code"];
+    [aCoder encodeObject:growthbeatClientId forKey:@"growthbeatApplicationId"];
     [aCoder encodeObject:growthbeatClientId forKey:@"growthbeatClientId"];
     [aCoder encodeObject:token forKey:@"token"];
     [aCoder encodeObject:os forKey:@"os"];
