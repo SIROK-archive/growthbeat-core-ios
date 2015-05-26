@@ -8,10 +8,16 @@
 
 #import "GBGPClient.h"
 #import "GBPreference.h"
+#import "GBHttpClient.h"
+#import "GrowthbeatCore.h"
 
 static NSString *const kGBGPPreferenceFileName = @"growthpush-preferences";
 static NSString *const kGBGPPreferenceClientKey = @"client";
+static NSString *const kGBGPHttpClientDefaultBaseUrl = @"https://api.growthpush.com/";
+static NSTimeInterval const kGBGPHttpClientDefaultTimeout = 60;
+
 static GBPreference *preference = nil;
+static GBHttpClient *httpClient = nil;
 
 @implementation GBGPClient
 
@@ -33,12 +39,43 @@ static GBPreference *preference = nil;
     }
 }
 
++ (GBHttpClient *) httpClient {
+    @synchronized(self) {
+        if (!httpClient) {
+            httpClient = [[GBHttpClient alloc] initWithBaseUrl:[NSURL URLWithString:kGBGPHttpClientDefaultBaseUrl] timeout:kGBGPHttpClientDefaultTimeout];
+        }
+        return httpClient;
+    }
+}
+
 + (GBGPClient *) load {
-    return [[GBGPClient preference] objectForKey:kGBGPPreferenceClientKey];
+    GBGPClient *gpClient = [[GBGPClient preference] objectForKey:kGBGPPreferenceClientKey];
+    if (!gpClient.growthbeatClientId) {
+        gpClient.growthbeatClientId = nil;
+    }
+    return gpClient;
 }
 
 + (void) removePreference {
     [[GBGPClient preference] removeAll];
+}
+
+- (GBGPClient *) findWithGPClientId:(long long)clientId code:(NSString *)_code {
+    NSString *path = [NSString stringWithFormat:@"/1/clients/%lld", clientId];
+    NSMutableDictionary *query = [NSMutableDictionary dictionary];
+    
+    if (_code)
+        [query setObject:_code forKey:@"code"];
+    
+    GBHttpRequest *httpRequest = [GBHttpRequest instanceWithMethod:GBRequestMethodGet path:path query:query body:nil];
+    GBHttpResponse *httpResponse = [[GBGPClient httpClient] httpRequest:httpRequest];
+    if (!httpResponse.success) {
+        [[[GrowthbeatCore sharedInstance] logger] error:@"Failed to find client. %@", httpResponse.error ? httpResponse.error : [httpResponse.body objectForKey:@"message"]];
+        return nil;
+    }
+    
+    return [GBGPClient domainWithDictionary:httpResponse.body];
+
 }
 
 #pragma mark --
