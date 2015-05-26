@@ -34,11 +34,11 @@ static GBPreference *preference = nil;
 }
 
 + (GBGPClient *) load {
-    return [preference objectForKey:kGBGPPreferenceClientKey];
+    return [[GBGPClient preference] objectForKey:kGBGPPreferenceClientKey];
 }
 
 + (void) removePreference {
-    [preference removeAll];
+    [[GBGPClient preference] removeAll];
 }
 
 #pragma mark --
