@@ -85,7 +85,7 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
     
     if (gpClient) {
         
-        if (client && [client.application.id isEqualToString:applicationId] && [gpClient.growthbeatClientId isEqualToString:client.id]) {
+        if (client && [client.id isEqualToString:gpClient.growthbeatClientId] && [gpClient.growthbeatApplicationId isEqualToString:applicationId]) {
             [logger info:@"Client already exists. (id:%@)", client.id];
             return;
         }
