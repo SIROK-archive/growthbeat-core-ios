@@ -10,6 +10,7 @@
 #import "GrowthbeatCore.h"
 #import "GBUrlIntentHandler.h"
 #import "GBNoopIntentHandler.h"
+#import "GBGPClient.h"
 
 static GrowthbeatCore *sharedInstance = nil;
 static NSString *const kGBLoggerDefaultTag = @"GrowthbeatCore";
@@ -79,29 +80,62 @@ static NSString *const kGBPreferenceDefaultFileName = @"growthbeat-preferences";
     
     [logger info:@"Initializing... (applicationId:%@)", applicationId];
     
+    GBGPClient __block *gpClient = [GBGPClient load];
     self.client = [GBClient load];
-    if (client && [client.application.id isEqualToString:applicationId]) {
-        [logger info:@"Client already exists. (id:%@)", client.id];
-        return;
-    }
     
-    [preference removeAll];
-    self.client = nil;
+    if (gpClient) {
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            
+            if (!gpClient.growthbeatClientId || !gpClient.growthbeatApplicationId)
+                gpClient = [GBGPClient findWithGPClientId:gpClient.id code:gpClient.code];
+            
+            if (client && [client.id isEqualToString:gpClient.growthbeatClientId] && [gpClient.growthbeatApplicationId isEqualToString:applicationId]) {
+                [logger info:@"Client already exists. (id:%@)", client.id];
+                return;
+            }
+            
+            [preference removeAll];
+            self.client = nil;
+            
+            [logger info:@"convert client... (GrowthPushClientId:%d, GrowthbeatClientId:%@)", gpClient.id, gpClient.growthbeatClientId];
+            self.client = [GBClient findWithId:gpClient.growthbeatClientId credentialId:credentialId];
+            if (!client || ![client.application.id isEqualToString:applicationId]) {
+                [logger error:@"Failed to convert client."];
+                self.client = nil;
+                [GBGPClient removePreference];
+                return;
+            }
+            
+            [GBClient save:client];
+            [logger info:@"Client converted. (id:%@)", client.id];
+            
+        });
+    } else {
 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-
-        [logger info:@"Creating client... (applicationId:%@)", applicationId];
-        self.client = [GBClient createWithApplicationId:applicationId credentialId:credentialId];
-        if (!client) {
-            [logger info:@"Failed to create client."];
+        if (client && [client.application.id isEqualToString:applicationId]) {
+            [logger info:@"Client already exists. (id:%@)", client.id];
             return;
         }
-
-        [GBClient save:client];
-        [logger info:@"Client created. (id:%@)", client.id];
-
-    });
-
+        
+        [preference removeAll];
+        self.client = nil;
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            
+            [logger info:@"Creating client... (applicationId:%@)", applicationId];
+            self.client = [GBClient createWithApplicationId:applicationId credentialId:credentialId];
+            if (!client) {
+                [logger info:@"Failed to create client."];
+                return;
+            }
+            
+            [GBClient save:client];
+            [logger info:@"Client created. (id:%@)", client.id];
+            
+        });
+    }
+    
 }
 
 - (GBClient *) waitClient {
