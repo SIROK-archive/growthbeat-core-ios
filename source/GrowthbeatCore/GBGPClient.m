@@ -50,23 +50,19 @@ static GBHttpClient *httpClient = nil;
 }
 
 + (GBGPClient *) load {
-    GBGPClient *gpClient = [[GBGPClient preference] objectForKey:kGBGPPreferenceClientKey];
-    if (gpClient && (!gpClient.growthbeatClientId || !gpClient.growthbeatApplicationId)) {
-        gpClient = [GBGPClient findWithGPClientId:gpClient.id code:gpClient.code];
-    }
-    return gpClient;
+    return [[GBGPClient preference] objectForKey:kGBGPPreferenceClientKey];
 }
 
 + (void) removePreference {
     [[GBGPClient preference] removeAll];
 }
 
-+ (GBGPClient *) findWithGPClientId:(long long)clientId code:(NSString *)_code {
++ (GBGPClient *) findWithGPClientId:(long long)clientId code:(NSString *)code {
     NSString *path = [NSString stringWithFormat:@"/1/clients/%lld", clientId];
     NSMutableDictionary *query = [NSMutableDictionary dictionary];
     
-    if (_code)
-        [query setObject:_code forKey:@"code"];
+    if (code)
+        [query setObject:code forKey:@"code"];
     
     GBHttpRequest *httpRequest = [GBHttpRequest instanceWithMethod:GBRequestMethodGet path:path query:query body:nil];
     GBHttpResponse *httpResponse = [[GBGPClient httpClient] httpRequest:httpRequest];
@@ -77,6 +73,42 @@ static GBHttpClient *httpClient = nil;
     
     return [GBGPClient domainWithDictionary:httpResponse.body];
 
+}
+
+- (instancetype) initWithDictionary:(NSDictionary *)dictionary {
+    
+    self = [super init];
+    if (self) {
+        if ([dictionary objectForKey:@"id"] && [dictionary objectForKey:@"id"] != [NSNull null]) {
+            self.id = [[dictionary objectForKey:@"id"] longLongValue];
+        }
+        if ([dictionary objectForKey:@"applicationId"] && [dictionary objectForKey:@"applicationId"] != [NSNull null]) {
+            self.applicationId = [[dictionary objectForKey:@"applicationId"] integerValue];
+        }
+        if ([dictionary objectForKey:@"code"] && [dictionary objectForKey:@"code"] != [NSNull null]) {
+            self.code = [dictionary objectForKey:@"code"];
+        }
+        if ([dictionary objectForKey:@"growthbeatApplicationId"] && [dictionary objectForKey:@"growthbeatApplicationId"] != [NSNull null]) {
+            self.growthbeatApplicationId = [dictionary objectForKey:@"growthbeatApplicationId"];
+        }
+        if ([dictionary objectForKey:@"growthbeatClientId"] && [dictionary objectForKey:@"growthbeatClientId"] != [NSNull null]) {
+            self.growthbeatClientId = [dictionary objectForKey:@"growthbeatClientId"];
+        }
+        if ([dictionary objectForKey:@"token"] && [dictionary objectForKey:@"token"] != [NSNull null]) {
+            self.token = [dictionary objectForKey:@"token"];
+        }
+        if ([dictionary objectForKey:@"os"] && [dictionary objectForKey:@"os"] != [NSNull null]) {
+            self.os = [dictionary objectForKey:@"os"];
+        }
+        if ([dictionary objectForKey:@"environment"] && [dictionary objectForKey:@"environment"] != [NSNull null]) {
+            self.environment = [dictionary objectForKey:@"environment"];
+        }
+        if ([dictionary objectForKey:@"created"] && [dictionary objectForKey:@"created"] != [NSNull null]) {
+            self.created = [GBDateUtils dateWithDateTimeString:[dictionary objectForKey:@"created"]];
+        }
+    }
+    return self;
+    
 }
 
 #pragma mark --
@@ -96,10 +128,10 @@ static GBHttpClient *httpClient = nil;
             self.code = [aDecoder decodeObjectForKey:@"code"];
         }
         if ([aDecoder containsValueForKey:@"growthbeatApplicationId"]) {
-            self.code = [aDecoder decodeObjectForKey:@"growthbeatApplicationId"];
+            self.growthbeatApplicationId = [aDecoder decodeObjectForKey:@"growthbeatApplicationId"];
         }
         if ([aDecoder containsValueForKey:@"growthbeatClientId"]) {
-            self.code = [aDecoder decodeObjectForKey:@"growthbeatClientId"];
+            self.growthbeatClientId = [aDecoder decodeObjectForKey:@"growthbeatClientId"];
         }
         if ([aDecoder containsValueForKey:@"token"]) {
             self.token = [aDecoder decodeObjectForKey:@"token"];
@@ -123,7 +155,7 @@ static GBHttpClient *httpClient = nil;
     [aCoder encodeObject:@(id) forKey:@"id"];
     [aCoder encodeInteger:applicationId forKey:@"applicationId"];
     [aCoder encodeObject:code forKey:@"code"];
-    [aCoder encodeObject:growthbeatClientId forKey:@"growthbeatApplicationId"];
+    [aCoder encodeObject:growthbeatApplicationId forKey:@"growthbeatApplicationId"];
     [aCoder encodeObject:growthbeatClientId forKey:@"growthbeatClientId"];
     [aCoder encodeObject:token forKey:@"token"];
     [aCoder encodeObject:os forKey:@"os"];
